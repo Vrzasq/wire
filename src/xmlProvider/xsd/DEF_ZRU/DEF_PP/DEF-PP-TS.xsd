@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF-PP-TSP.xsd"/>
+
+    <xs:complexType name="tGrafik">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="PT" type="tTypGrafiku"/>
+            <xs:element name="KWS" type="tKodWezla" minOccurs="0"/>
+            <xs:element name="BT" type="tMocyBilansujacej" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tGrafikZPP">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="PT" type="tTypGrafiku"/>
+            <xs:element name="KWS" type="tKodWezla" minOccurs="0"/>
+            <xs:element name="BT" type="tMocyBilansujacej" minOccurs="0"/>
+            <xs:element name="TSP" type="tOkresZgloszenia"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tGrafikIZPP">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="PT" type="tTypGrafiku"/>
+            <xs:element name="KWS" type="tKodWezla" minOccurs="0"/>
+            <xs:element name="BT" type="tMocyBilansujacej" minOccurs="0"/>
+            <xs:element name="K" type="tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="TSP" type="tOkresDokumentuZwrotnego"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tGrafikPPP">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="PT" type="tTypGrafiku"/>
+            <xs:element name="KWS" type="tKodWezla" minOccurs="0"/>
+            <xs:element name="BT" type="tMocyBilansujacej" minOccurs="0"/>
+            <xs:element name="VS" type="tStatusWeryfikacjiGrafiku"/>
+            <xs:element name="K" type="tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="TSP" type="tOkresDokumentuZwrotnego"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tTypGrafiku">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="GO">
+                <xs:annotation>
+                    <xs:documentation>Grafik Obciążenia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="GOL">
+                <xs:annotation>
+                    <xs:documentation>Grafik Obciążenia dla Lokalizacji</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="GOM">
+                <xs:annotation>
+                    <xs:documentation>Grafik Obciążenia Magazynu</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="GMB">
+                <xs:annotation>
+                    <xs:documentation>Grafik Mocy Bilansujących</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

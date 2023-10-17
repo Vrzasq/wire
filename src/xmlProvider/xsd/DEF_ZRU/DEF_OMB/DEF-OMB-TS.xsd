@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF-OMB-TSP.xsd"/>
+
+    <xs:complexType name="tGrafik">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="BT" type="tRezerwaMocyBilansujacej"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tGrafikZOMB">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="BT" type="tRezerwaMocyBilansujacej"/>
+            <xs:element name="TSP" type="tOkresZgloszenia"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tGrafikIZOMB">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="BT" type="tRezerwaMocyBilansujacej"/>
+            <xs:element name="K" type="tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="TSP" type="tOkresDokumentuZwrotnego"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tGrafikPOMB">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="BT" type="tRezerwaMocyBilansujacej"/>
+            <xs:element name="VS" type="tStatusWeryfikacjiGrafiku"/>
+            <xs:element name="K" type="tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="TSP" type="tOkresDokumentuZwrotnego"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tRezerwaMocyBilansujacej">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="FCR_G">
+                <xs:annotation>
+                    <xs:documentation>Rezerwa Utrzymania Czestotliwosci w gore</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="FCR_D">
+                <xs:annotation>
+                    <xs:documentation>Rezerwa Utrzymania Czestotliwosci w dol</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="aFRR_G">
+                <xs:annotation>
+                    <xs:documentation>Rezerwa Odbudowy Czestotliwosci z Aktywacja Automatyczna w gore</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="aFRR_D">
+                <xs:annotation>
+                    <xs:documentation>Rezerwa Odbudowy Czestotliwosci z Aktywacja Automatyczna w dol</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mFRRd_G">
+                <xs:annotation>
+                    <xs:documentation>Rezerwa Odbudowy Czestotliwosci z Aktywacja Nieautomatyczna typu Bezposredniego w gore</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mFRRd_D">
+                <xs:annotation>
+                    <xs:documentation>Rezerwa Odbudowy Czestotliwosci z Aktywacja Nieautomatyczna typu Bezposredniego w dol</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

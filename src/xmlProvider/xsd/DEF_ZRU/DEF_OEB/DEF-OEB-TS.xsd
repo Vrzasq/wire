@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF-OEB-TSP.xsd"/>
+
+    <xs:complexType name="tGrafik">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="PT" type="tTypGrafiku"/>
+            <xs:element name="D" type="tKierunek" minOccurs="0"/>
+            <xs:element name="KWS" type="tKodWezla" minOccurs="0"/>
+            <xs:element name="KJB" type="tKodJednostkiBilansowej" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tGrafikZOEB">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="PT" type="tTypGrafiku"/>
+            <xs:element name="D" type="tKierunek" minOccurs="0"/>
+            <xs:element name="KWS" type="tKodWezla" minOccurs="0"/>
+            <xs:element name="KJB" type="tKodJednostkiBilansowej" minOccurs="0"/>
+            <xs:element name="TSP" type="tOkresZgloszenia" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tGrafikIZOEB">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="PT" type="tTypGrafiku"/>
+            <xs:element name="D" type="tKierunek" minOccurs="0"/>
+            <xs:element name="KWS" type="tKodWezla" minOccurs="0"/>
+            <xs:element name="KJB" type="tKodJednostkiBilansowej" minOccurs="0"/>
+            <xs:element name="K" type="tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="TSP" type="tOkresDokumentuZwrotnego" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tGrafikPOEB">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="PT" type="tTypGrafiku"/>
+            <xs:element name="D" type="tKierunek" minOccurs="0"/>
+            <xs:element name="KWS" type="tKodWezla" minOccurs="0"/>
+            <xs:element name="KJB" type="tKodJednostkiBilansowej" minOccurs="0"/>
+            <xs:element name="VS" type="tStatusWeryfikacjiGrafiku"/>
+            <xs:element name="K" type="tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="TSP" type="tOkresDokumentuPrzyjetego" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tTypGrafiku">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MO">
+                <xs:annotation>
+                    <xs:documentation>Grafik Mocy Ofertowych</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PO">
+                <xs:annotation>
+                    <xs:documentation>Grafik Pasm Ofertowych</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="WL">
+                <xs:annotation>
+                    <xs:documentation>Grafik Wsplczynnika Rozdzialu Energii Bilansujacej na Lokalizacje</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="WJB">
+                <xs:annotation>
+                    <xs:documentation>Grafik Wspolczynnika Rozdzialu Energii Bilansujacej na JB</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

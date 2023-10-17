@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:def="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF_SPR/DEF_DFRP/DEF-DFRP-TS.xsd"/>
+
+    <xs:annotation>
+        <xs:documentation>
+            <Standard>WIRE</Standard>
+            <Wersja>14.0</Wersja>
+            <Nazwa>Pytanie o konfigurację fizycznych rejestrów pomiarowych OSP (PKFRPO)</Nazwa>
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:element name="Komunikat">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Naglowek" type="def:Naglowek"/>
+                <xs:element name="Tresc" type="def:tTresc"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:keyref name="kod_obiektu_ref" refer="def:kod_obiektu_key">
+            <xs:selector xpath="def:Naglowek"/>
+            <xs:field xpath="def:kod_obiektu"/>
+        </xs:keyref>
+        <xs:key name="kod_obiektu_key">
+            <xs:selector xpath="def:Tresc/def:FRPO"/>
+            <xs:field xpath="def:KO"/>
+        </xs:key>
+    </xs:element>
+
+    <xs:complexType name="tTresc">
+        <xs:sequence>
+            <xs:element name="FRPO" type="def:tPKFRPO"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tPKFRPO">
+        <xs:sequence>
+            <xs:element name="KO" type="def:tKodOperatora"/>
+            <xs:element name="IDOT" type="def:tNumerTelefonu"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

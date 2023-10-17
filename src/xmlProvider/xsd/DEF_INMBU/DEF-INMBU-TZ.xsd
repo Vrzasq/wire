@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF-COMMON-INMBU.xsd"/>
+
+    <xs:complexType name="tDaneIloscioweZmianyStanu">
+        <xs:sequence>
+            <xs:element name="P" type="tNumerPozycjiDlaPT15M"/>
+            <xs:element name="DK" type="tWielkoscNabytejMocyKorekta"/>
+            <xs:element name="KBPP" type="tKorektaBPP"/>
+            <xs:element name="SO" type="tStanJG" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tKorektaBPP">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="8"/>
+            <xs:fractionDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tStanJG">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="R">
+                <xs:annotation>
+                    <xs:documentation>Postój (dotyczy JGW1, JGM1)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="P">
+                <xs:annotation>
+                    <xs:documentation>Praca (dotyczy JGW1)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PG">
+                <xs:annotation>
+                    <xs:documentation>Praca w kierunku generacji (dotyczy JGM1)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PP">
+                <xs:annotation>
+                    <xs:documentation>Praca w kierunku poboru (dotyczy JGM1)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="UG">
+                <xs:annotation>
+                    <xs:documentation>Uruchomienie do pracy w kierunku generacji (dotyczy JGM1)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="UP">
+                <xs:annotation>
+                    <xs:documentation>Uruchomienie do pracy w kierunku poboru (dotyczy JGM1)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

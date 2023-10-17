@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:def="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF_SPR/DEF_RHER/DEF_RHER_RHER/DEF_RHER_TS/DEF-RHER-TS.xsd"/>
+    <xs:include schemaLocation="DEF_SPR/DEF_RHER/DEF_RHER_MB/DEF-MB.xsd"/>
+    <xs:include schemaLocation="DEF_SPR/DEF_RHER/DEF_RHER_FDMB/DEF-FDMB.xsd"/>
+    <xs:include schemaLocation="DEF_SPR/DEF_RHER/DEF_RHER_FDMBS/DEF-FDMBS.xsd"/>
+
+    <xs:annotation>
+        <xs:documentation>
+            <Standard>WIRE</Standard>
+            <Wersja>14.0</Wersja>
+            <Nazwa>Raport hierarchiczny energii rzeczywistej (RHER)</Nazwa>
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:element name="Komunikat">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Naglowek" type="def:Naglowek"/>
+                <xs:element name="Tresc" type="def:tTresc"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:keyref name="kod_obiektu_ref" refer="def:kod_obiektu_key">
+            <xs:selector xpath="def:Naglowek"/>
+            <xs:field xpath="def:kod_obiektu"/>
+        </xs:keyref>
+        <xs:key name="kod_obiektu_key">
+            <xs:selector xpath="def:Tresc/def:RHER"/>
+            <xs:field xpath="def:KOB"/>
+        </xs:key>
+    </xs:element>
+
+    <xs:complexType name="tTresc">
+        <xs:sequence>
+            <xs:element name="RHER" type="def:tRHER"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tRHER">
+        <xs:sequence>
+            <xs:element name="KOB" type="def:tKodObiektu"/>
+            <xs:element name="DT" type="def:tOkres"/>
+            <xs:element name="TS" type="def:tGrafik"/>
+            <xs:element name="MB" type="def:tDaneRozliczenioweMB" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="FDMB" type="def:tDaneRozliczenioweFDMB" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="FDMBS" type="def:tDaneRozliczenioweFDMBS" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tKodObiektu">
+        <xs:union memberTypes="def:tKodJednostkiGrafikowej def:tKodJednostkiBilansowej"/>
+    </xs:simpleType>
+
+</xs:schema>

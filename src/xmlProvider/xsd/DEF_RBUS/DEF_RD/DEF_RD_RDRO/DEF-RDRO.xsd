@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF-RDRO-JG.xsd"/>
+    <xs:include schemaLocation="DEF-RDRO-TS.xsd"/>
+
+    <xs:complexType name="tRaportRezerwyOperacyjnej">
+        <xs:sequence>
+            <xs:element name="JG" type="tDaneIdentyfikacyjneRezerwyOperacyjnej" maxOccurs="unbounded"/>
+            <xs:element name="TS" type="tSerieDanychRezerwyOperacyjnej"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

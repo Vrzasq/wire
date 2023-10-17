@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="../../DEF-COMMON-RBUS.xsd"/>
+
+    <xs:complexType name="tDaneIloscioweWPunkcieEN">
+        <xs:sequence>
+            <xs:element name="P" type="tNumerPozycjiDlaPT15M"/>
+            <xs:element name="PB" type="tPozycjaBilansowa"/>
+            <xs:element name="PW" type="tPrzydzielonyWolumen"/>
+            <xs:element name="KN" type="tKorektaNiezbilansowana"/>
+            <xs:element name="EN" type="tIloscEnergiiNiezbilansowania"/>
+            <xs:element name="NEN" type="tNaleznoscZaEnergie"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tPozycjaBilansowa">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tPrzydzielonyWolumen">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tKorektaNiezbilansowana">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tIloscEnergiiNiezbilansowania">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

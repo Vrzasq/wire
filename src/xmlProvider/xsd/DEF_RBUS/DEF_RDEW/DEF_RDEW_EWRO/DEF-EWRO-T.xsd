@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF-EWRO-ROM.xsd"/>
+
+    <xs:complexType name="tDaneIloscioweWPunkcieRO">
+        <xs:sequence>
+            <xs:element name="P" type="tNumerPozycjiDlaPT15M"/>
+            <xs:element name="RO" type="tWielkoscRezerwyOperacyjnej"/>
+            <xs:element name="ROM" type="tDaneDlaRynkuLubPlatformyRO" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tWielkoscRezerwyOperacyjnej">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

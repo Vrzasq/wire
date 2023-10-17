@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:complexType name="tRozliczenieDobowe">
+        <xs:sequence>
+            <xs:element name="NR" type="tNumerRozliczeniaNRD"/>
+            <xs:element name="NRP" type="tNumerRozliczeniaNRD"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tNumerRozliczeniaNRD">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

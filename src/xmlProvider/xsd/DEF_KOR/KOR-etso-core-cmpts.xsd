@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Michael Conroy (TEDIOR SARL) -->
+<!-- edited with XML Spy v4.4 (http://www.xmlspy.com) by Michael Conroy (SEMA) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ecl="etso-code-lists.xsd" xmlns:ecc="etso-core-cmpts.xsd" targetNamespace="etso-core-cmpts.xsd" elementFormDefault="qualified">
+   <xsd:import namespace="etso-code-lists.xsd" schemaLocation="KOR-etso-code-lists.xsd"/>
+   <xsd:include schemaLocation="../OSPDEF-etso-core-cmpts.xsd"/>
+
+   <!--_________________________________________________-->
+   <!--                            ETSO CORE COMPONENTS          V13 R0     -->
+   <!--_________________________________________________-->
+   <xsd:annotation>
+      <xsd:documentation>
+         <Titre> List of ETSO Core Components which are used in the development of ETSO XML Messages  </Titre>
+         <Version>Current Version: 13</Version>
+         <Release>Current Release: 0</Release>
+         <LastCoreComponent>ET0042</LastCoreComponent>
+      </xsd:documentation>
+   </xsd:annotation>
+   <!--_________________________________________________-->
+   <xsd:complexType name="AreaType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0009</Uid>
+            <Definition>A domain covering a number of related objects, such as balance area, grid area, etc.</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" use="required">
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+               <xsd:maxLength value="18"/>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="codingScheme" type="ecl:CodingSchemeType" use="required"/>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="AmountType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0022</Uid>
+            <Definition>The monetary value of an object</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" use="required">
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:decimal">
+               <xsd:totalDigits value="17"/>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="CodeType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0023</Uid>
+            <Definition>the coded representation of an object.</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" use="required">
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+               <xsd:maxLength value="3"/>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="DateType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0035</Uid>
+            <Definition> The gregorian date   that must be expressed as: YYYY-MM-DD</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" type="xsd:date" use="required"/>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="IdentificationType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0001</Uid>
+            <Definition>A code to uniquely distinguish one occurrence of an entity from another</Definition>.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" use="required">
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+               <xsd:maxLength value="35"/>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="MessageDateTimeType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0006</Uid>
+            <Definition> (Synonym "Document Date Time") Date and time of the preparation of a document. The time must be expressed in UTC as: YYYY-MM-DDTHH:MM:SSZ</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" type="xsd:dateTime" use="required"/>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="MeteringPointType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0027</Uid>
+            <Definition>A domain covering a number of related objects, such as metering point and accounting point, etc.</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" use="required">
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+               <xsd:maxLength value="35"/>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="codingScheme" type="ecl:CodingSchemeType" use="required"/>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="PartyType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0014</Uid>
+            <Definition>The identification of an actor in the Energy market.</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" use="required">
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+               <xsd:maxLength value="16"/>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="codingScheme" type="ecl:CodingSchemeType" use="required"/>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="PositionType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0021</Uid>
+            <Definition>(Synonym "pos") A sequential value representing the relative position of an entity within a space such as a time interval</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" use="required">
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:integer">
+               <xsd:minInclusive value="1"/>
+               <xsd:maxInclusive value="999999"/>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="QuantityType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0012</Uid>
+            <Definition>(Synonym "qty") The quantity of an energy product. Positive quantities shall not have a sign.</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" type="xsd:decimal" use="required"/>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="ReasonTextType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0016</Uid>
+            <Definition>The textual explanation of an act.</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" use="required">
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+               <xsd:maxLength value="512"/>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="ResolutionType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0019</Uid>
+            <Definition>Defines the number of units of time that compose an individual step within a period. The resolution is expressed in compliance with ISO 8601 in the following format:PnYnMnDTnHnMnS.Where nY expresses a number of years, nM a number of months, nD a number of days.The letter "T" separates the date expression from the time expression and after it nH identifies a number of hours, nM a number of minutes and nS a number of seconds.</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" type="xsd:duration" use="required"/>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="ResourceObjectType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0034</Uid>
+            <Definition>The identification of a resource object in the Energy market.</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" use="required">
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+               <xsd:maxLength value="18"/>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="codingScheme" type="ecl:CodingSchemeType" use="required"/>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:simpleType name="SubValueType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0036</Uid>
+            <Definition>The partial identification of an object, which associated with another value provides the complete identification.</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:string">
+         <xsd:maxLength value="35"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="TextType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0032</Uid>
+            <Definition>A textual string</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" use="required">
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+               <xsd:maxLength value="700"/>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="TimeType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0033</Uid>
+            <Definition> The time within a 24 hour day  that must be expressed as: HH:MM:SS</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" type="xsd:time" use="required"/>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="TimeIntervalType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0007</Uid>
+            <Definition>The start date and time and the end date and time of an event. The time interval must be expressed in a form respecting ISO 8601 : YYYY-MM-DDTHH:MMZ/YYYY-MM-DDTHH:MMZ.ISO 8601 rules for reduction may apply. The time must always be expressed in UTC.</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" use="required">
+         <xsd:annotation>
+            <xsd:documentation>
+         ISO 8601 time intervals are always expressed in the form
+         yyyy-mm-ddThh:mmZ/yyyy-mm-ddThh:mmZ
+         Note: The minimum XML form of dateTime is yyyy-mm-ddThh:mm:ssZ
+            </xsd:documentation>
+         </xsd:annotation>
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+               <xsd:pattern value="[2][0][0-9][0-9][\-][0-1][0-9][\-][0-3][0-9][T][0-2][0-9][:][0-6][0-9][Z][/][2][0][0-9][0-9][\-][0-1][0-9][\-][0-3][0-9][T][0-2][0-9][:][0-6][0-9][Z]"/>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="VersionType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0002</Uid>
+            <Definition>A code that distinguishes one evolution of an identified object from another. Information about a specific object may be sent several times, each transmission being identified by a different version number.</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" use="required">
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:integer">
+               <xsd:minInclusive value="1"/>
+               <xsd:maxInclusive value="999"/>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <!--                            ETSO CODE LIST TYPES                               -->
+   <!--_________________________________________________-->
+    <!--_________________________________________________-->
+   <xsd:complexType name="MessageType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0003 </Uid>
+            <Definition> (Synonym "Document Type") The coded type of a document. The document type describes the principal characteristic of a document</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" type="ecl:MessageTypeList" use="required"/>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="ProcessType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0020</Uid>
+            <Definition>Indicates the nature of process that the document addresses.</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" type="ecl:ProcessTypeList" use="required"/>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="ReasonCodeType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0015 </Uid>
+            <Definition>The coded motivation of an act.</Definition>>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" type="ecl:ReasonCodeTypeList" use="required"/>
+   </xsd:complexType>
+   <!--_________________________________________________-->
+   <xsd:complexType name="RoleType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0005</Uid>
+            <Definition>Identification of the role played by a party. </Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="v" type="ecl:RoleTypeList" use="required"/>
+   </xsd:complexType>
+	<!--_________________________________________________-->
+	<xsd:complexType name="OSPMessageType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Uid>OSP01</Uid>
+				<Definition>Typ komunikatu OSP</Definition>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="v" type="ecl:OSPMessageTypeList" use="required"/>
+	</xsd:complexType>
+</xsd:schema>

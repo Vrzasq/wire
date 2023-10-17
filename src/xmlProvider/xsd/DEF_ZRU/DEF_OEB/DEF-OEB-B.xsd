@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="../DEF-COMMON-ZRU.xsd"/>
+
+    <xs:complexType name="tPasmoPozycjiGrafiku">
+        <xs:sequence>
+            <xs:element name="NP" type="tNumerPasma"/>
+            <xs:element name="OFP" type="tMocWartoscDziesietnaNieujemna"/>
+            <xs:element name="OFCG" type="tCenaOfertowa" minOccurs="0"/>
+            <xs:element name="OFCD" type="tCenaOfertowa" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tPasmoPozycjiGrafikuDokumentuPrzyjetego">
+        <xs:sequence>
+            <xs:element name="NP" type="tNumerPasma"/>
+            <xs:element name="OFP" type="tMocWartoscDziesietnaNieujemna"/>
+            <xs:element name="OFCG" type="tCenaOfertowa" minOccurs="0"/>
+            <xs:element name="OFCD" type="tCenaOfertowa" minOccurs="0"/>
+            <xs:element name="K" type="tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tPasmoPozycjiGrafikuDokumentuZwrotnego">
+        <xs:sequence>
+            <xs:element name="NP" type="tNumerPasma"/>
+            <xs:element name="OFP" type="tMocWartoscDziesietnaNieujemna"/>
+            <xs:element name="OFCG" type="tCenaOfertowa" minOccurs="0"/>
+            <xs:element name="OFCD" type="tCenaOfertowa" minOccurs="0"/>
+            <xs:element name="K" type="tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tNumerPasma">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

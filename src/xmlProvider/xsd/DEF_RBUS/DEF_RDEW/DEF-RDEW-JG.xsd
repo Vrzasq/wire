@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF_RDEW_CWM/DEF-CWM.xsd"/>
+    <xs:include schemaLocation="DEF_RDEW_PM/DEF-PM.xsd"/>
+    <xs:include schemaLocation="DEF_RDEW_EWRO/DEF-EWRO.xsd"/>
+    <xs:include schemaLocation="DEF_RDEW_EWMB/DEF-EWMB.xsd"/>
+    <xs:include schemaLocation="DEF_RDEW_EWEB/DEF-EWEB.xsd"/>
+
+    <xs:complexType name="tDaneIdentyfikacyjneJG">
+        <xs:sequence>
+            <xs:element name="KDUB" type="tKodDostawcyUslug"/>
+            <xs:element name="KJG" type="tKodJednostkiGrafikowej"/>
+            <xs:element name="EWEB" type="tElementarneWartosciEB"/>
+            <xs:element name="EWMB" type="tElementarneWartosciMB" minOccurs="0"/>
+            <xs:element name="EWRO" type="tElementarneWartosciRO"/>
+            <xs:element name="PM" type="tPasmaMocy" minOccurs="0"/>
+            <xs:element name="CWM" type="tCenyWymuszoneMagazynow" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

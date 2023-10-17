@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="../../DEF-COMMON-RBUS.xsd"/>
+
+    <xs:complexType name="tDaneIloscioweMBJ">
+        <xs:sequence>
+            <xs:element name="RR" type="tTypDanych"/>
+            <xs:element name="BT" type="tMocyBilansujacej"/>
+            <xs:element name="MBPUE" type="tIloscEnergii"/>
+            <xs:element name="CMBPUE" type="tCenaDekadowa" minOccurs="0"/>
+            <xs:element name="NMBPUE" type="tNaleznosc"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

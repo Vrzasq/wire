@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+ <xsd:annotation>
+      <xsd:documentation>
+         <Opis>Typy używane w dokumentach GWM i KOR</Opis>
+       </xsd:documentation>
+   </xsd:annotation>
+   <xsd:include schemaLocation="OSPDEF-etso-code-lists.xsd"/>
+	<xsd:complexType name="OSPPartyType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Uid>OSP01</Uid>
+				<Definition>Typ strony OSP</Definition>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="v" type="PartyTypeOSPList" use="required"/>
+		<xsd:attribute name="codingScheme" type="CodingSchemeType" use="required"/>
+	</xsd:complexType>
+	<!--___________________________________________________________ -->
+	<xsd:complexType name="ORPartyType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Uid>OSP01</Uid>
+				<Definition>Typ strony OR</Definition>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="v" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:pattern value="OR_[a-zA-Z0-9]{13}"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="codingScheme" type="CodingSchemeType" use="required"/>
+	</xsd:complexType>
+	<!--___________________________________________________________ -->
+</xsd:schema>

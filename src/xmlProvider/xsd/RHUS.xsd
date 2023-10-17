@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:def="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF_RBUS/DEF_RHUS/DEF-RHUS-NRDO.xsd"/>
+    <xs:include schemaLocation="DEF_RBUS/DEF_RHUS/DEF-RHUS-OBUS.xsd"/>
+    <xs:include schemaLocation="DEF_RBUS/DEF_RHUS/DEF-RHUS-PUS.xsd"/>
+
+    <xs:annotation>
+        <xs:documentation>
+            <Standard>WIRE</Standard>
+            <Wersja>14.0</Wersja>
+            <Nazwa>Raport handlowy usług systemowych (RHUS)</Nazwa>
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:element name="Komunikat">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Naglowek" type="def:Naglowek"/>
+                <xs:element name="Tresc" type="def:tTresc"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:keyref name="kod_obiektu_ref" refer="def:kod_obiektu_key">
+            <xs:selector xpath="def:Naglowek"/>
+            <xs:field xpath="def:kod_obiektu"/>
+        </xs:keyref>
+        <xs:key name="kod_obiektu_key">
+            <xs:selector xpath="def:Tresc/def:RHUS"/>
+            <xs:field xpath="def:KPB"/>
+        </xs:key>
+    </xs:element>
+
+    <xs:complexType name="tTresc">
+        <xs:sequence>
+            <xs:element name="RHUS" type="def:tRHUS"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tRHUS">
+        <xs:sequence>
+            <xs:element name="mRID" type="def:tIdentyfikator"/>
+            <xs:element name="NRR" type="def:tNumerRaportu"/>
+            <xs:element name="KPB" type="def:tKodPartneraBiznesowego"/>
+            <xs:element name="KUM" type="def:tKodUmowy"/>
+            <xs:element name="DT" type="def:tOkres"/>
+            <xs:element name="NR" type="def:tNumerRozliczenia"/>
+            <xs:element name="STR" type="def:tStatusRozliczeniaRHUS"/>
+            <xs:element name="NRDO" type="def:tRozliczenieDoboweWOkresie"/>
+            <xs:element name="OBUS" type="def:tDaneIdentyfikacyjneObiektu" maxOccurs="unbounded"/>
+            <xs:element name="PUS" type="def:tDaneIdentyfikacyjnePodmiotu"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

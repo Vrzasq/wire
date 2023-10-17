@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:etso="acknowledgement-xml.xsd" xmlns:def="http://www.pse.pl/osp" xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance" targetNamespace="http://www.pse.pl/osp" elementFormDefault="qualified">
+	<xs:import namespace="acknowledgement-xml.xsd" schemaLocation="DEF_GWM/GWM-acknowledgement-xml.xsd"/>
+
+	<xs:include schemaLocation="OSPDEF-WIRE.xsd"/>
+
+	<xs:annotation>
+		<xs:documentation>
+			<Standard>WIRE</Standard>
+			<Wersja>14.0</Wersja>
+			<Nazwa>Nieprzyjęcie do uzgodnienia ZGWM (OGWM)</Nazwa>
+		</xs:documentation>
+	</xs:annotation>
+
+	<xs:element name="Komunikat">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Naglowek" type="def:Naglowek"/>
+				<xs:element name="Tresc" type="def:Tresc"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="Tresc">
+		<xs:sequence>
+			<xs:element ref="etso:AcknowledgementDocument"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

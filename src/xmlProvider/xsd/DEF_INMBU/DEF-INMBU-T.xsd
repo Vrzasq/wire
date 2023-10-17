@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF-COMMON-INMBU.xsd"/>
+
+    <xs:complexType name="tDaneIloscioweRezerwy">
+        <xs:sequence>
+            <xs:element name="P" type="tNumerPozycjiDlaPT15M"/>
+            <xs:element name="MBU" type="tWielkoscNabytejMocy" minOccurs="0"/>
+            <xs:element name="MBZ" type="tWielkoscNabytejMocy" minOccurs="0"/>
+            <xs:element name="MZW" type="tWielkoscNabytejMocy" minOccurs="0"/>
+            <xs:element name="MBO" type="tWielkoscNabytejMocy" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

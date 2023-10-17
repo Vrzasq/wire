@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="etso-code-lists.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="../OSPDEF-etso-code-lists.xsd"/>
+	<!--_________________________________________________ -->
+	<!-- ETSO CODE LISTS V6 R4 -->
+	<!--_________________________________________________ -->
+	<xsd:annotation>
+		<xsd:documentation>
+			<Titre> Complete compilation of ETSO Code Lists used by ETSO XML Messages </Titre>
+			<Version>Current Version: 6</Version>
+			<Release>Current Release: 4</Release>
+		</xsd:documentation>
+	</xsd:annotation>
+	<!-- _________________________________________________________ -->
+	<xsd:simpleType name="MessageTypeList">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Uid>ET0003 </Uid>
+				<Definition> (Synonym "Document Type") The coded type of a document. The document type describes the principal characteristic of a document</Definition>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="A35">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Zgłoszenie problemu</Title>
+							<Definition>Dokument wysyłany w przypadku wystąpienia problemów w systemie niezwiązanych bezpośrednio z realizacją procesu biznesowego</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z01">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Zawieszenie realizacji procesu</Title>
+							<Definition>Dokument wysyłany w przypadku zawieszenia realizacji podanego procesu biznesowego</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z02">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Zaprzestanie realizacji procesu</Title>
+							<Definition>Zaprzestanie przyjmowania do realizacji umów sprzedaży energii i/lub zaprzestanie stosowania ofert bilansujących</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z03">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Wznowienie realizacji procesu</Title>
+							<Definition>Dokument wysyłany w przypadku wznowienia realizacji zawieszonego procesu biznesowego</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z04">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Opóźnienie wysłania dokumentów zwrotnych</Title>
+							<Definition>Wystąpienie opóźnienia w przekazywaniu przez OSP dokumentów końcowych dla procesu biznesowego</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z05">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Usunięcie problemów związanych z opóźnieniem wysyłania dokumentów zwrotnych</Title>
+							<Definition>Usunięcie problemów związanych z opóźnieniem w przekazywaniu przez OSP dokumentów końcowych dla procesu biznesowego</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z06">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Inne informacje</Title>
+							<Definition>Dokument wysyłany w przypadku przekazania informacji niezwiązanych z wystąpieniem problemów lub realizacją procesu biznesowego</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z09">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Przesunięcie bramki dla zgłoszeń</Title>
+							<Definition>Dokument wysyłany w przypadku zmiany okien czasowych dla dokumentów zgłoszeniowych</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z10">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Otwarcie bramki zgłoszeń USE w ramach RBB w trybie awaryjnym</Title>
+							<Definition>Dokument wysyłany w przypadku otwarcia bramki zgłoszeń USE w ramach RBB w trybie awaryjnym</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- _________________________________________________________ -->
+	<xsd:simpleType name="OSPMessageTypeList">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Uid>ET0003 </Uid>
+				<Definition> (Synonym "Document Type") The coded type of a document. The document type describes the principal characteristic of a document</Definition>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="Z08">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>ZOPMB</Title>
+							<Definition>Zgłoszenie ofert portfolio na moce bilansujące</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z09">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>ZUSE</Title>
+							<Definition>Zgłoszenie umów sprzedaży energii dla dnia następnego</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z15">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>ZUSEB</Title>
+							<Definition>Zgłoszenie umów sprzedaży energii dla dnia bieżącego</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z72">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>ZZUSEB</Title>
+							<Definition>Zapytanie o zgłoszenie USE dla dnia bieżącego</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z17">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>ZPP</Title>
+							<Definition>Zgłoszenie programu pracy</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z18">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>ZOEB</Title>
+							<Definition>Zgłoszenie oferty na energię bilansującą</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z19">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>ZOT</Title>
+							<Definition>Zgłoszenie oferty technicznej</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z24">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>ZOMB</Title>
+							<Definition>Zgłoszenie oferty na moce bilansujące</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z25">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>INMBU</Title>
+							<Definition>Informacja o nabytych mocach bilansujących w trybie uzupełniającym</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z26">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>IAEBRR</Title>
+							<Definition>Informacja o aktywowanej energii bilansującej na platformie RR</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z27">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>ZGWM</Title>
+							<Definition>Zgłoszenie grafików wymiany międzysystemowej dla dnia następnego</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z80">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>ZWMC</Title>
+							<Definition>Zgłoszenie wyników jednolitego łączenia rynków dnia następnego</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z95">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>ZWMCB</Title>
+							<Definition>Zgłoszenie wyników jednolitego łączenia rynków dnia bieżącego</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z86">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>ZGMC</Title>
+							<Definition>Zgłoszenie grafików jednolitego łączenia rynków dnia następnego</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z94">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>UGMCB</Title>
+							<Definition>Uzgodnione grafiki jednolitego łączenia rynków dnia bieżącego</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z91">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>OZP</Title>
+							<Definition>Zdolności przesyłowe oferowane dla jednolitego łączenia rynków dnia następnego</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z92">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>OOZP</Title>
+							<Definition>Odrzucenie OZP</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z93">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>POZP</Title>
+							<Definition>Przyjęcie OZP</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z60">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>RHER</Title>
+							<Definition>Raport hierarchiczny energii rzeczywistej</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z31">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>BPKDh</Title>
+							<Definition>Bieżący plan koordynacyjno dobowy - część handlowa</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z40">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>RD</Title>
+							<Definition>Raport dobowy</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z45">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>RDEW</Title>
+							<Definition>Raport dobowy elementarnych wartości</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z50">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>RH</Title>
+							<Definition>Raport handlowy</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z51">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>RHK</Title>
+							<Definition>Raport handlowy korygujący</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z43">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>RDDKW</Title>
+							<Definition>Raport dobowy dodatkowych kosztów wytwarzania</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z56">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>RHDKW</Title>
+							<Definition>Raport handlowy dodatkowych kosztów wytwarzania</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z57">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>RHKDKW</Title>
+							<Definition>Raport handlowy korygujący dodatkowych kosztów wytwarzania</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z41">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>RDKU</Title>
+							<Definition>Raport dobowy KU</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z54">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>RHKU</Title>
+							<Definition>Raport handlowy KU</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z52">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>RHKKU</Title>
+							<Definition>Raport handlowy korygujący KU</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z42">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>RDRUS</Title>
+							<Definition>Raport dobowy regulacyjnych usług systemowych</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z55">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>RHRUS</Title>
+							<Definition>Raport handlowy regulacyjnych usług systemowych</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z53">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>RHKRUS</Title>
+							<Definition>Raport handlowy korygujący regulacyjnych usług systemowych</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z61">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>RDUS</Title>
+							<Definition>Raport dobowy usług systemowych</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z62">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>RHUS</Title>
+							<Definition>Raport handlowy usług systemowych</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z63">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>RHKUS</Title>
+							<Definition>Raport handlowy korygujący usług systemowych</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- ___________________________________________________________ -->
+	<xsd:simpleType name="ProcessTypeList">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Uid>ET0020</Uid>
+				<Definition>Indicates the nature of process that the document addresses.</Definition>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="A01">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Proces dnia następnego (ang. Day ahead)</Title>
+							<Definition>Informacje w procesie dotyczą dnia następnego.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="A02">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Proces przyrostowy dnia bieżącego (ang. Intraday incremental)</Title>
+							<Definition>Informacje dotyczą dnia bieżącego, w ramach którego dane są przekazywane przyrostowo.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="A05">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Proces agregacji danych pomiarowych (ang. Metered data agregation)</Title>
+							<Definition>Przygotowanie danych pomiarowo-rozliczeniowych w trybie wstępnym, podstawowym oraz w trybie korekt.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="A06">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Proces rozliczeń rynku bilansującego (ang. Imbalance settlement)</Title>
+							<Definition>Rozliczenie dobowe i okresowe rynku bilansującego w trybie wstępnym podstawowym i korygującym.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="A15">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Wyznaczanie zdolności przesyłowych (ang. Capacity determination)</Title>
+							<Definition>Informacje dotyczące zdolności przesyłowych.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="A19">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Proces skumulowany dnia bieżącego (ang. Intraday accumulated)</Title>
+							<Definition>Informacje dotyczą dnia bieżącego, w ramach którego są przekazywane skumulowane dane.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="A40">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Proces dnia bieżącego (ang. Intraday process)</Title>
+							<Definition>Informacje dotyczą dnia bieżącego.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z01">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Proces rozliczenia usług systemowych, kosztów uruchomień oraz dodatkowych kosztów wytwarzania</Title>
+							<Definition>Rozliczenie dobowe i okresowe regulacyjnych usług systemowych, kosztów uruchomień oraz dodatkowych kosztów wytwarzania w trybie wstępnym, podstawowym i korygującym.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z04">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Proces przyjmowania zgłoszeń w ramach RBN</Title>
+							<Definition>Informacje w procesie przyjmowania zgłoszeń dla dnia następnego.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z05">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Proces przyjmowania zgłoszeń w ramach RBB</Title>
+							<Definition>Informacje w procesie przyjmowania zgłoszeń dla dnia bieżącego.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z06">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Proces rynku mocy bilansujących</Title>
+							<Definition>Informacje dotyczące rynku mocy bilansujących.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z07">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Proces rozliczania usług systemowych</Title>
+							<Definition>Informacje dotyczące rozliczania usług systemowych.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- ___________________________________________________________ -->
+	<xsd:simpleType name="ReasonCodeTypeList">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Uid>ET0015 </Uid>
+				<Definition>The coded motivation of an act.</Definition>
+				>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="A01">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Dokument w pełni przyjęty (ang. Message fully accepted)</Title>
+							<Definition>Przyjęcie całego dokumentu.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="A92">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Awaria transmisji dokumentu o przewidywanym czasie usunięcia (ang. Not possible to send document on time, but estimated delivery time is provided)</Title>
+							<Definition>Nie można przesłać dokumentu w określonych ramach czasowych, jednakże można określić czas usunięcia problemu transmisji i przesłania opóźnionego dokumentu.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="A93">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Awaria transmisji dokumentu o nieznanym czasie usunięcia (ang. Not possible to send document on time, and further more no expected time of return to normal situation)</Title>
+							<Definition>Nie można przesłać dokumentu w określonych ramach czasowych. Czas przesłania opóźnionego dokumentu i powrotu do normalnego stanu nie jest znany.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z21">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Przerwy w przyjmowaniu zgłoszeń - prace modernizacyjne lub konserwacyjne</Title>
+							<Definition>Wprowadzenie przerw w przyjmowaniu zgłoszeń w celu realizacji planowych prac modernizacyjnych lub konserwacyjnych.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z22">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Przerwy w przyjmowaniu zgłoszeń - sytuacja awaryjna</Title>
+							<Definition>Wprowadzenie przerw w przyjmowaniu zgłoszeń wynikających z sytuacji awaryjnych.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z23">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Zaprzestanie przyjmowania zgłoszeń</Title>
+							<Definition>Zaprzestanie przyjmowania do realizacji zgłoszeń.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Z26">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Wznowienie przyjmowania zgłoszeń</Title>
+							<Definition>Wznowienie przyjmowania do realizacji zgłoszeń.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="999">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Niezdefiniowane błędy (ang. Errors not specifically identified) lub inny komentarz</Title>
+							<Definition>Ten kod jest używany, gdy błąd który wystąpił nie daje się przyporządkować do żadnego z błędów zdefiniowanych w tablicy „Typ komentarza”, lub jest to inny komentarz.</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- ___________________________________________________________ -->
+	<xsd:simpleType name="RoleTypeList">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Uid>ET0005</Uid>
+				<Definition>Identification of the role played by a party. </Definition>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="A04">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>System operator</Title>
+							<Definition>Przedsiębiorstwo energetyczne posiadające koncesję na przesyłanie i dystrybucję energii elektrycznej, odpowiedzialne za ruch sieciowy sieci przesyłowej na terytorium Rzeczpospolitej Polskiej</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="A28">
+				<xsd:annotation>
+					<xsd:documentation>
+						<CodeDescription>
+							<Title>Scheduling coordinator</Title>
+							<Definition>Operator handlowy (OH), Operator handlowo-techniczny (OHT) lub Operator pomiarów (OP) Podmiot, który jest odpowiedzialny za dysponowanie Jednostkami Grafitowymi Uczestnika Rynku Bilansującego.
+							</Definition>
+						</CodeDescription>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- ___________________________________________________________ -->
+</xsd:schema>

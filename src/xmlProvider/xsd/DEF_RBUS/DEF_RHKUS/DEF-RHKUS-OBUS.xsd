@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF-RHKUS-TS.xsd"/>
+
+    <xs:complexType name="tDaneIdentyfikacyjneObiektu">
+        <xs:sequence>
+            <xs:element name="KOB" type="tKodObiektu"/>
+            <xs:element name="NOB" type="tNazwaObiektu" minOccurs="0"/>
+            <xs:element name="TS" type="tGrafikObiektu" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

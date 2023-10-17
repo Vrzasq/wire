@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:def="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF_SPR/DEF_DFRPO/DEF-DFRPO-TS.xsd"/>
+
+    <xs:annotation>
+        <xs:documentation>
+            <Standard>WIRE</Standard>
+            <Wersja>14.0</Wersja>
+            <Nazwa>Dane z fizycznego rejestru pomiarowego OSP (DFRPO)</Nazwa>
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:element name="Komunikat">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Naglowek" type="def:Naglowek"/>
+                <xs:element name="Tresc" type="def:tTresc"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:keyref name="kod_obiektu_ref" refer="def:kod_obiektu_key">
+            <xs:selector xpath="def:Naglowek"/>
+            <xs:field xpath="def:kod_obiektu"/>
+        </xs:keyref>
+        <xs:key name="kod_obiektu_key">
+            <xs:selector xpath="def:Tresc/def:FRPO"/>
+            <xs:field xpath="def:KFRPO"/>
+        </xs:key>
+    </xs:element>
+
+    <xs:complexType name="tTresc">
+        <xs:sequence>
+            <xs:element name="FRPO" type="def:tDFRPO"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tDFRPO">
+        <xs:sequence>
+            <xs:element name="KO" type="def:tKodOperatora"/>
+            <xs:element name="KFRPO" type="def:tKodRejestruPomiarowego"/>
+            <xs:element name="DT" type="def:tOkres"/>
+            <xs:element name="TS" type="def:tGrafik"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

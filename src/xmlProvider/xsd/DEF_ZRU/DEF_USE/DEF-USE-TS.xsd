@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF-USE-TSP.xsd"/>
+
+    <xs:complexType name="tGrafik">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="KJB" type="tKodJednostkiBilansowej"/>
+            <xs:element name="KO" type="tKodOperatora"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tGrafikZgloszenia">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="KJB" type="tKodJednostkiBilansowej"/>
+            <xs:element name="KO" type="tKodOperatora"/>
+            <xs:element name="TSP" type="tOkresZgloszenia"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tGrafikDokumentuZwrotnego">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="KJB" type="tKodJednostkiBilansowej"/>
+            <xs:element name="KO" type="tKodOperatora"/>
+            <xs:element name="K" type="tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="TSP" type="tOkresDokumentuZwrotnego"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tGrafikDokumentuPrzyjetego">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="KJB" type="tKodJednostkiBilansowej"/>
+            <xs:element name="KO" type="tKodOperatora"/>
+            <xs:element name="VS" type="tStatusWeryfikacjiGrafiku"/>
+            <xs:element name="K" type="tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="TSP" type="tOkresDokumentuZwrotnego"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

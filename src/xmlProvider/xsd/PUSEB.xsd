@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:def="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF_ZRU/DEF_USE/DEF-USE-TS.xsd"/>
+
+    <xs:annotation>
+        <xs:documentation>
+            <Standard>WIRE</Standard>
+            <Wersja>14.0</Wersja>
+            <Nazwa>Przyjęte umowy sprzedaży energii dla dnia bieżącego (PUSEB)</Nazwa>
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:element name="Komunikat">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Naglowek" type="def:Naglowek"/>
+                <xs:element name="Tresc" type="def:tTresc"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:keyref name="kod_obiektu_ref" refer="def:kod_obiektu_key">
+            <xs:selector xpath="def:Naglowek"/>
+            <xs:field xpath="def:kod_obiektu"/>
+        </xs:keyref>
+        <xs:key name="kod_obiektu_key">
+            <xs:selector xpath="def:Tresc/def:USEB"/>
+            <xs:field xpath="def:KJB"/>
+        </xs:key>
+    </xs:element>
+
+    <xs:complexType name="tTresc">
+        <xs:sequence>
+            <xs:element name="USEB" type="def:tPUSE"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tPUSE">
+        <xs:sequence>
+            <xs:element name="mRID" type="def:tIdentyfikator"/>
+            <xs:element name="KJB" type="def:tKodJednostkiBilansowej"/>
+            <xs:element name="KO" type="def:tKodOperatora"/>
+            <xs:element name="KPOB" type="def:tKodPodmiotuBilansujacego"/>
+            <xs:element name="IDOT" type="def:tNumerTelefonu"/>
+            <xs:element name="DT" type="def:tOkres"/>
+            <xs:element name="IIW" type="def:tIdIteracjiWeryfikacji"/>
+            <xs:element name="VDT" type="def:tOkres"/>
+            <xs:element name="rmRID" type="def:tIdentyfikator" minOccurs="0"/>
+            <xs:element name="VS" type="def:tStatusWeryfikacji"/>
+            <xs:element name="K" type="def:tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="TS" type="def:tGrafikDokumentuPrzyjetego" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="../DEF-COMMON-RBUS.xsd"/>
+
+    <xs:complexType name="tDaneIlosciowe">
+        <xs:sequence>
+            <xs:element name="P" type="tNumerPozycji"/>
+            <xs:element name="Q" type="tIlosc" minOccurs="0"/>
+            <xs:element name="CUS" type="tCenaZaUsluge" minOccurs="0"/>
+            <xs:element name="NUS" type="tNaleznoscZaUsluge" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tNumerPozycji">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tCenaZaUsluge">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="11"/>
+            <xs:fractionDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

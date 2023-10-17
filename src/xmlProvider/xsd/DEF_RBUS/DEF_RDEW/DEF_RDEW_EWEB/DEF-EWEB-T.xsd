@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF-EWEB-CW.xsd"/>
+    <xs:include schemaLocation="DEF-EWEB-DPO.xsd"/>
+
+    <xs:complexType name="tDaneIloscioweWPunkcieEB">
+        <xs:sequence>
+            <xs:element name="P" type="tNumerPozycjiDlaPT15M"/>
+            <xs:element name="EZ" type="tIloscEnergiiEB"/>
+            <xs:element name="ES" type="tIloscEnergiiEB"/>
+            <xs:element name="ER" type="tIloscEnergiiEB"/>
+            <xs:element name="E_BPP" type="tIloscEnergiiEB"/>
+            <xs:element name="EB_FCR" type="tIloscEnergiiEB"/>
+            <xs:element name="EB_aFRR" type="tIloscEnergiiEB"/>
+            <xs:element name="EB_mFRRd" type="tIloscEnergiiEB"/>
+            <xs:element name="dCEB" type="tIloscEnergiiEB"/>
+            <xs:element name="dKU" type="tRoznicaKosztowUruchomien" minOccurs="0"/>
+            <xs:element name="EO" type="tEnergiaOdchylenia"/>
+            <xs:element name="KEO" type="tNaleznoscZaEnergie"/>
+            <xs:element name="NEB" type="tNaleznoscZaEnergie"/>
+            <xs:element name="CW" type="tCenyWymuszone" minOccurs="0" maxOccurs="10"/>
+            <xs:element name="DPO" type="tDaneDlaPasmOfertowych" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tIloscEnergiiEB">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="9"/>
+            <xs:fractionDigits value="3"/>
+            <xs:minInclusive value="-999999.999"/>
+            <xs:maxInclusive value="999999.999"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tRoznicaKosztowUruchomien">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="9"/>
+            <xs:fractionDigits value="3"/>
+            <xs:minInclusive value="-999999.999"/>
+            <xs:maxInclusive value="999999.999"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tEnergiaOdchylenia">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

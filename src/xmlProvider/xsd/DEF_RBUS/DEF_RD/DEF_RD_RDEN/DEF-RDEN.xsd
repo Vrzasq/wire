@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF-RDEN-JB.xsd"/>
+    <xs:include schemaLocation="DEF-RDEN-TS.xsd"/>
+
+    <xs:complexType name="tRaportEnergiiNiezbilansowania">
+        <xs:sequence>
+            <xs:element name="JB" type="tDaneIdentyfikacyjneEnergiiNiezbilansowania" maxOccurs="unbounded"/>
+            <xs:element name="TS" type="tSerieDanychEnergiiNiezbilansowania"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

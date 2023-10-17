@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="../DEF-COMMON-ZRU.xsd"/>
+
+    <xs:complexType name="tDaneIlosciowe">
+        <xs:sequence>
+            <xs:element name="P" type="tNumerPozycjiDlaPT15M"/>
+            <xs:element name="POBC" type="tMocWartoscDziesietna" minOccurs="0"/>
+            <xs:element name="SO" type="tStanJG" minOccurs="0"/>
+            <xs:element name="ZUB" type="tZnacznikUslugBilansujacych" minOccurs="0"/>
+            <xs:element name="ZWP" type="tZnacznikWymuszonejPracy" minOccurs="0"/>
+            <xs:element name="NZSN" type="tMocWartoscDziesietna" minOccurs="0"/>
+            <xs:element name="PD" type="tMocWartoscDziesietnaNieujemna" minOccurs="0"/>
+            <xs:element name="PO" type="tMocWartoscDziesietnaNieujemna" minOccurs="0"/>
+            <xs:element name="ZPDO" type="tZnacznikZPDO" minOccurs="0"/>
+            <xs:element name="PMB" type="tMocWartoscCalkowitaNieujemna" minOccurs="0"/>
+            <xs:element name="ZZGMB" type="tZnacznikZZGMB" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tDaneIloscioweDokumentuZwrotnego">
+        <xs:sequence>
+            <xs:element name="P" type="tNumerPozycjiDlaPT15M"/>
+            <xs:element name="POBC" type="tMocWartoscDziesietna" minOccurs="0"/>
+            <xs:element name="SO" type="tStanJG" minOccurs="0"/>
+            <xs:element name="ZUB" type="tZnacznikUslugBilansujacych" minOccurs="0"/>
+            <xs:element name="ZWP" type="tZnacznikWymuszonejPracy" minOccurs="0"/>
+            <xs:element name="NZSN" type="tMocWartoscDziesietna" minOccurs="0"/>
+            <xs:element name="PD" type="tMocWartoscDziesietnaNieujemna" minOccurs="0"/>
+            <xs:element name="PO" type="tMocWartoscDziesietnaNieujemna" minOccurs="0"/>
+            <xs:element name="ZPDO" type="tZnacznikZPDO" minOccurs="0"/>
+            <xs:element name="PMB" type="tMocWartoscCalkowitaNieujemna" minOccurs="0"/>
+            <xs:element name="ZZGMB" type="tZnacznikZZGMB" minOccurs="0"/>
+            <xs:element name="K" type="tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tStanJG">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="R">
+                <xs:annotation>
+                    <xs:documentation>Postoj</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="P">
+                <xs:annotation>
+                    <xs:documentation>Praca</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PG">
+                <xs:annotation>
+                    <xs:documentation>Praca w kierunku generacji</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PP">
+                <xs:annotation>
+                    <xs:documentation>Praca w kierunku poboru</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="UG">
+                <xs:annotation>
+                    <xs:documentation>Uruchomienie do pracy w kierunku generacji</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="UC">
+                <xs:annotation>
+                    <xs:documentation>Uruchomienie ze stanu cieplego</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="UZ">
+                <xs:annotation>
+                    <xs:documentation>Uruchomienie ze stanu zimnego</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="UD">
+                <xs:annotation>
+                    <xs:documentation>Uruchomienie ze stanu goracego zgodnie z Grafikiem Obciazenia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="UP">
+                <xs:annotation>
+                    <xs:documentation>Uruchomienie do pracy w kierunku poboru</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tZnacznikUslugBilansujacych">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="D">
+                <xs:annotation>
+                    <xs:documentation>Dostepnosc uslug bilansujacych do pozyskania na RB</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="N">
+                <xs:annotation>
+                    <xs:documentation>Niedostepnosc uslug bilansujacych do pozyskania na RB</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DG">
+                <xs:annotation>
+                    <xs:documentation>Dostepnosc uslug bilansujacych w kierunku generacji do pozyskania na RB</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DP">
+                <xs:annotation>
+                    <xs:documentation>Dostepnosc uslug bilansujacych w kierunku poboru do pozyskania na RB</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tZnacznikWymuszonejPracy">
+        <xs:restriction base="xs:integer">
+            <xs:enumeration value="0">
+                <xs:annotation>
+                    <xs:documentation>Brak pracy wymuszonej</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="1">
+                <xs:annotation>
+                    <xs:documentation>Praca wymuszona z wartoscia mocy rowna Grafikowi Obciazenia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="2">
+                <xs:annotation>
+                    <xs:documentation>Praca wymuszona</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tZnacznikZPDO">
+        <xs:restriction base="xs:integer">
+            <xs:enumeration value="0">
+                <xs:annotation>
+                    <xs:documentation>Potencjal dostawy i odbioru dla danego OREB sa powiazane z potencjalami dostawy i odbioru dla poprzedniego OREB</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="1">
+                <xs:annotation>
+                    <xs:documentation>Potencjal dostawy i odbioru dla danego OREB sa niezależne od potencjałow dostawy i odbioru dla poprzedniego OREB</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tZnacznikZZGMB">
+        <xs:restriction base="xs:integer">
+            <xs:enumeration value="0">
+                <xs:annotation>
+                    <xs:documentation>Caly Grafik Mocy Bilansującej stanowi moc bilansujaca zakupiona przez OSP w ramach RMB</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="1">
+                <xs:annotation>
+                    <xs:documentation>Czesc Grafiku Mocy Bilansujacej nie stanowi mocy bilansujacej zakupionej przez OSP w ramach RMB</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

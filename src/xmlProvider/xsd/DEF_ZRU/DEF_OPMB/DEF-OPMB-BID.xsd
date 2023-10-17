@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF-OPMB-TS.xsd"/>
+
+    <xs:complexType name="tOfertaZOPMB">
+        <xs:sequence>
+            <xs:element name="BN" type="tNumerOferty"/>
+            <xs:element name="TS" type="tGrafikZOPMB" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tOfertaIZOPMB">
+        <xs:sequence>
+            <xs:element name="BN" type="tNumerOferty"/>
+            <xs:element name="K" type="tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="TS" type="tGrafikIZOPMB" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tOfertaPOPMB">
+        <xs:sequence>
+            <xs:element name="BN" type="tNumerOferty"/>
+            <xs:element name="VS" type="tStatusWeryfikacji"/>
+            <xs:element name="K" type="tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="TS" type="tGrafikPOPMB" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tNumerOferty">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

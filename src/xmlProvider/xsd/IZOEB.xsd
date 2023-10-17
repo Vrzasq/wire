@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:def="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF_ZRU/DEF_OEB/DEF-OEB-TS.xsd"/>
+
+    <xs:annotation>
+        <xs:documentation>
+            <Standard>WIRE</Standard>
+            <Wersja>14.0</Wersja>
+            <Nazwa>Informacja o niezgodności zgłoszenia oferty na energię bilansującą (IZOEB)</Nazwa>
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:element name="Komunikat">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Naglowek" type="def:Naglowek"/>
+                <xs:element name="Tresc" type="def:tTresc"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:keyref name="kod_obiektu_ref" refer="def:kod_obiektu_key">
+            <xs:selector xpath="def:Naglowek"/>
+            <xs:field xpath="def:kod_obiektu"/>
+        </xs:keyref>
+        <xs:key name="kod_obiektu_key">
+            <xs:selector xpath="def:Tresc/def:OEB"/>
+            <xs:field xpath="def:KJG"/>
+        </xs:key>
+    </xs:element>
+
+    <xs:complexType name="tTresc">
+        <xs:sequence>
+            <xs:element name="OEB" type="def:tIZOEB"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tIZOEB">
+        <xs:sequence>
+            <xs:element name="mRID" type="def:tIdentyfikator"/>
+            <xs:element name="KJG" type="def:tKodJednostkiGrafikowej"/>
+            <xs:element name="KO" type="def:tKodOperatora"/>
+            <xs:element name="KDUB" type="def:tKodDostawcyUslug"/>
+            <xs:element name="IDOT" type="def:tNumerTelefonu"/>
+            <xs:element name="DT" type="def:tOkres"/>
+            <xs:element name="IIW" type="def:tIdIteracjiWeryfikacji"/>
+            <xs:element name="VDT" type="def:tOkres"/>
+            <xs:element name="rmRID" type="def:tIdentyfikator"/>
+            <xs:element name="W" type="def:tNumerZgloszenia"/>
+            <xs:element name="K" type="def:tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="TS" type="def:tGrafikIZOEB" minOccurs="3" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

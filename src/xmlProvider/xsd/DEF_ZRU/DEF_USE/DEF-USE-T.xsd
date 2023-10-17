@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="../DEF-COMMON-ZRU.xsd"/>
+
+    <xs:complexType name="tDaneIlosciowe">
+        <xs:sequence>
+            <xs:element name="P" type="tNumerPozycjiDlaPT15M"/>
+            <xs:element name="Q" type="tIloscDostawEnergii"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tDaneIloscioweDokumentuZwrotnego">
+        <xs:sequence>
+            <xs:element name="P" type="tNumerPozycjiDlaPT15M"/>
+            <xs:element name="Q" type="tIloscDostawEnergii"/>
+            <xs:element name="K" type="tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tIloscDostawEnergii">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="-999999.999"/>
+            <xs:maxInclusive value="999999.999"/>
+            <xs:fractionDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

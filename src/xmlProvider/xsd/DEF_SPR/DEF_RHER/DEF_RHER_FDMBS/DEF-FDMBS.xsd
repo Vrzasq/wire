@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF_FDMBS_TS/DEF-FDMBS-TS.xsd"/>
+    <xs:include schemaLocation="DEF_RHER_ALG/DEF-FDMBS-ALG.xsd"/>
+
+    <xs:complexType name="tDaneRozliczenioweFDMBS">
+        <xs:sequence>
+            <xs:element name="KFDMBS" type="tKodFizycznegoMB"/>
+            <xs:element name="TS" type="tGrafikFDMBS"/>
+            <xs:element name="ALG" type="tDaneRozliczenioweAlgorytmFDMBS" maxOccurs="2"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

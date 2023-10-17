@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF_RHER_ALG/DEF-MB-ALG.xsd"/>
+    <xs:include schemaLocation="DEF_RHER_PPOM/DEF-MB-PPOM.xsd"/>
+    <xs:include schemaLocation="DEF_RHER_RFRP/DEF-MB-RFRP.xsd"/>
+    <xs:include schemaLocation="DEF_RHER_FRP/DEF-MB-FRP.xsd"/>
+
+    <xs:complexType name="tHierarchiaPP">
+        <xs:sequence>
+            <xs:element name="L" type="tPoziomZaglebieniaHierarchii"/>
+            <xs:element name="ALG" type="tDaneRozliczenioweAlgorytmMB" minOccurs="0"/>
+            <xs:element name="PPOM" type="tDaneRozliczeniowePPOM" minOccurs="0"/>
+            <xs:element name="RFRP" type="tDaneRozliczenioweRFRP" minOccurs="0"/>
+            <xs:element name="FRP" type="tDaneRozliczenioweFRP" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tPoziomZaglebieniaHierarchii">
+        <xs:restriction base="xs:integer">
+            <xs:totalDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

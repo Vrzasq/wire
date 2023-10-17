@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="../../DEF_RHER_COMMON/DEF-RHER-TSP.xsd"/>
+
+    <xs:complexType name="tGrafikPoborOddanieFDMBS">
+        <xs:sequence>
+            <xs:element name="PT" type="tTypGrafikuPoboruFDMBS"/>
+            <xs:element name="TSP" type="tDaneNaPunktyCzasoweTSP"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tTypGrafikuPoboruFDMBS">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Dane w kierunku Pobor i Oddanie">
+                <xs:annotation>
+                    <xs:documentation>Dane w kierunku Pobor i Oddanie</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

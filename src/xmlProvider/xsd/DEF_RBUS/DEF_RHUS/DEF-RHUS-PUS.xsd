@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF-TS-PUS.xsd"/>
+
+    <xs:complexType name="tDaneIdentyfikacyjnePodmiotu">
+        <xs:sequence>
+            <xs:element name="KPB" type="tKodPartneraBiznesowego"/>
+            <xs:element name="TS" type="tGrafikPodmiotu" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

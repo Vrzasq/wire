@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:def="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF_RBUS/DEF_RH/DEF-RH-NRDO.xsd"/>
+    <xs:include schemaLocation="DEF_RBUS/DEF_RH/DEF_RH_RHEB/DEF-RHEB.xsd"/>
+    <xs:include schemaLocation="DEF_RBUS/DEF_RH/DEF_RH_RHMB/DEF-RHMB.xsd"/>
+    <xs:include schemaLocation="DEF_RBUS/DEF_RH/DEF_RH_RHRO/DEF-RHRO.xsd"/>
+    <xs:include schemaLocation="DEF_RBUS/DEF_RH/DEF_RH_RHEN/DEF-RHEN.xsd"/>
+
+    <xs:annotation>
+        <xs:documentation>
+            <Standard>WIRE</Standard>
+            <Wersja>14.0</Wersja>
+            <Nazwa>Raport handlowy (RH)</Nazwa>
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:element name="Komunikat">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Naglowek" type="def:Naglowek"/>
+                <xs:element name="Tresc" type="def:tTresc"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:keyref name="kod_obiektu_ref" refer="def:kod_obiektu_key">
+            <xs:selector xpath="def:Naglowek"/>
+            <xs:field xpath="def:kod_obiektu"/>
+        </xs:keyref>
+        <xs:key name="kod_obiektu_key">
+            <xs:selector xpath="def:Tresc/def:RH"/>
+            <xs:field xpath="def:KO"/>
+        </xs:key>
+    </xs:element>
+
+    <xs:complexType name="tTresc">
+        <xs:sequence>
+            <xs:element name="RH" type="def:tRH"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tRH">
+        <xs:sequence>
+            <xs:element name="mRID" type="def:tIdentyfikator"/>
+            <xs:element name="NRR" type="def:tNumerRaportu"/>
+            <xs:element name="KO" type="def:tKodOperatora"/>
+            <xs:element name="NR" type="def:tNumerRozliczenia"/>
+            <xs:element name="STR" type="def:tStatusRozliczeniaRH"/>
+            <xs:element name="DT" type="def:tOkres"/>
+            <xs:element name="NRDO" type="def:tCzescIdentyfikacyjnaRozliczen"/>
+            <xs:element name="RHEB" type="def:tRaportEnergiiBilansujacej" minOccurs="0"/>
+            <xs:element name="RHMB" type="def:tRaportMocyBilansujacych" minOccurs="0"/>
+            <xs:element name="RHRO" type="def:tRaportRezerwyOperacyjnej" minOccurs="0"/>
+            <xs:element name="RHEN" type="def:tRaportEnergiiNiezbilansowania" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

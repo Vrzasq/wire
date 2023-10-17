@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="../../DEF_RHER_COMMON/DEF-RHER-TSPO.xsd"/>
+
+    <xs:complexType name="tGrafik">
+        <xs:sequence>
+            <xs:element name="PT" type="tTypGrafiku"/>
+            <xs:element name="TSPO" type="tDaneNaPunktyCzasoweTSPO"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tTypGrafiku">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Dane JG">
+                <xs:annotation>
+                    <xs:documentation>Dane JG</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Dane JB">
+                <xs:annotation>
+                    <xs:documentation>Dane JB</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

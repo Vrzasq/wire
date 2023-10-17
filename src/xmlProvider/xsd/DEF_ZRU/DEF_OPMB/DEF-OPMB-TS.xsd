@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF-OPMB-TSP.xsd"/>
+
+    <xs:complexType name="tGrafik">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="BT" type="tMocyBilansujacej"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tGrafikZOPMB">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="BT" type="tMocyBilansujacej"/>
+            <xs:element name="TSP" type="tOkresZgloszenia"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tGrafikIZOPMB">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="BT" type="tMocyBilansujacej"/>
+            <xs:element name="K" type="tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="TSP" type="tOkresDokumentuZwrotnego"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tGrafikPOPMB">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="BT" type="tMocyBilansujacej"/>
+            <xs:element name="VS" type="tStatusWeryfikacji"/>
+            <xs:element name="K" type="tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="TSP" type="tOkresDokumentuZwrotnego"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:def="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF_RBUS/DEF_RDEW/DEF-RDEW-JG.xsd"/>
+    <xs:include schemaLocation="DEF_RBUS/DEF_RDEW/DEF-RDEW-JB.xsd"/>
+
+    <xs:annotation>
+        <xs:documentation>
+            <Standard>WIRE</Standard>
+            <Wersja>14.0</Wersja>
+            <Nazwa>Raport dobowy elementarnych wartości (RDEW)</Nazwa>
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:element name="Komunikat">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Naglowek" type="def:Naglowek"/>
+                <xs:element name="Tresc" type="def:tTresc"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="tTresc">
+        <xs:sequence>
+            <xs:element name="RDEW" type="def:tRDEW"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tRDEW">
+        <xs:sequence>
+            <xs:element name="mRID" type="def:tIdentyfikator"/>
+            <xs:element name="NRR" type="def:tNumerRaportu"/>
+            <xs:element name="KO" type="def:tKodOperatora"/>
+            <xs:element name="NR" type="def:tNumerRozliczenia"/>
+            <xs:element name="STR" type="def:tStatusRozliczenia"/>
+            <xs:element name="DT" type="def:tOkres"/>
+            <xs:element name="JG" type="def:tDaneIdentyfikacyjneJG" minOccurs="0"/>
+            <xs:element name="JB" type="def:tDaneIdentyfikacyjneJB" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

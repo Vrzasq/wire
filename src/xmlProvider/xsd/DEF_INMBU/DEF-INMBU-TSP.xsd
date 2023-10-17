@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF-INMBU-T.xsd"/>
+    <xs:include schemaLocation="DEF-INMBU-TZ.xsd"/>
+
+    <xs:complexType name="tOkresDanychGrafikuZmianyStanu">
+        <xs:sequence>
+            <xs:element name="DT" type="tOkres"/>
+            <xs:element name="R" fixed="PT15M" type="xs:string"/>
+            <xs:element name="TZ" type="tDaneIloscioweZmianyStanu" minOccurs="1" maxOccurs="100"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tOkresDanychGrafikuRezerwy">
+        <xs:sequence>
+            <xs:element name="DT" type="tOkres"/>
+            <xs:element name="R" fixed="PT15M" type="xs:string"/>
+            <xs:element name="T" type="tDaneIloscioweRezerwy" minOccurs="1" maxOccurs="100"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+</xs:schema>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF-EWEB-EBPM.xsd"/>
+
+    <xs:complexType name="tDaneDlaPasmOfertowych">
+        <xs:sequence>
+            <xs:element name="NP" type="tNumerPasma"/>
+            <xs:element name="ZP" type="tZnacznikPasma"/>
+            <xs:element name="D" type="tKierunek"/>
+            <xs:element name="OFCG" type="tCenaZaEnergie"/>
+            <xs:element name="OFCD" type="tCenaZaEnergie"/>
+            <xs:element name="CDO" type="tCenaZaEnergie"/>
+            <xs:element name="OFP" type="tOferowanaMoc"/>
+            <xs:element name="KEB" type="tNaleznoscZaEnergie"/>
+            <xs:element name="EBPM" type="tDaneDlaRynkuLubPlatformyEB" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tZnacznikPasma">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="0">
+                <xs:annotation>
+                    <xs:documentation>Zmiana swobodna</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="1">
+                <xs:annotation>
+                    <xs:documentation>Zmiana wymuszona</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tOferowanaMoc">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="8"/>
+            <xs:fractionDigits value="3"/>
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="99999.999"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF-INMBU-TS.xsd"/>
+    <xs:include schemaLocation="DEF-INMBU-TSZ.xsd"/>
+
+    <xs:complexType name="tDaneIdentyfikacyjneJG">
+        <xs:sequence>
+            <xs:element name="KJG" type="tKodJednostkiGrafikowej"/>
+            <xs:element name="TS" type="tGrafikRezerwy" minOccurs="1" maxOccurs="8"/>
+            <xs:element name="TSZ" type="tGrafikZmianyStanu" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

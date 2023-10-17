@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <!-- *************************************************************************************************************** -->
+    <!-- *************************************** DEFINICJE TYPU NAGLOWKA DLA KOMUNIKATOW WIRE ************************** -->
+    <!-- *************************************************************************************************************** -->
+
+    <xs:complexType name="Naglowek">
+        <xs:all>
+            <xs:element name="kod_kom" type="xs:string"/>
+            <xs:element name="data" type="xs:date"/>
+            <xs:element name="kod_obiektu" type="xs:string"/>
+            <xs:element name="data_utworzenia" type="xs:dateTime"/>
+            <xs:element name="wersja" type="tWersjaStandardu"/>
+            <xs:element name="id" type="tIdentyfikatorDokumentu"/>
+            <xs:element name="ref_id" type="tIdentyfikatorDokumentu" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:simpleType name="tWersjaStandardu">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="WIRE 14\.[0-9]"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tIdentyfikatorDokumentu">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z0-9]{1,10}_[A-Z]{2,10}_[0-9\-]{10}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- *************************************************************************************************************** -->
+    <!-- *************************************** DEFINICJE TYPOW WSPOLNYCH DLA KOMUNIKATOW WIRE ************************** -->
+    <!-- *************************************************************************************************************** -->
+
+    <xs:simpleType name="tIdentyfikator">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="36"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tKodOperatora">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="OR_[a-zA-Z0-9]{13}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tKodPodmiotuBilansujacego">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="PO_[a-zA-Z0-9]{13}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tKodJednostkiBilansowej">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="JB_[a-zA-Z0-9]{13}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tKodDostawcyUslug">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="DU_[a-zA-Z0-9]{13}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tKodJednostkiGrafikowej">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="JG_[a-zA-Z0-9]{13}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="tOkres">
+        <xs:sequence>
+            <xs:element name="DTS" type="xs:dateTime"/>
+            <xs:element name="DTK" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tNumerTelefonu">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="32"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tMocyBilansujacej">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="FCR_G">
+                <xs:annotation>
+                    <xs:documentation>Rezerwa Utrzymania Czestotliwosci w gore</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="FCR_D">
+                <xs:annotation>
+                    <xs:documentation>Rezerwa Utrzymania Czestotliwosci w dol</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="aFRR_G">
+                <xs:annotation>
+                    <xs:documentation>Rezerwa Odbudowy Czestotliwosci z Aktywacja Automatyczna w gore</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="aFRR_D">
+                <xs:annotation>
+                    <xs:documentation>Rezerwa Odbudowy Czestotliwosci z Aktywacja Automatyczna w dol</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mFRRd_G">
+                <xs:annotation>
+                    <xs:documentation>Rezerwa Odbudowy Częstotliwosci z Aktywacja Nieautomatyczna typu Bezposredniego w gore</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mFRRd_D">
+                <xs:annotation>
+                    <xs:documentation>Rezerwa Odbudowy Czestotliwosci z Aktywacja Nieautomatyczna typu Bezposredniego w dol</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="RR_G">
+                <xs:annotation>
+                    <xs:documentation>Rezerwa Zastepcza w gore</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="RR_D">
+                <xs:annotation>
+                    <xs:documentation>Rezerwa Zastepcza w dol</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tNumerPozycjiDlaPT15M">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tNumerPozycjiDlaPT60M">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tKierunek">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="G">
+                <xs:annotation>
+                    <xs:documentation>Generacja</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="P">
+                <xs:annotation>
+                    <xs:documentation>Pobor</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="R">
+                <xs:annotation>
+                    <xs:documentation>Redukcja generacji</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

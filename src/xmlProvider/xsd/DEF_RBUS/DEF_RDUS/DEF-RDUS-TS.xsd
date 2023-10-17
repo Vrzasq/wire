@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF-RDUS-TSP.xsd"/>
+
+    <xs:complexType name="tGrafik">
+        <xs:sequence>
+            <xs:element name="mRID" type="tIdentyfikator"/>
+            <xs:element name="BT" type="tTypUslugiSystemowej"/>
+            <xs:element name="KTP" type="tKodTypuProduktu" minOccurs="0"/>
+            <xs:element name="NTP" type="tNazwaTypuProduktu" minOccurs="0"/>
+            <xs:element name="JM" type="tJednostkaMiary" minOccurs="0"/>
+            <xs:element name="TSP" type="tOkresDanych"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

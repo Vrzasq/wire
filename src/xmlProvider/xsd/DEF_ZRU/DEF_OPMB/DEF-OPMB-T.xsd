@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="../DEF-COMMON-ZRU.xsd"/>
+
+    <xs:complexType name="tDaneIlosciowe">
+        <xs:sequence>
+            <xs:element name="P" type="tNumerPozycjiDlaPT60M"/>
+            <xs:element name="POM" type="tMocWartoscCalkowitaNieujemna"/>
+            <xs:element name="COM" type="tCenaOfertowaDodatnia" minOccurs="0"/>
+            <xs:element name="COMRR" type="tCenaOfertowaDodatnia" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tDaneIloscioweDokumentuZwrotnego">
+        <xs:sequence>
+            <xs:element name="P" type="tNumerPozycjiDlaPT60M"/>
+            <xs:element name="POM" type="tMocWartoscCalkowitaNieujemna"/>
+            <xs:element name="COM" type="tCenaOfertowaDodatnia" minOccurs="0"/>
+            <xs:element name="COMRR" type="tCenaOfertowaDodatnia" minOccurs="0"/>
+            <xs:element name="K" type="tKomunikatWeryfikacji" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

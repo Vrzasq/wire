@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="../../DEF-COMMON-RBUS.xsd"/>
+
+    <xs:complexType name="tDaneIloscioweEBJ">
+        <xs:sequence>
+            <xs:element name="RR" type="tTypRozliczeniaDekady"/>
+            <xs:element name="EBDE" type="tIloscEnergii"/>
+            <xs:element name="EBOE" type="tIloscEnergii"/>
+            <xs:element name="CEBDE" type="tCenaDekadowa" minOccurs="0"/>
+            <xs:element name="CEBOE" type="tCenaDekadowa" minOccurs="0"/>
+            <xs:element name="NEBDE" type="tNaleznosc"/>
+            <xs:element name="NEBOE" type="tNaleznosc"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

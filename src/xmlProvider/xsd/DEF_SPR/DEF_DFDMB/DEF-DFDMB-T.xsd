@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="../DEF-COMMON-SPR.xsd"/>
+
+    <xs:complexType name="tDaneIlosciowe">
+        <xs:sequence>
+            <xs:element name="P" type="tNumerPozycjiDlaPT15M"/>
+            <xs:element name="WPPO" type="tWartoscPomiaru"/>
+            <xs:element name="SPPO" type="tStatusPomiaru"/>
+            <xs:element name="WPOD" type="tWartoscPomiaru"/>
+            <xs:element name="SPOD" type="tStatusPomiaru"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

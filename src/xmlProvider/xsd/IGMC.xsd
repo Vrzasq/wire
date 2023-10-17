@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:iec="urn:iec62325.351:tc57wg16:451-2:anomalydocument:5:1" xmlns:def="http://www.pse.pl/osp" xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance" targetNamespace="http://www.pse.pl/osp" elementFormDefault="qualified">
+	<xs:import namespace="urn:iec62325.351:tc57wg16:451-2:anomalydocument:5:1" schemaLocation="./IEC/iec62325-451-2-anomaly_v5_1.xsd"/>
+
+	<xs:include schemaLocation="OSPDEF-WIRE.xsd"/>
+
+	<xs:annotation>
+		<xs:documentation>
+			<Standard>WIRE</Standard>
+			<Wersja>14.0</Wersja>
+			<Nazwa>Informacja o niezgodności ZGMC (IGMC)</Nazwa>
+		</xs:documentation>
+	</xs:annotation>
+
+	<xs:element name="Komunikat">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Naglowek" type="def:Naglowek"/>
+				<xs:element name="Tresc" type="def:Tresc"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="Tresc">
+		<xs:sequence>
+			<xs:element ref="iec:AnomalyReport_MarketDocument"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

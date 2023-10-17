@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="../../DEF-COMMON-RBUS.xsd"/>
+
+    <xs:complexType name="tCenyJB">
+        <xs:sequence>
+            <xs:element name="CEN" type="tCenaRozliczeniowa"/>
+            <xs:element name="CEB_SR" type="tCenaRozliczeniowa"/>
+            <xs:element name="CSDAC" type="tCenaRozliczeniowa"/>
+            <xs:element name="SK" type="tStanZakontraktowania"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tStanZakontraktowania">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

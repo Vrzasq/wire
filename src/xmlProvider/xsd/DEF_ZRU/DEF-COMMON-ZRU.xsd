@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="../OSPDEF-WIRE.xsd"/>
+
+    <xs:simpleType name="tNumerZgloszenia">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:totalDigits value="14"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tIdIteracjiWeryfikacji">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="tStatusWeryfikacjiGrafiku">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="P">
+                <xs:annotation>
+                    <xs:documentation>W pelni przyjety</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PZ">
+                <xs:annotation>
+                    <xs:documentation>Przyjety ze zmiana</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="D">
+                <xs:annotation>
+                    <xs:documentation>Dodany</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tStatusWeryfikacji">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="P">
+                <xs:annotation>
+                    <xs:documentation>W pelni przyjety</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PZ">
+                <xs:annotation>
+                    <xs:documentation>Przyjety ze zmiana</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="tKomunikatWeryfikacji">
+        <xs:sequence>
+            <xs:element name="TK">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="512"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tMocWartoscDziesietna">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="-99999.999"/>
+            <xs:maxInclusive value="99999.999"/>
+            <xs:fractionDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tMocWartoscDziesietnaNieujemna">
+        <xs:restriction base="tMocWartoscDziesietna">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tMocWartoscDziesietnaDodatnia">
+        <xs:restriction base="tMocWartoscDziesietna">
+            <xs:minInclusive value="0.001"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tMocWartoscCalkowita">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="-99999"/>
+            <xs:maxInclusive value="99999"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tMocWartoscCalkowitaNieujemna">
+        <xs:restriction base="tMocWartoscCalkowita">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tCenaOfertowaDodatnia">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0.01"/>
+            <xs:maxInclusive value="999999999.99"/>
+            <xs:fractionDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tCenaOfertowa">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="xs:decimal">
+                    <xs:minInclusive value="-999999999.99"/>
+                    <xs:maxExclusive value="0"/>
+                    <xs:fractionDigits value="2"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:decimal">
+                    <xs:minExclusive value="0"/>
+                    <xs:maxInclusive value="999999999.99"/>
+                    <xs:fractionDigits value="2"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+
+    <xs:simpleType name="tProcent">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tKodWezla">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="32"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

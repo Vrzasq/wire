@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+   <xsd:annotation>
+      <xsd:documentation>
+         <Opis>Listy kodów i typy używane w dokumentach GWM i KOR</Opis>
+       </xsd:documentation>
+   </xsd:annotation>
+	<!-- ___________________________________________________________ -->
+   <xsd:simpleType name="CodingSchemeType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>ET0004</Uid>
+            <Definition>Codification scheme used to identify the coding scheme used for the set of coded values to identify specific objects.</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:NMTOKEN">
+         <xsd:enumeration value="A01">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <CodeDescription>
+                     <Title>EIC (Preferred)</Title>
+                     <Definition>The coding scheme for the preceding attribute is the Energy Identification Coding Scheme (EIC), maintained by ENTSO-E.</Definition>
+                  </CodeDescription>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NPL">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <CodeDescription>
+                     <Title>Poland National coding scheme</Title>
+                     <Definition>The National coding scheme of the country in question.</Definition>
+                  </CodeDescription>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+	<xsd:simpleType name="PartyTypeOSPList">
+      <xsd:annotation>
+         <xsd:documentation>
+            <Uid>OSP01</Uid>
+            <Definition>Rodzaj strony</Definition>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:NMTOKEN">
+         <xsd:enumeration value="10XPL-TSO------P">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <CodeDescription>
+                     <Title>Kod PSE-Operator S.A. według systemu kodowania ETSO</Title>
+                     <Definition>Kod PSE-Operator S.A. według systemu kodowania ETSO</Definition>
+                  </CodeDescription>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+	<!--___________________________________________________________ -->
+</xsd:schema>

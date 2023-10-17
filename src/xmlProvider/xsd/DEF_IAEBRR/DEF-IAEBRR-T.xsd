@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="../OSPDEF-WIRE.xsd"/>
+
+    <xs:complexType name="tDaneIlosciowe">
+        <xs:sequence>
+            <xs:element name="P" type="tNumerPozycji"/>
+            <xs:element name="EBRR" type="tIloscEnergiiBilansujacej"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tNumerPozycji">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tIloscEnergiiBilansujacej">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="-999999.999"/>
+            <xs:maxInclusive value="999999.999"/>
+            <xs:fractionDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

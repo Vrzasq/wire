@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="../../DEF-COMMON-RBUS.xsd"/>
+
+    <xs:complexType name="tDaneDlaRynkuLubPlatformyEB">
+        <xs:sequence>
+            <xs:element name="MT" type="tTypRynkuPlatformy"/>
+            <xs:element name="OREB" type="tZnacznikPrzesunieciaOREB"/>
+            <xs:element name="EB" type="tIloscEnergiiBilansujacej"/>
+            <xs:element name="CWK" type="tCenaRozliczeniowa"/>
+            <xs:element name="CRK" type="tCenaRozliczeniowa"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tZnacznikPrzesunieciaOREB">
+        <xs:restriction base="xs:integer">
+            <xs:enumeration value="-1">
+                <xs:annotation>
+                    <xs:documentation>Energia z aktywacji dla poprzeniego OREB</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="0">
+                <xs:annotation>
+                    <xs:documentation>Energia z aktywacji dla aktualnego OREB</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="1">
+                <xs:annotation>
+                    <xs:documentation>Energia z aktywacji dla nastepnego OREB</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tIloscEnergiiBilansujacej">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

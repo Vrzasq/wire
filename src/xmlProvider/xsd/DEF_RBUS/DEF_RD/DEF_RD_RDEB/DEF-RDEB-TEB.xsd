@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="../../DEF-COMMON-RBUS.xsd"/>
+
+    <xs:complexType name="tCenyEB">
+        <xs:sequence>
+            <xs:element name="CEB_PP" type="tCenaRozliczeniowa"/>
+            <xs:element name="CEB_RR" type="tCenaRozliczeniowa" minOccurs="0"/>
+            <xs:element name="CSDAC" type="tCenaRozliczeniowa"/>
+            <xs:element name="CKOEB" type="tCenaRozliczeniowa"/>
+            <xs:element name="CEO" type="tCenaRozliczeniowa"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

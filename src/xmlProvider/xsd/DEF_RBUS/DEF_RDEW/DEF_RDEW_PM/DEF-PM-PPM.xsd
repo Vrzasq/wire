@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="../../DEF-COMMON-RBUS.xsd"/>
+
+    <xs:complexType name="tParametryPasmaMocy">
+        <xs:sequence>
+            <xs:element name="NPM" type="tNumerPasma"/>
+            <xs:element name="PMIN" type="tMocPasmaMocy"/>
+            <xs:element name="PMAX" type="tMocPasmaMocy"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tMocPasmaMocy">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="8"/>
+            <xs:fractionDigits value="3"/>
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="99999.999"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

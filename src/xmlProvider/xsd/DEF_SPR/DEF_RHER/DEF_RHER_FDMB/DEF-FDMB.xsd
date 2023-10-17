@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.pse.pl/osp"
+           targetNamespace="http://www.pse.pl/osp"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DEF_FDMB_TS/DEF-FDMB-TS.xsd"/>
+    <xs:include schemaLocation="DEF_FDMB_TS/DEF-FDMB-TSK.xsd"/>
+
+    <xs:complexType name="tDaneRozliczenioweFDMB">
+        <xs:sequence>
+            <xs:element name="KFDMB" type="tKodFizycznegoMB"/>
+            <xs:element name="TS" type="tGrafikFDMB"/>
+            <xs:element name="TSK" type="tGrafikPoborOddanieFDMB"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
