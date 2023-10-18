@@ -1,15 +1,17 @@
-function GenerateFiles($path, $namespace, $importFiles) 
+function GenerateObject($objName, [string[]]$importFiles) 
 {
-    $file = Get-Item -Path $path
-    $ddd = "xmlProvider.Objects" + $file.Name
-    echo $ddd
-    xsd /c /n:$ddd /o:Objects /nologo $file.FullName 
+    $file = "xsd/$objName.xsd"
+    $namespace = "xmlObjectProvider.Objects.$objName"
+    $xsdCommand = "xsd $importFiles $file /c /n:$namespace /o:Objects /nologo"
+    Invoke-Expression $xsdCommand
 }
 
-#GenerateFiles("xsd/ZUSE.xsd")
-#GenerateFiles("xsd/ZUSEB.xsd")
-#GenerateFiles("xsd/ZOPMB.xsd")
-#GenerateFiles("xsd/ZPP.xsd")
-#GenerateFiles("xsd/ZOT.xsd")
-#GenerateFiles("xsd/ZOMB.xsd")
-GenerateFiles("xsd/ZGWM.xsd")
+GenerateObject "ZUSE"
+GenerateObject "ZUSEB"
+GenerateObject "ZOPMB"
+GenerateObject "ZOEB"
+GenerateObject "ZOMB"
+GenerateObject "ZPP"
+GenerateObject "ZOT"
+# for xsd with referenced elements from different namespace reffered files must be provided to xsd
+GenerateObject "ZGWM" "xsd/DEF_GWM/GWM-schedule-xml.xsd xsd/DEF_GWM/GWM-etso-core-cmpts.xsd xsd/DEF_GWM/GWM-etso-code-lists.xsd"
