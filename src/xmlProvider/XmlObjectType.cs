@@ -18,4 +18,9 @@ public record XmlObjectType(string Id)
         return typeof(XmlObjectType).GetProperties(BindingFlags.Public | BindingFlags.Static)
             .Select(x => (XmlObjectType)x.GetValue(null)!)!;
     }
+
+    public static implicit operator string(XmlObjectType obj) => obj.Id;
+    public static explicit operator XmlObjectType(string s) => new(s);
+
+    public override string ToString() => Id;
 }

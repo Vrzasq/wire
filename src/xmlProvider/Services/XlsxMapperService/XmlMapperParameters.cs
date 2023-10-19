@@ -3,7 +3,7 @@
 namespace xmlObjectProvider.Services.XlsxMapperService;
 
 public record XmlMapperParameters(
-    IEnumerable<XlsxFileInfo> XslxFileInfos,
+    IEnumerable<XlsxFileInfo> XlsxFileInfos,
     XmlObjectType XmlObjectType,
     BusinessParameters BusinessParameters);
 
@@ -17,7 +17,7 @@ public record XlsxFileInfo(
 /// <param name="IDOT">Numer telefonu zgłaszającego</param>
 /// <param name="W">Numer porządkowy dokumentu</param>
 public record BusinessParameters(
-    int W,
+    decimal W,
     string IDOT,
-    string KBOP,
+    string KPOB,
     string KO);

@@ -1,19 +1,19 @@
 ﻿using MiniExcelLibs;
 using System.Xml.Serialization;
-using xmlObjectProvider.Objects.ZUSE;
+using xmlObjectProvider.Objects.ZUSEB;
 using xmlProvider;
 
-namespace xmlObjectProvider.Services.XlsxMapperService.XmlMappers.ZUSE;
+namespace xmlObjectProvider.Services.XlsxMapperService.XmlMappers.ZUSEB;
 
-public class ZUSEMapper : IXmlMapper
+public class ZUSEBMapper : IXmlMapper
 {
     private const string Wersja = "WIRE 14.0";
     private const string R = "PT15M";
     private const string StartCell = "A1";
-    private const string FileNameMask = "ZUSE_{0}_{1}.xml";
+    private const string FileNameMask = "ZUSB_{0}_{1}.xml";
     private const string DateFormat = "yyyy_MM_dd";
 
-    public XmlObjectType XmlObjectType => XmlObjectType.ZUSE;
+    public XmlObjectType XmlObjectType => XmlObjectType.ZUSEB;
 
     public async IAsyncEnumerable<XmlMapperResult> GetXmlsAsync(XmlMapperParameters parameters)
     {
@@ -30,7 +30,7 @@ public class ZUSEMapper : IXmlMapper
     {
         // there can be more than one xml from one excel file
         // file need to be grupped per 'DobaHandlowa' and 'KodJbZglaszanej'
-        var xmlSources = (await MiniExcel.QueryAsync<ZUSEExcelModel>(fileInfo.XlsxPath, startCell: StartCell).ConfigureAwait(false))
+        var xmlSources = (await MiniExcel.QueryAsync<ZUSEBExcelModel>(fileInfo.XlsxPath, startCell: StartCell).ConfigureAwait(false))
             .Where(x => !string.IsNullOrWhiteSpace(x.KodJbZglaszanej))
             .GroupBy(x => (x.KodJbZglaszanej, x.DobaHandlowa));
 
@@ -53,11 +53,11 @@ public class ZUSEMapper : IXmlMapper
 
     private static string GetFileName(Komunikat komunikat) =>
         string.Format(FileNameMask,
-            komunikat.Tresc.USE.KJB, DateTime.UtcNow.Date.ToString(DateFormat));
+            komunikat.Tresc.USEB.KJB, DateTime.UtcNow.Date.ToString(DateFormat));
 
     private Komunikat GetKomunikat(
         XmlMapperParameters parameters,
-        IEnumerable<ZUSEExcelModel> relatedRows)
+        IEnumerable<ZUSEBExcelModel> relatedRows)
     {
         var naglowek = GetNaglowek(relatedRows.First());
         var tresc = GetTresc(parameters, relatedRows);
@@ -71,7 +71,7 @@ public class ZUSEMapper : IXmlMapper
 
     private static tTresc GetTresc(
         XmlMapperParameters parameters,
-        IEnumerable<ZUSEExcelModel> relatedRows)
+        IEnumerable<ZUSEBExcelModel> relatedRows)
     {
         var referenceModel = relatedRows.First();
         var dobaHandlowaUtc = referenceModel.DobaHandlowaUtc();
@@ -80,7 +80,7 @@ public class ZUSEMapper : IXmlMapper
 
         return new tTresc
         {
-            USE = new tZUSE
+            USEB = new tZUSEB
             {
                 mRID = Guid.NewGuid().ToString(),
                 W = businessParams.W.ToString(),
@@ -96,7 +96,7 @@ public class ZUSEMapper : IXmlMapper
 
     private static IEnumerable<tGrafikZgloszenia> GetTs(
         XmlMapperParameters parameters,
-        IEnumerable<ZUSEExcelModel> relatedRows)
+        IEnumerable<ZUSEBExcelModel> relatedRows)
     {
         var ts = relatedRows.GroupBy(x => x.KodJbPartneraHandlowego).ToArray();
         var referanceRow = relatedRows.First();
@@ -123,7 +123,7 @@ public class ZUSEMapper : IXmlMapper
         }
     }
 
-    private static IEnumerable<tDaneIlosciowe> GetTDaneIlosciowe(IEnumerable<ZUSEExcelModel> relatedRows)
+    private static IEnumerable<tDaneIlosciowe> GetTDaneIlosciowe(IEnumerable<ZUSEBExcelModel> relatedRows)
     {
         return  relatedRows.SelectMany(x => x.GetHourlySchedule())
             .OrderBy(x => x.godzina)
@@ -136,7 +136,7 @@ public class ZUSEMapper : IXmlMapper
             .OrderBy(x => int.Parse(x.P));
     }
 
-    private Naglowek GetNaglowek(ZUSEExcelModel model) =>
+    private Naglowek GetNaglowek(ZUSEBExcelModel model) =>
         new()
         {
             kod_kom = XmlObjectType,
