@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             documentVersionNumeric = new NumericUpDown();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
+            _cbTechnicalOperator = new ComboBox();
+            _cbStandardversion = new ComboBox();
             _cbPhone = new ComboBox();
-            documentType = new ComboBox();
+            _cbDocumentType = new ComboBox();
             textBox2 = new TextBox();
             label1 = new Label();
             label2 = new Label();
@@ -48,7 +48,7 @@
             _btnOutput = new Button();
             label8 = new Label();
             label9 = new Label();
-            comboBox4 = new ComboBox();
+            _cbMarketOperator = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)documentVersionNumeric).BeginInit();
             SuspendLayout();
             // 
@@ -59,23 +59,23 @@
             documentVersionNumeric.Size = new Size(267, 27);
             documentVersionNumeric.TabIndex = 4;
             // 
-            // comboBox1
+            // _cbTechnicalOperator
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "InfoEngine S.A." });
-            comboBox1.Location = new Point(839, 139);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(268, 28);
-            comboBox1.TabIndex = 5;
+            _cbTechnicalOperator.FormattingEnabled = true;
+            _cbTechnicalOperator.Items.AddRange(new object[] { "InfoEngine S.A." });
+            _cbTechnicalOperator.Location = new Point(839, 139);
+            _cbTechnicalOperator.Name = "_cbTechnicalOperator";
+            _cbTechnicalOperator.Size = new Size(268, 28);
+            _cbTechnicalOperator.TabIndex = 5;
             // 
-            // comboBox2
+            // _cbStandardversion
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "14.0" });
-            comboBox2.Location = new Point(839, 173);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(268, 28);
-            comboBox2.TabIndex = 5;
+            _cbStandardversion.FormattingEnabled = true;
+            _cbStandardversion.Items.AddRange(new object[] { "14.0" });
+            _cbStandardversion.Location = new Point(839, 173);
+            _cbStandardversion.Name = "_cbStandardversion";
+            _cbStandardversion.Size = new Size(268, 28);
+            _cbStandardversion.TabIndex = 5;
             // 
             // _cbPhone
             // 
@@ -86,13 +86,13 @@
             _cbPhone.Size = new Size(268, 28);
             _cbPhone.TabIndex = 5;
             // 
-            // documentType
+            // _cbDocumentType
             // 
-            documentType.FormattingEnabled = true;
-            documentType.Location = new Point(838, 241);
-            documentType.Name = "documentType";
-            documentType.Size = new Size(268, 28);
-            documentType.TabIndex = 5;
+            _cbDocumentType.FormattingEnabled = true;
+            _cbDocumentType.Location = new Point(838, 241);
+            _cbDocumentType.Name = "_cbDocumentType";
+            _cbDocumentType.Size = new Size(268, 28);
+            _cbDocumentType.TabIndex = 5;
             // 
             // textBox2
             // 
@@ -231,14 +231,14 @@
             label9.TabIndex = 7;
             label9.Text = "Katalog docelowy";
             // 
-            // comboBox4
+            // _cbMarketOperator
             // 
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Items.AddRange(new object[] { "Operator Systemu Przesyłowego" });
-            comboBox4.Location = new Point(838, 104);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(268, 28);
-            comboBox4.TabIndex = 5;
+            _cbMarketOperator.FormattingEnabled = true;
+            _cbMarketOperator.Items.AddRange(new object[] { "Operator Systemu Przesyłowego" });
+            _cbMarketOperator.Location = new Point(838, 104);
+            _cbMarketOperator.Name = "_cbMarketOperator";
+            _cbMarketOperator.Size = new Size(268, 28);
+            _cbMarketOperator.TabIndex = 5;
             // 
             // MainWindow
             // 
@@ -260,11 +260,11 @@
             Controls.Add(label8);
             Controls.Add(label1);
             Controls.Add(textBox2);
-            Controls.Add(documentType);
+            Controls.Add(_cbDocumentType);
             Controls.Add(_cbPhone);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox4);
-            Controls.Add(comboBox1);
+            Controls.Add(_cbStandardversion);
+            Controls.Add(_cbMarketOperator);
+            Controls.Add(_cbTechnicalOperator);
             Controls.Add(documentVersionNumeric);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             MaximizeBox = false;
@@ -277,10 +277,10 @@
 
         #endregion
         private NumericUpDown documentVersionNumeric;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
+        private ComboBox _cbTechnicalOperator;
+        private ComboBox _cbStandardversion;
         private ComboBox _cbPhone;
-        private ComboBox documentType;
+        private ComboBox _cbDocumentType;
         private TextBox textBox2;
         private Label label1;
         private Label label2;
@@ -296,6 +296,6 @@
         private Button _btnOutput;
         private Label label8;
         private Label label9;
-        private ComboBox comboBox4;
+        private ComboBox _cbMarketOperator;
     }
 }

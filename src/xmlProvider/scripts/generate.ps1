@@ -1,8 +1,8 @@
 function GenerateObject($objName, [string[]]$importFiles) 
 {
     $file = "xsd/$objName.xsd"
-    $namespace = "xmlObjectProvider.Objects.$objName"
-    $xsdCommand = "xsd $importFiles $file /c /n:$namespace /o:Objects /nologo"
+    $namespace = "xmlObjectProvider.Objects.generated.$objName"
+    $xsdCommand = "xsd $importFiles $file /c /n:$namespace /o:Objects/generated /nologo"
     Invoke-Expression $xsdCommand
 }
 

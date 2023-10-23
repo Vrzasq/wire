@@ -1,6 +1,5 @@
 ﻿using MiniExcelLibs;
-using System.Xml.Serialization;
-using xmlObjectProvider.Objects.ZUSE;
+using xmlObjectProvider.Objects.generated.ZUSE;
 using xmlProvider;
 
 namespace xmlObjectProvider.Services.XlsxMapperService.XmlMappers.ZUSE;
@@ -38,14 +37,9 @@ public class ZUSEMapper : IXmlMapper
         {
             var komunikat = GetKomunikat(parameters, xmlSource);
 
-            var xmlSerializer = new XmlSerializer(komunikat.GetType());
-            using var writer = new StringWriter();
-            xmlSerializer.Serialize(writer, komunikat);
-            writer.Flush();
-
             var result = new XmlMapperResult(
                 FileName: GetFileName(komunikat),
-                Content: writer.ToString());
+                Content: komunikat.ToXml());
 
             yield return result;
         }

@@ -1,6 +1,4 @@
-﻿using xmlProvider;
-
-namespace xmlObjectProvider.Services.XlsxMapperService;
+﻿namespace xmlObjectProvider.Services.XlsxMapperService;
 
 public class XlsxToXmlMapper : IXlsxToXmlMapper
 {
