@@ -28,18 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            documentVersionNumeric = new NumericUpDown();
-            _cbTechnicalOperator = new ComboBox();
-            _cbStandardversion = new ComboBox();
-            _cbPhone = new ComboBox();
-            _cbDocumentType = new ComboBox();
-            textBox2 = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
+            _numDdocumentVersion = new NumericUpDown();
             label7 = new Label();
             _btnGenerateXml = new Button();
             _txtBoxInput = new TextBox();
@@ -48,126 +37,43 @@
             _btnOutput = new Button();
             label8 = new Label();
             label9 = new Label();
-            _cbMarketOperator = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)documentVersionNumeric).BeginInit();
+            textBox1 = new TextBox();
+            _rbZUSE = new RadioButton();
+            _rbZUSEB = new RadioButton();
+            _rbZGWM = new RadioButton();
+            _rbZOEB = new RadioButton();
+            _rbZOMB = new RadioButton();
+            _rbZOPMB = new RadioButton();
+            _rbZOT = new RadioButton();
+            _rbZPP = new RadioButton();
+            _lblChooseDocumentType = new Label();
+            _btnStandard = new Button();
+            label1 = new Label();
+            button1 = new Button();
+            ((System.ComponentModel.ISupportInitialize)_numDdocumentVersion).BeginInit();
             SuspendLayout();
             // 
-            // documentVersionNumeric
+            // _numDdocumentVersion
             // 
-            documentVersionNumeric.Location = new Point(839, 275);
-            documentVersionNumeric.Name = "documentVersionNumeric";
-            documentVersionNumeric.Size = new Size(267, 27);
-            documentVersionNumeric.TabIndex = 4;
-            // 
-            // _cbTechnicalOperator
-            // 
-            _cbTechnicalOperator.FormattingEnabled = true;
-            _cbTechnicalOperator.Items.AddRange(new object[] { "InfoEngine S.A." });
-            _cbTechnicalOperator.Location = new Point(839, 139);
-            _cbTechnicalOperator.Name = "_cbTechnicalOperator";
-            _cbTechnicalOperator.Size = new Size(268, 28);
-            _cbTechnicalOperator.TabIndex = 5;
-            // 
-            // _cbStandardversion
-            // 
-            _cbStandardversion.FormattingEnabled = true;
-            _cbStandardversion.Items.AddRange(new object[] { "14.0" });
-            _cbStandardversion.Location = new Point(839, 173);
-            _cbStandardversion.Name = "_cbStandardversion";
-            _cbStandardversion.Size = new Size(268, 28);
-            _cbStandardversion.TabIndex = 5;
-            // 
-            // _cbPhone
-            // 
-            _cbPhone.FormattingEnabled = true;
-            _cbPhone.Items.AddRange(new object[] { "+48 222 333 444" });
-            _cbPhone.Location = new Point(839, 207);
-            _cbPhone.Name = "_cbPhone";
-            _cbPhone.Size = new Size(268, 28);
-            _cbPhone.TabIndex = 5;
-            // 
-            // _cbDocumentType
-            // 
-            _cbDocumentType.FormattingEnabled = true;
-            _cbDocumentType.Location = new Point(838, 241);
-            _cbDocumentType.Name = "_cbDocumentType";
-            _cbDocumentType.Size = new Size(268, 28);
-            _cbDocumentType.TabIndex = 5;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(839, 72);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(267, 27);
-            textBox2.TabIndex = 6;
-            textBox2.Text = "TEST";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(753, 72);
-            label1.Name = "label1";
-            label1.Size = new Size(80, 20);
-            label1.TabIndex = 7;
-            label1.Text = "Kod Węzła";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(724, 107);
-            label2.Name = "label2";
-            label2.Size = new Size(108, 20);
-            label2.TabIndex = 7;
-            label2.Text = "Operator rynku";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(619, 142);
-            label3.Name = "label3";
-            label3.Size = new Size(214, 20);
-            label3.TabIndex = 7;
-            label3.Text = "Operator handlowo-techniczny";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(710, 176);
-            label4.Name = "label4";
-            label4.Size = new Size(123, 20);
-            label4.TabIndex = 7;
-            label4.Text = "Wersja standardu";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(719, 210);
-            label5.Name = "label5";
-            label5.Size = new Size(113, 20);
-            label5.TabIndex = 7;
-            label5.Text = "Numer telefonu";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(721, 244);
-            label6.Name = "label6";
-            label6.Size = new Size(111, 20);
-            label6.TabIndex = 7;
-            label6.Text = "Typ dokumentu";
+            _numDdocumentVersion.Location = new Point(537, 72);
+            _numDdocumentVersion.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            _numDdocumentVersion.Name = "_numDdocumentVersion";
+            _numDdocumentVersion.Size = new Size(267, 27);
+            _numDdocumentVersion.TabIndex = 4;
+            _numDdocumentVersion.TextAlign = HorizontalAlignment.Right;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(701, 277);
+            label7.Location = new Point(256, 74);
             label7.Name = "label7";
-            label7.Size = new Size(132, 20);
+            label7.Size = new Size(251, 20);
             label7.TabIndex = 7;
-            label7.Text = "Wersja dokumentu";
+            label7.Text = "Podaj numer porządkowy zgłoszenia";
             // 
             // _btnGenerateXml
             // 
-            _btnGenerateXml.Location = new Point(374, 275);
+            _btnGenerateXml.Location = new Point(973, 661);
             _btnGenerateXml.Name = "_btnGenerateXml";
             _btnGenerateXml.Size = new Size(116, 39);
             _btnGenerateXml.TabIndex = 8;
@@ -177,25 +83,25 @@
             // 
             // _txtBoxInput
             // 
-            _txtBoxInput.Location = new Point(36, 72);
+            _txtBoxInput.Location = new Point(256, 179);
             _txtBoxInput.Multiline = true;
             _txtBoxInput.Name = "_txtBoxInput";
             _txtBoxInput.ReadOnly = true;
             _txtBoxInput.ScrollBars = ScrollBars.Vertical;
-            _txtBoxInput.Size = new Size(386, 87);
+            _txtBoxInput.Size = new Size(756, 87);
             _txtBoxInput.TabIndex = 9;
             // 
             // _txtBoxOutput
             // 
-            _txtBoxOutput.Location = new Point(36, 185);
+            _txtBoxOutput.Location = new Point(256, 304);
             _txtBoxOutput.Name = "_txtBoxOutput";
             _txtBoxOutput.ReadOnly = true;
-            _txtBoxOutput.Size = new Size(386, 27);
+            _txtBoxOutput.Size = new Size(756, 27);
             _txtBoxOutput.TabIndex = 9;
             // 
             // _btnInput
             // 
-            _btnInput.Location = new Point(446, 74);
+            _btnInput.Location = new Point(1045, 178);
             _btnInput.Name = "_btnInput";
             _btnInput.Size = new Size(44, 29);
             _btnInput.TabIndex = 10;
@@ -205,7 +111,7 @@
             // 
             // _btnOutput
             // 
-            _btnOutput.Location = new Point(446, 183);
+            _btnOutput.Location = new Point(1045, 304);
             _btnOutput.Name = "_btnOutput";
             _btnOutput.Size = new Size(44, 29);
             _btnOutput.TabIndex = 10;
@@ -216,78 +122,195 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(36, 49);
+            label8.Location = new Point(256, 156);
             label8.Name = "label8";
-            label8.Size = new Size(105, 20);
+            label8.Size = new Size(244, 20);
             label8.TabIndex = 7;
-            label8.Text = "Źródło danych";
+            label8.Text = "Podaj plik z danymi w formacie xlsx";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(36, 162);
+            label9.Location = new Point(256, 281);
             label9.Name = "label9";
-            label9.Size = new Size(129, 20);
+            label9.Size = new Size(198, 20);
             label9.TabIndex = 7;
-            label9.Text = "Katalog docelowy";
+            label9.Text = "Podaj ścieżkę do zapisu XML";
             // 
-            // _cbMarketOperator
+            // textBox1
             // 
-            _cbMarketOperator.FormattingEnabled = true;
-            _cbMarketOperator.Items.AddRange(new object[] { "Operator Systemu Przesyłowego" });
-            _cbMarketOperator.Location = new Point(838, 104);
-            _cbMarketOperator.Name = "_cbMarketOperator";
-            _cbMarketOperator.Size = new Size(268, 28);
-            _cbMarketOperator.TabIndex = 5;
+            textBox1.Location = new Point(256, 361);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(833, 283);
+            textBox1.TabIndex = 11;
+            // 
+            // _rbZUSE
+            // 
+            _rbZUSE.AutoSize = true;
+            _rbZUSE.Location = new Point(537, 25);
+            _rbZUSE.Name = "_rbZUSE";
+            _rbZUSE.Size = new Size(65, 24);
+            _rbZUSE.TabIndex = 12;
+            _rbZUSE.TabStop = true;
+            _rbZUSE.Text = "ZUSE";
+            _rbZUSE.UseVisualStyleBackColor = true;
+            // 
+            // _rbZUSEB
+            // 
+            _rbZUSEB.AutoSize = true;
+            _rbZUSEB.Location = new Point(608, 25);
+            _rbZUSEB.Name = "_rbZUSEB";
+            _rbZUSEB.Size = new Size(74, 24);
+            _rbZUSEB.TabIndex = 13;
+            _rbZUSEB.TabStop = true;
+            _rbZUSEB.Text = "ZUSEB";
+            _rbZUSEB.UseVisualStyleBackColor = true;
+            // 
+            // _rbZGWM
+            // 
+            _rbZGWM.AutoSize = true;
+            _rbZGWM.Location = new Point(688, 25);
+            _rbZGWM.Name = "_rbZGWM";
+            _rbZGWM.Size = new Size(76, 24);
+            _rbZGWM.TabIndex = 13;
+            _rbZGWM.TabStop = true;
+            _rbZGWM.Text = "ZGWM";
+            _rbZGWM.UseVisualStyleBackColor = true;
+            // 
+            // _rbZOEB
+            // 
+            _rbZOEB.AutoSize = true;
+            _rbZOEB.Location = new Point(770, 25);
+            _rbZOEB.Name = "_rbZOEB";
+            _rbZOEB.Size = new Size(67, 24);
+            _rbZOEB.TabIndex = 13;
+            _rbZOEB.TabStop = true;
+            _rbZOEB.Text = "ZOEB";
+            _rbZOEB.UseVisualStyleBackColor = true;
+            // 
+            // _rbZOMB
+            // 
+            _rbZOMB.AutoSize = true;
+            _rbZOMB.Location = new Point(843, 25);
+            _rbZOMB.Name = "_rbZOMB";
+            _rbZOMB.Size = new Size(72, 24);
+            _rbZOMB.TabIndex = 13;
+            _rbZOMB.TabStop = true;
+            _rbZOMB.Text = "ZOMB";
+            _rbZOMB.UseVisualStyleBackColor = true;
+            // 
+            // _rbZOPMB
+            // 
+            _rbZOPMB.AutoSize = true;
+            _rbZOPMB.Location = new Point(921, 25);
+            _rbZOPMB.Name = "_rbZOPMB";
+            _rbZOPMB.RightToLeft = RightToLeft.No;
+            _rbZOPMB.Size = new Size(80, 24);
+            _rbZOPMB.TabIndex = 13;
+            _rbZOPMB.TabStop = true;
+            _rbZOPMB.Text = "ZOPMB";
+            _rbZOPMB.UseVisualStyleBackColor = true;
+            // 
+            // _rbZOT
+            // 
+            _rbZOT.AutoSize = true;
+            _rbZOT.Location = new Point(1007, 25);
+            _rbZOT.Name = "_rbZOT";
+            _rbZOT.Size = new Size(57, 24);
+            _rbZOT.TabIndex = 13;
+            _rbZOT.TabStop = true;
+            _rbZOT.Text = "ZOT";
+            _rbZOT.UseVisualStyleBackColor = true;
+            // 
+            // _rbZPP
+            // 
+            _rbZPP.AutoSize = true;
+            _rbZPP.Location = new Point(1070, 25);
+            _rbZPP.Name = "_rbZPP";
+            _rbZPP.Size = new Size(55, 24);
+            _rbZPP.TabIndex = 13;
+            _rbZPP.TabStop = true;
+            _rbZPP.Text = "ZPP";
+            _rbZPP.UseVisualStyleBackColor = true;
+            // 
+            // _lblChooseDocumentType
+            // 
+            _lblChooseDocumentType.AutoSize = true;
+            _lblChooseDocumentType.Location = new Point(256, 25);
+            _lblChooseDocumentType.Name = "_lblChooseDocumentType";
+            _lblChooseDocumentType.Size = new Size(167, 20);
+            _lblChooseDocumentType.TabIndex = 7;
+            _lblChooseDocumentType.Text = "Wybierz typ dokumentu";
+            // 
+            // _btnStandard
+            // 
+            _btnStandard.Location = new Point(33, 54);
+            _btnStandard.Name = "_btnStandard";
+            _btnStandard.Size = new Size(168, 29);
+            _btnStandard.TabIndex = 14;
+            _btnStandard.Text = "Podstawowe";
+            _btnStandard.TextAlign = ContentAlignment.MiddleLeft;
+            _btnStandard.UseVisualStyleBackColor = true;
+            _btnStandard.Click += _btnStandard_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(256, 338);
+            label1.Name = "label1";
+            label1.Size = new Size(108, 20);
+            label1.TabIndex = 7;
+            label1.Text = "Log wykonania";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(33, 89);
+            button1.Name = "button1";
+            button1.Size = new Size(168, 29);
+            button1.TabIndex = 14;
+            button1.Text = "Jednostki bilansowe";
+            button1.TextAlign = ContentAlignment.MiddleLeft;
+            button1.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1141, 373);
+            ClientSize = new Size(1141, 729);
+            Controls.Add(button1);
+            Controls.Add(_btnStandard);
+            Controls.Add(_rbZPP);
+            Controls.Add(_rbZOT);
+            Controls.Add(_rbZOPMB);
+            Controls.Add(_rbZOMB);
+            Controls.Add(_rbZOEB);
+            Controls.Add(_rbZGWM);
+            Controls.Add(_rbZUSEB);
+            Controls.Add(_rbZUSE);
+            Controls.Add(textBox1);
             Controls.Add(_btnOutput);
             Controls.Add(_btnInput);
             Controls.Add(_txtBoxOutput);
             Controls.Add(_txtBoxInput);
             Controls.Add(_btnGenerateXml);
             Controls.Add(label7);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label9);
-            Controls.Add(label8);
             Controls.Add(label1);
-            Controls.Add(textBox2);
-            Controls.Add(_cbDocumentType);
-            Controls.Add(_cbPhone);
-            Controls.Add(_cbStandardversion);
-            Controls.Add(_cbMarketOperator);
-            Controls.Add(_cbTechnicalOperator);
-            Controls.Add(documentVersionNumeric);
+            Controls.Add(label9);
+            Controls.Add(_lblChooseDocumentType);
+            Controls.Add(label8);
+            Controls.Add(_numDdocumentVersion);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             MaximizeBox = false;
             Name = "MainWindow";
             Text = "InfoEngine - WIRExml";
-            ((System.ComponentModel.ISupportInitialize)documentVersionNumeric).EndInit();
+            ((System.ComponentModel.ISupportInitialize)_numDdocumentVersion).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private NumericUpDown documentVersionNumeric;
-        private ComboBox _cbTechnicalOperator;
-        private ComboBox _cbStandardversion;
-        private ComboBox _cbPhone;
-        private ComboBox _cbDocumentType;
-        private TextBox textBox2;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
+        private NumericUpDown _numDdocumentVersion;
         private Label label7;
         private Button _btnGenerateXml;
         private TextBox _txtBoxInput;
@@ -296,6 +319,18 @@
         private Button _btnOutput;
         private Label label8;
         private Label label9;
-        private ComboBox _cbMarketOperator;
+        private TextBox textBox1;
+        private RadioButton _rbZUSE;
+        private RadioButton _rbZUSEB;
+        private RadioButton _rbZGWM;
+        private RadioButton _rbZOEB;
+        private RadioButton _rbZOMB;
+        private RadioButton _rbZOPMB;
+        private RadioButton _rbZOT;
+        private RadioButton _rbZPP;
+        private Label _lblChooseDocumentType;
+        private Button _btnStandard;
+        private Label label1;
+        private Button button1;
     }
 }

@@ -20,7 +20,7 @@ public record XmlObjectType(string Id)
     }
 
     public static implicit operator string(XmlObjectType obj) => obj.Id;
-    public static explicit operator XmlObjectType(string s) => new(s);
+    public static implicit operator XmlObjectType(string s) => new(s);
 
     public override string ToString() => Id;
 }

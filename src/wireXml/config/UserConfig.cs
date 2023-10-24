@@ -2,9 +2,11 @@
 
 internal class UserConfig
 {
-    public const string FileName = "userConfig.json";
+    public const string FileName = "user_config";
 
-    public required string InputFile { get; set; }
-    public required string OutputDirectrory { get; set; }
-    public required string DocumentType { get; set; }
+    public string InputFile { get; set; } = string.Empty;
+    public string OutputDirectrory { get; set; } = string.Empty;
+    public string DocumentType { get; set; } = string.Empty;
+    public string PhoneNumber { get; set; } = string.Empty;
+    public string ORCode { get; set; } = string.Empty;
 }

@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using wireXml.Forms.BasicData;
 using xmlObjectProvider;
 
 namespace wireXml;
@@ -28,6 +29,7 @@ internal static class Program
         return Host.CreateDefaultBuilder()
             .ConfigureServices((context, services) => {
                 services.AddTransient<MainWindow>();
+                services.AddTransient<BasicDataForm>();
                 services.AddXmlObjectProvider();
             });
     }

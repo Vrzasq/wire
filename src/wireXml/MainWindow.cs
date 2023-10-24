@@ -1,40 +1,33 @@
 using System.Text.Json;
 using wireXml.config;
+using wireXml.Forms.BasicData;
 using xmlObjectProvider.Services.XlsxMapperService;
-using xmlProvider;
 
 namespace wireXml
 {
     public partial class MainWindow : Form
     {
         private readonly IXlsxToXmlMapper _xlsxToXmlMapper;
-        private readonly XmlObjectType _selectedDocumentType = XmlObjectType.ZUSE;
+        private readonly IEnumerable<RadioButton> _documentTypes;
+        private readonly BasicDataForm _formBasicData;
 
-        public MainWindow(IXlsxToXmlMapper xlsxToXmlMapper)
+        public MainWindow(
+            IXlsxToXmlMapper xlsxToXmlMapper,
+            BasicDataForm basicDataForm)
         {
             _xlsxToXmlMapper = xlsxToXmlMapper;
+            _formBasicData = basicDataForm;
             InitializeComponent();
+            _documentTypes = GetDocumentTypes();
             LoadDefaults();
-            _txtBoxInput.TextChanged += _txtBoxInput_TextChanged;
-            _txtBoxOutput.TextChanged += _txtBoxOutput_TextChanged;
-            _cbDocumentType.SelectedIndexChanged += _cbDocumentType_SelectedIndexChanged;
         }
-
-        private void _cbDocumentType_SelectedIndexChanged(object? sender, EventArgs e) =>
-            SaveUserConfig();
-
-        private void _txtBoxInput_TextChanged(object? sender, EventArgs e) =>
-            SaveUserConfig();
-            
-        private void _txtBoxOutput_TextChanged(object? sender, EventArgs e) =>
-            SaveUserConfig();
 
         private void _btnInput_Click(object sender, EventArgs e)
         {
             using var fileFialog = new OpenFileDialog();
             fileFialog.CheckFileExists = true;
             fileFialog.Multiselect = true;
-            fileFialog.Title = $"Wybierze plik lub pliki dokumentu {_cbDocumentType.SelectedItem}";
+            fileFialog.Title = $"Wybierze plik lub pliki";
             fileFialog.Filter = "Excel files|*.xlsx";
 
             if (fileFialog.ShowDialog(this) != DialogResult.OK)
@@ -63,17 +56,18 @@ namespace wireXml
                 return;
             }
 
+            SaveUserConfig();
             var fileInfos = _txtBoxInput.Lines.Select(x => new XlsxFileInfo(x, new FileInfo(x).Name)).ToArray();
 
             var businessParams = new BusinessParameters(
-                W: documentVersionNumeric.Value,
-                IDOT: _cbPhone.SelectedText,
+                W: _numDdocumentVersion.Value,
+                IDOT: "placeholder",
                 KPOB: "PO_TESTOWY00001",
                 KO: "OR_TEST0001");
 
             var parameters = new XmlMapperParameters(
                 XlsxFileInfos: fileInfos,
-                XmlObjectType: (XmlObjectType)_cbDocumentType.SelectedItem,
+                XmlObjectType: _documentTypes.First(x => x.Checked).Text,
                 BusinessParameters: businessParams);
 
             await foreach (var xml in _xlsxToXmlMapper.GetXmlsAsync(parameters))
@@ -89,9 +83,11 @@ namespace wireXml
         {
             var config = new UserConfig
             {
-                DocumentType = (XmlObjectType)_cbDocumentType.SelectedItem,
+                DocumentType = _documentTypes.First(x => x.Checked).Text,
                 InputFile = _txtBoxInput.Text,
-                OutputDirectrory = _txtBoxOutput.Text
+                OutputDirectrory = _txtBoxOutput.Text,
+                PhoneNumber = _formBasicData.Model.PhoneNumber,
+                ORCode = _formBasicData.Model.ORCode,
             };
 
             var options = new JsonSerializerOptions
@@ -105,12 +101,8 @@ namespace wireXml
 
         private void LoadDefaults()
         {
-            _cbDocumentType.Items.AddRange(XmlObjectType.GetAll().OrderBy(x => x.Id).ToArray());
-            _cbDocumentType.SelectedIndex = _cbDocumentType.Items.IndexOf(_selectedDocumentType);
-            documentVersionNumeric.Value = 1m;
-            _cbStandardversion.SelectedIndex = 0;
-            _cbMarketOperator.SelectedIndex = 0;
-            _cbTechnicalOperator.SelectedIndex = 0;
+            _rbZUSE.Checked = true;
+            _numDdocumentVersion.Value = 1m;
 
             var fileInfo = new FileInfo(UserConfig.FileName);
 
@@ -125,7 +117,28 @@ namespace wireXml
 
             _txtBoxInput.Text = userConfig.InputFile;
             _txtBoxOutput.Text = userConfig.OutputDirectrory;
-            _cbDocumentType.SelectedItem = (XmlObjectType)userConfig.DocumentType;
+            _formBasicData.UpdateData(new BasicDataModel(userConfig.PhoneNumber, userConfig.ORCode));
+            var docType = _documentTypes.FirstOrDefault(x => x.Text == userConfig.DocumentType);
+            if (docType is not null)
+                docType.Checked = true;
         }
+
+        private IEnumerable<RadioButton> GetDocumentTypes()
+        {
+            return new[]
+            {
+                _rbZGWM,
+                _rbZOEB,
+                _rbZOMB,
+                _rbZOPMB,
+                _rbZOT,
+                _rbZPP,
+                _rbZUSE,
+                _rbZUSEB
+            };
+        }
+
+        private void _btnStandard_Click(object sender, EventArgs e) =>
+            _formBasicData.Show();
     }
 }

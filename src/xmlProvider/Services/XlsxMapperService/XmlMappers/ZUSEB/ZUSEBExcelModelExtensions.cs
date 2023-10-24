@@ -23,15 +23,4 @@ internal static class ZUSEBExcelModelExtensions
                 value: (p.GetValue(model) as decimal?) ?? 0 
             ));
     }
-
-    /// <summary>
-    /// returns do
-    /// </summary>
-    /// <returns></returns>
-    public static DateTime DobaHandlowaUtc(this ZUSEBExcelModel model)
-    {
-        if (model is null) throw new ArgumentNullException(nameof(model));
-
-        return model.DobaHandlowa.ToUniversalTime().Date;
-    }
 }    

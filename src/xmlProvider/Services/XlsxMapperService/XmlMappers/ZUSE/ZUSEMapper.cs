@@ -10,7 +10,7 @@ public class ZUSEMapper : IXmlMapper
     private const string R = "PT15M";
     private const string StartCell = "A1";
     private const string FileNameMask = "ZUSE_{0}_{1}.xml";
-    private const string DateFormat = "yyyy_MM_dd";
+    private const string DateFormat = "yyyy-MM-dd";
 
     public XmlObjectType XmlObjectType => XmlObjectType.ZUSE;
 
@@ -68,7 +68,7 @@ public class ZUSEMapper : IXmlMapper
         IEnumerable<ZUSEExcelModel> relatedRows)
     {
         var referenceModel = relatedRows.First();
-        var dobaHandlowaUtc = referenceModel.DobaHandlowaUtc();
+        var (startDate, endDate) = referenceModel.DobaHandlowa.ToDobaHandlowa();
         var businessParams = parameters.BusinessParameters;
         var ts = GetTs(parameters, relatedRows).ToArray();
 
@@ -78,7 +78,7 @@ public class ZUSEMapper : IXmlMapper
             {
                 mRID = Guid.NewGuid().ToString(),
                 W = businessParams.W.ToString(),
-                DT = new tOkres { DTS = dobaHandlowaUtc, DTK = dobaHandlowaUtc },
+                DT = new tOkres { DTS = startDate, DTK = endDate },
                 IDOT = parameters.BusinessParameters.IDOT,
                 KJB = referenceModel.KodJbZglaszanej,
                 KO = referenceModel.KodJbPartneraHandlowego,
@@ -94,7 +94,7 @@ public class ZUSEMapper : IXmlMapper
     {
         var ts = relatedRows.GroupBy(x => x.KodJbPartneraHandlowego).ToArray();
         var referanceRow = relatedRows.First();
-        var dobaHandlowaUc = referanceRow.DobaHandlowaUtc();
+        var (startDate, endDate) = referanceRow.DobaHandlowa.ToDobaHandlowa();
 
         foreach (var currentT in ts)
         {
@@ -107,7 +107,7 @@ public class ZUSEMapper : IXmlMapper
                 mRID = Guid.NewGuid().ToString(),
                 TSP = new tOkresZgloszenia
                 {
-                    DT = new tOkres { DTK = dobaHandlowaUc, DTS = dobaHandlowaUc },
+                    DT = new tOkres { DTS = startDate, DTK = endDate },
                     R = R,
                     T = t
                 }
@@ -134,11 +134,11 @@ public class ZUSEMapper : IXmlMapper
         new()
         {
             kod_kom = XmlObjectType,
-            data = DateTime.UtcNow,
-            data_utworzenia = DateTime.UtcNow,
+            data = model.DobaHandlowa,
+            data_utworzenia = DateTime.Now,
             id = Guid.NewGuid().ToString(),
             kod_obiektu = model.KodJbZglaszanej,
-            ref_id = string.Empty,
+            ref_id = null,
             wersja = Wersja,
         };
 }
