@@ -71,6 +71,7 @@ public class ZUSEBMapper : IXmlMapper
         var (startDate, endDate) = referenceModel.DobaHandlowa.ToDobaHandlowa();
         var businessParams = parameters.BusinessParameters;
         var ts = GetTs(parameters, relatedRows).ToArray();
+        string pob = GetPOB(parameters, referenceModel);
 
         return new tTresc
         {
@@ -82,7 +83,7 @@ public class ZUSEBMapper : IXmlMapper
                 IDOT = parameters.BusinessParameters.IDOT,
                 KJB = referenceModel.KodJbZglaszanej,
                 KO = referenceModel.KodJbPartneraHandlowego,
-                KPOB = businessParams.KPOB,
+                KPOB = pob,
                 TS = ts
             }
         };
@@ -103,7 +104,7 @@ public class ZUSEBMapper : IXmlMapper
             var grafikZloszen = new tGrafikZgloszenia
             {
                 KJB = currentT.Key,
-                KO = parameters.BusinessParameters.KO,
+                KO = referanceRow.KodJbPartneraHandlowego,
                 mRID = Guid.NewGuid().ToString(),
                 TSP = new tOkresZgloszenia
                 {
@@ -141,4 +142,18 @@ public class ZUSEBMapper : IXmlMapper
             ref_id = string.Empty,
             wersja = Wersja,
         };
+
+    private static string GetPOB(
+        XmlMapperParameters parameters,
+        ZUSEBExcelModel model)
+    {
+        var config = parameters.BusinessParameters.BalanceUnitConfigurations.FirstOrDefault(x =>
+            x.JB == model.KodJbZglaszanej
+            && x.OR == parameters.BusinessParameters.OR);
+
+        if (config is null || string.IsNullOrEmpty(config.POB))
+            throw new InvalidOperationException($"Brak konfiguracji KPOB dla jednostki bilansującej JB: {model.KodJbZglaszanej} OR: {parameters.BusinessParameters.OR}");
+
+        return config.POB;
+    }
 }

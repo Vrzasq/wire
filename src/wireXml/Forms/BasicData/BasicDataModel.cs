@@ -1,5 +1,5 @@
 ﻿namespace wireXml.Forms.BasicData;
 
-internal record class BasicDataModel(
+internal record BasicDataModel(
     string PhoneNumber,
     string ORCode);

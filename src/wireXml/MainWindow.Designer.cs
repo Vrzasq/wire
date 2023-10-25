@@ -144,6 +144,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(833, 283);
             textBox1.TabIndex = 11;
+            textBox1.Text = "Log wykonania\r\nDev in progress";
             // 
             // _rbZUSE
             // 
@@ -272,6 +273,7 @@
             button1.Text = "Jednostki bilansowe";
             button1.TextAlign = ContentAlignment.MiddleLeft;
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // MainWindow
             // 

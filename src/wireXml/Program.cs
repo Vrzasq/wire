@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using wireXml.Forms.BalansUnits;
 using wireXml.Forms.BasicData;
 using xmlObjectProvider;
 
@@ -30,6 +31,7 @@ internal static class Program
             .ConfigureServices((context, services) => {
                 services.AddTransient<MainWindow>();
                 services.AddTransient<BasicDataForm>();
+                services.AddTransient<BalansUnitsForm>();
                 services.AddXmlObjectProvider();
             });
     }

@@ -19,5 +19,10 @@ public record XlsxFileInfo(
 public record BusinessParameters(
     decimal W,
     string IDOT,
-    string KPOB,
-    string KO);
+    string OR,
+    IEnumerable<BalanceUnitConfiguration> BalanceUnitConfigurations);
+
+public record BalanceUnitConfiguration(
+    string JB,
+    string OR,
+    string? POB);
