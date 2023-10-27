@@ -67,9 +67,8 @@ public partial class MainWindow : Form
 
         SaveUserConfig();
         var fileInfos = _txtBoxInput.Lines.Select(x => new XlsxFileInfo(x, new FileInfo(x).Name)).ToArray();
-        var configurations = MiniExcel.Query("balance_units.xlsx", excelType: ExcelType.XLSX, startCell: "A2")
-            .Select(row => new BalanceUnitConfiguration(row.A, row.B, row.C))
-            .ToArray();
+        var configurations = _formBalansUnits.BalanceUnits
+            .Select(x => new BalanceUnitConfiguration(x.JB, x.OR, x.POB));
 
         var businessParams = new BusinessParameters(
             W: _numDdocumentVersion.Value,

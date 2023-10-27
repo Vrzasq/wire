@@ -1,21 +1,35 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using MiniExcelLibs;
-using xmlObjectProvider.Services.XlsxMapperService;
-using xmlObjectProvider.Services.XlsxMapperService.XmlMappers.ZUSE;
-using xmlProvider;
+using MiniExcelLibs.Attributes;
 
-var filePath = new FileInfo("test.xlsx");
-var fileInfo = new XlsxFileInfo(filePath.FullName, filePath.Name);
-var configuration = MiniExcel.Query("balance_units.xlsx", excelType: ExcelType.XLSX, startCell: "A2")
-    .Select(row => new BalanceUnitConfiguration(row.A, row.B, row.C))
-            .ToArray();
-var businessParameters = new BusinessParameters(1, "+48 504 259 771", "PO_0000Test", configuration);
-var parameters = new XmlMapperParameters(new[] { fileInfo }, XmlObjectType.ZUSE, businessParameters);
-var mapper = new ZUSEMapper();
 
-await foreach(var xml in mapper.GetXmlsAsync(parameters))
+var rand = new Random();
+
+var test = Enumerable.Range(0, 100).Select(x => new SomeClass
 {
-    File.WriteAllText(xml.FileName, xml.Content);
-}
+    Name = rand.Next(0, 1000).ToString(),
+    Surname = rand.Next(0, 1000).ToString(),
+    Test = rand.Next(0, 1000).ToString(),
+    MMo1 = rand.Next(0, 1000).ToString(),
+    Mmo2 = rand.Next(0, 1000).ToString()
+}).ToArray();
 
-Console.WriteLine("Hello, World!");
+MiniExcel.SaveAs("wololololo.xlsx", test, excelType: ExcelType.XLSX, overwriteFile: true);
+
+class SomeClass
+{
+    [ExcelColumn(Index = 0, Name = nameof(Name))]
+    public string Name { get; set; }
+
+    [ExcelColumn(Index = 0, Name = nameof(Name))]
+    public string Surname { get; set; }
+
+    [ExcelColumn(Index = 0, Name = nameof(Name))]
+    public string Test { get; set; }
+
+    [ExcelColumn(Index = 0, Name = nameof(Name))]
+    public string MMo1 { get; set; }
+
+    [ExcelColumn(Index = 0, Name = nameof(Name))]
+    public string Mmo2 { get; set; }
+}
