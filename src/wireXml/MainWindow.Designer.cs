@@ -47,25 +47,30 @@
             _rbZOT = new RadioButton();
             _rbZPP = new RadioButton();
             _lblChooseDocumentType = new Label();
-            _btnStandard = new Button();
             label1 = new Label();
-            button1 = new Button();
+            menuStrip1 = new MenuStrip();
+            konfiguracjaToolStripMenuItem = new ToolStripMenuItem();
+            podstawoweToolStripMenuItem = new ToolStripMenuItem();
+            jednostkiBilansoweToolStripMenuItem = new ToolStripMenuItem();
+            groupBox1 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)_numDdocumentVersion).BeginInit();
+            menuStrip1.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // _numDdocumentVersion
             // 
-            _numDdocumentVersion.Location = new Point(537, 72);
+            _numDdocumentVersion.Location = new Point(263, 58);
             _numDdocumentVersion.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             _numDdocumentVersion.Name = "_numDdocumentVersion";
-            _numDdocumentVersion.Size = new Size(267, 27);
+            _numDdocumentVersion.Size = new Size(69, 27);
             _numDdocumentVersion.TabIndex = 4;
             _numDdocumentVersion.TextAlign = HorizontalAlignment.Right;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(256, 74);
+            label7.Location = new Point(6, 60);
             label7.Name = "label7";
             label7.Size = new Size(251, 20);
             label7.TabIndex = 7;
@@ -149,7 +154,7 @@
             // _rbZUSE
             // 
             _rbZUSE.AutoSize = true;
-            _rbZUSE.Location = new Point(537, 25);
+            _rbZUSE.Location = new Point(179, 21);
             _rbZUSE.Name = "_rbZUSE";
             _rbZUSE.Size = new Size(65, 24);
             _rbZUSE.TabIndex = 12;
@@ -160,7 +165,7 @@
             // _rbZUSEB
             // 
             _rbZUSEB.AutoSize = true;
-            _rbZUSEB.Location = new Point(608, 25);
+            _rbZUSEB.Location = new Point(250, 21);
             _rbZUSEB.Name = "_rbZUSEB";
             _rbZUSEB.Size = new Size(74, 24);
             _rbZUSEB.TabIndex = 13;
@@ -171,7 +176,7 @@
             // _rbZGWM
             // 
             _rbZGWM.AutoSize = true;
-            _rbZGWM.Location = new Point(688, 25);
+            _rbZGWM.Location = new Point(330, 21);
             _rbZGWM.Name = "_rbZGWM";
             _rbZGWM.Size = new Size(76, 24);
             _rbZGWM.TabIndex = 13;
@@ -182,7 +187,7 @@
             // _rbZOEB
             // 
             _rbZOEB.AutoSize = true;
-            _rbZOEB.Location = new Point(770, 25);
+            _rbZOEB.Location = new Point(412, 21);
             _rbZOEB.Name = "_rbZOEB";
             _rbZOEB.Size = new Size(67, 24);
             _rbZOEB.TabIndex = 13;
@@ -193,7 +198,7 @@
             // _rbZOMB
             // 
             _rbZOMB.AutoSize = true;
-            _rbZOMB.Location = new Point(843, 25);
+            _rbZOMB.Location = new Point(485, 21);
             _rbZOMB.Name = "_rbZOMB";
             _rbZOMB.Size = new Size(72, 24);
             _rbZOMB.TabIndex = 13;
@@ -204,7 +209,7 @@
             // _rbZOPMB
             // 
             _rbZOPMB.AutoSize = true;
-            _rbZOPMB.Location = new Point(921, 25);
+            _rbZOPMB.Location = new Point(563, 21);
             _rbZOPMB.Name = "_rbZOPMB";
             _rbZOPMB.RightToLeft = RightToLeft.No;
             _rbZOPMB.Size = new Size(80, 24);
@@ -216,7 +221,7 @@
             // _rbZOT
             // 
             _rbZOT.AutoSize = true;
-            _rbZOT.Location = new Point(1007, 25);
+            _rbZOT.Location = new Point(649, 21);
             _rbZOT.Name = "_rbZOT";
             _rbZOT.Size = new Size(57, 24);
             _rbZOT.TabIndex = 13;
@@ -227,7 +232,7 @@
             // _rbZPP
             // 
             _rbZPP.AutoSize = true;
-            _rbZPP.Location = new Point(1070, 25);
+            _rbZPP.Location = new Point(712, 21);
             _rbZPP.Name = "_rbZPP";
             _rbZPP.Size = new Size(55, 24);
             _rbZPP.TabIndex = 13;
@@ -238,22 +243,11 @@
             // _lblChooseDocumentType
             // 
             _lblChooseDocumentType.AutoSize = true;
-            _lblChooseDocumentType.Location = new Point(256, 25);
+            _lblChooseDocumentType.Location = new Point(6, 23);
             _lblChooseDocumentType.Name = "_lblChooseDocumentType";
             _lblChooseDocumentType.Size = new Size(167, 20);
             _lblChooseDocumentType.TabIndex = 7;
             _lblChooseDocumentType.Text = "Wybierz typ dokumentu";
-            // 
-            // _btnStandard
-            // 
-            _btnStandard.Location = new Point(33, 54);
-            _btnStandard.Name = "_btnStandard";
-            _btnStandard.Size = new Size(168, 29);
-            _btnStandard.TabIndex = 14;
-            _btnStandard.Text = "Podstawowe";
-            _btnStandard.TextAlign = ContentAlignment.MiddleLeft;
-            _btnStandard.UseVisualStyleBackColor = true;
-            _btnStandard.Click += _btnStandard_Click;
             // 
             // label1
             // 
@@ -264,49 +258,82 @@
             label1.TabIndex = 7;
             label1.Text = "Log wykonania";
             // 
-            // button1
+            // menuStrip1
             // 
-            button1.Location = new Point(33, 89);
-            button1.Name = "button1";
-            button1.Size = new Size(168, 29);
-            button1.TabIndex = 14;
-            button1.Text = "Jednostki bilansowe";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { konfiguracjaToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1141, 28);
+            menuStrip1.TabIndex = 15;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // konfiguracjaToolStripMenuItem
+            // 
+            konfiguracjaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { podstawoweToolStripMenuItem, jednostkiBilansoweToolStripMenuItem });
+            konfiguracjaToolStripMenuItem.Name = "konfiguracjaToolStripMenuItem";
+            konfiguracjaToolStripMenuItem.Size = new Size(107, 24);
+            konfiguracjaToolStripMenuItem.Text = "Konfiguracja";
+            // 
+            // podstawoweToolStripMenuItem
+            // 
+            podstawoweToolStripMenuItem.Name = "podstawoweToolStripMenuItem";
+            podstawoweToolStripMenuItem.Size = new Size(224, 26);
+            podstawoweToolStripMenuItem.Text = "Podstawowe";
+            podstawoweToolStripMenuItem.Click += podstawoweToolStripMenuItem_Click;
+            // 
+            // jednostkiBilansoweToolStripMenuItem
+            // 
+            jednostkiBilansoweToolStripMenuItem.Name = "jednostkiBilansoweToolStripMenuItem";
+            jednostkiBilansoweToolStripMenuItem.Size = new Size(224, 26);
+            jednostkiBilansoweToolStripMenuItem.Text = "Jednostki Bilansowe";
+            jednostkiBilansoweToolStripMenuItem.Click += jednostkiBilansoweToolStripMenuItem_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(_lblChooseDocumentType);
+            groupBox1.Controls.Add(_rbZPP);
+            groupBox1.Controls.Add(_rbZUSE);
+            groupBox1.Controls.Add(_rbZOT);
+            groupBox1.Controls.Add(_rbZUSEB);
+            groupBox1.Controls.Add(_rbZOPMB);
+            groupBox1.Controls.Add(_rbZGWM);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(_rbZOMB);
+            groupBox1.Controls.Add(_rbZOEB);
+            groupBox1.Controls.Add(_numDdocumentVersion);
+            groupBox1.Location = new Point(256, 40);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(771, 96);
+            groupBox1.TabIndex = 16;
+            groupBox1.TabStop = false;
             // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1141, 729);
-            Controls.Add(button1);
-            Controls.Add(_btnStandard);
-            Controls.Add(_rbZPP);
-            Controls.Add(_rbZOT);
-            Controls.Add(_rbZOPMB);
-            Controls.Add(_rbZOMB);
-            Controls.Add(_rbZOEB);
-            Controls.Add(_rbZGWM);
-            Controls.Add(_rbZUSEB);
-            Controls.Add(_rbZUSE);
+            Controls.Add(groupBox1);
             Controls.Add(textBox1);
             Controls.Add(_btnOutput);
             Controls.Add(_btnInput);
             Controls.Add(_txtBoxOutput);
             Controls.Add(_txtBoxInput);
             Controls.Add(_btnGenerateXml);
-            Controls.Add(label7);
             Controls.Add(label1);
             Controls.Add(label9);
-            Controls.Add(_lblChooseDocumentType);
             Controls.Add(label8);
-            Controls.Add(_numDdocumentVersion);
+            Controls.Add(menuStrip1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            MainMenuStrip = menuStrip1;
             MaximizeBox = false;
             Name = "MainWindow";
             Text = "InfoEngine - WIRExml";
             ((System.ComponentModel.ISupportInitialize)_numDdocumentVersion).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -331,8 +358,11 @@
         private RadioButton _rbZOT;
         private RadioButton _rbZPP;
         private Label _lblChooseDocumentType;
-        private Button _btnStandard;
         private Label label1;
-        private Button button1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem konfiguracjaToolStripMenuItem;
+        private ToolStripMenuItem podstawoweToolStripMenuItem;
+        private ToolStripMenuItem jednostkiBilansoweToolStripMenuItem;
+        private GroupBox groupBox1;
     }
 }

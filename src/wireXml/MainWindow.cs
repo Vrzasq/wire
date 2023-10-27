@@ -157,10 +157,12 @@ public partial class MainWindow : Form
         };
     }
 
-    private void _btnStandard_Click(object sender, EventArgs e) =>
+    private void podstawoweToolStripMenuItem_Click(object sender, EventArgs e)
+    {
         _formBasicData.Show();
+    }
 
-    private void button1_Click(object sender, EventArgs e)
+    private void jednostkiBilansoweToolStripMenuItem_Click(object sender, EventArgs e)
     {
         _formBalansUnits.Show();
     }
