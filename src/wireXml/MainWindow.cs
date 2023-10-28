@@ -29,6 +29,7 @@ public partial class MainWindow : Form
         InitializeComponent();
         _documentTypes = GetDocumentTypes();
         LoadDefaults();
+        _txtLog.ScrollBars = ScrollBars.Vertical;
     }
 
     private void _btnInput_Click(object sender, EventArgs e)
@@ -81,7 +82,8 @@ public partial class MainWindow : Form
             XmlObjectType: _documentTypes.First(x => x.Checked).Text,
             BusinessParameters: businessParams);
 
-        _txtLog.Lines = _txtLog.Lines.Append("Wczytywanie pliku:").Append(_txtBoxInput.Text).ToArray();
+        _txtLog.AppendText("Wczytywanie pliku:" + Environment.NewLine);
+        _txtLog.AppendText(_txtBoxInput.Text + Environment.NewLine);
 
         try
         {
@@ -89,17 +91,21 @@ public partial class MainWindow : Form
             {
                 string file = Path.Combine(_txtBoxOutput.Text, xml.FileName);
                 await File.WriteAllTextAsync(file, xml.Content);
-                _txtLog.Lines = _txtLog.Lines.Append("Utworzono plik:").Append(file).ToArray();
+                _txtLog.AppendText("Utworzono plik:" + Environment.NewLine);
+                _txtLog.AppendText(file + Environment.NewLine);
+                _txtLog.AppendText("----------------------------------------" + Environment.NewLine);
             }
         }
         catch (Exception ex)
         {
-            _txtLog.Lines = _txtLog.Lines.Append(ex.Message).ToArray();
-            MessageBox.Show("Operacja zakoñczona niepowodzeniem", "B³¹d", buttons: MessageBoxButtons.OK, MessageBoxIcon.Error);
+            _txtLog.AppendText("Plik xml nie zosta³ utworzny" + Environment.NewLine);
+            _txtLog.AppendText(ex.Message + Environment.NewLine);
+            _txtLog.AppendText("----------------------------------------" + Environment.NewLine);
+            MessageBox.Show("Operacja zakoñczona niepowodzeniem.", "B³¹d", buttons: MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
-        MessageBox.Show($"Operacja zakoñczona powodzeniem", "Resultat", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        MessageBox.Show($"Operacja zakoñczona powodzeniem.", "Resultat", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
     private void SaveUserConfig()

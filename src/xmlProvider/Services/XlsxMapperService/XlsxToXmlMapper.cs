@@ -1,4 +1,6 @@
-﻿namespace xmlObjectProvider.Services.XlsxMapperService;
+﻿using System.Net.Http.Headers;
+
+namespace xmlObjectProvider.Services.XlsxMapperService;
 
 public class XlsxToXmlMapper : IXlsxToXmlMapper
 {
@@ -13,6 +15,7 @@ public class XlsxToXmlMapper : IXlsxToXmlMapper
     {
         var mapper = _mappers.FirstOrDefault(x => x.XmlObjectType == parameters.XmlObjectType);
 
-        return mapper.GetXmlsAsync(parameters);
+        return mapper?.GetXmlsAsync(parameters)
+            ?? throw new NotSupportedException($"Brak wsparcia dla {parameters.XmlObjectType}");
     }
 }
