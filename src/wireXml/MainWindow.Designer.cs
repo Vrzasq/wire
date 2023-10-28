@@ -37,7 +37,7 @@
             _btnOutput = new Button();
             label8 = new Label();
             label9 = new Label();
-            textBox1 = new TextBox();
+            _txtLog = new TextBox();
             _rbZUSE = new RadioButton();
             _rbZUSEB = new RadioButton();
             _rbZGWM = new RadioButton();
@@ -78,7 +78,7 @@
             // 
             // _btnGenerateXml
             // 
-            _btnGenerateXml.Location = new Point(973, 661);
+            _btnGenerateXml.Location = new Point(360, 341);
             _btnGenerateXml.Name = "_btnGenerateXml";
             _btnGenerateXml.Size = new Size(116, 39);
             _btnGenerateXml.TabIndex = 8;
@@ -88,7 +88,7 @@
             // 
             // _txtBoxInput
             // 
-            _txtBoxInput.Location = new Point(256, 179);
+            _txtBoxInput.Location = new Point(30, 174);
             _txtBoxInput.Multiline = true;
             _txtBoxInput.Name = "_txtBoxInput";
             _txtBoxInput.ReadOnly = true;
@@ -98,7 +98,7 @@
             // 
             // _txtBoxOutput
             // 
-            _txtBoxOutput.Location = new Point(256, 304);
+            _txtBoxOutput.Location = new Point(30, 299);
             _txtBoxOutput.Name = "_txtBoxOutput";
             _txtBoxOutput.ReadOnly = true;
             _txtBoxOutput.Size = new Size(756, 27);
@@ -106,7 +106,7 @@
             // 
             // _btnInput
             // 
-            _btnInput.Location = new Point(1045, 178);
+            _btnInput.Location = new Point(819, 173);
             _btnInput.Name = "_btnInput";
             _btnInput.Size = new Size(44, 29);
             _btnInput.TabIndex = 10;
@@ -116,7 +116,7 @@
             // 
             // _btnOutput
             // 
-            _btnOutput.Location = new Point(1045, 304);
+            _btnOutput.Location = new Point(819, 299);
             _btnOutput.Name = "_btnOutput";
             _btnOutput.Size = new Size(44, 29);
             _btnOutput.TabIndex = 10;
@@ -127,7 +127,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(256, 156);
+            label8.Location = new Point(30, 151);
             label8.Name = "label8";
             label8.Size = new Size(244, 20);
             label8.TabIndex = 7;
@@ -136,20 +136,19 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(256, 281);
+            label9.Location = new Point(30, 276);
             label9.Name = "label9";
             label9.Size = new Size(198, 20);
             label9.TabIndex = 7;
             label9.Text = "Podaj ścieżkę do zapisu XML";
             // 
-            // textBox1
+            // _txtLog
             // 
-            textBox1.Location = new Point(256, 361);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(833, 283);
-            textBox1.TabIndex = 11;
-            textBox1.Text = "Log wykonania\r\nDev in progress";
+            _txtLog.Location = new Point(30, 431);
+            _txtLog.Multiline = true;
+            _txtLog.Name = "_txtLog";
+            _txtLog.Size = new Size(833, 283);
+            _txtLog.TabIndex = 11;
             // 
             // _rbZUSE
             // 
@@ -252,7 +251,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(256, 338);
+            label1.Location = new Point(30, 408);
             label1.Name = "label1";
             label1.Size = new Size(108, 20);
             label1.TabIndex = 7;
@@ -264,7 +263,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { konfiguracjaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1141, 28);
+            menuStrip1.Size = new Size(885, 28);
             menuStrip1.TabIndex = 15;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -302,9 +301,9 @@
             groupBox1.Controls.Add(_rbZOMB);
             groupBox1.Controls.Add(_rbZOEB);
             groupBox1.Controls.Add(_numDdocumentVersion);
-            groupBox1.Location = new Point(256, 40);
+            groupBox1.Location = new Point(30, 35);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(771, 96);
+            groupBox1.Size = new Size(833, 96);
             groupBox1.TabIndex = 16;
             groupBox1.TabStop = false;
             // 
@@ -312,9 +311,9 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1141, 729);
+            ClientSize = new Size(885, 729);
             Controls.Add(groupBox1);
-            Controls.Add(textBox1);
+            Controls.Add(_txtLog);
             Controls.Add(_btnOutput);
             Controls.Add(_btnInput);
             Controls.Add(_txtBoxOutput);
@@ -348,7 +347,7 @@
         private Button _btnOutput;
         private Label label8;
         private Label label9;
-        private TextBox textBox1;
+        private TextBox _txtLog;
         private RadioButton _rbZUSE;
         private RadioButton _rbZUSEB;
         private RadioButton _rbZGWM;

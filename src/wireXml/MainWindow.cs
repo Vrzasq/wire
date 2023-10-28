@@ -81,17 +81,21 @@ public partial class MainWindow : Form
             XmlObjectType: _documentTypes.First(x => x.Checked).Text,
             BusinessParameters: businessParams);
 
+        _txtLog.Lines = _txtLog.Lines.Append("Wczytywanie pliku:").Append(_txtBoxInput.Text).ToArray();
+
         try
         {
             await foreach (var xml in _xlsxToXmlMapper.GetXmlsAsync(parameters))
             {
                 string file = Path.Combine(_txtBoxOutput.Text, xml.FileName);
                 await File.WriteAllTextAsync(file, xml.Content);
+                _txtLog.Lines = _txtLog.Lines.Append("Utworzono plik:").Append(file).ToArray();
             }
         }
         catch (Exception ex)
         {
-            MessageBox.Show(ex.Message, "B³¹d", buttons: MessageBoxButtons.OK, MessageBoxIcon.Error);
+            _txtLog.Lines = _txtLog.Lines.Append(ex.Message).ToArray();
+            MessageBox.Show("Operacja zakoñczona niepowodzeniem", "B³¹d", buttons: MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
