@@ -10,7 +10,7 @@ internal static class ZUSEExcelModelExtensions
     public static IEnumerable<(
         int godzina,
         int kwadrans,
-        decimal value
+        decimal? value
         )> GetHourlySchedule(this ZUSEExcelModel model)
     {
         return model.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public)
@@ -20,7 +20,7 @@ internal static class ZUSEExcelModelExtensions
             (
                 godzina: i + 1,
                 kwadrans: model.Kwadrans,
-                value: (p.GetValue(model) as decimal?) ?? 0 
+                value: p.GetValue(model) as decimal?
             ));
     }
 }    

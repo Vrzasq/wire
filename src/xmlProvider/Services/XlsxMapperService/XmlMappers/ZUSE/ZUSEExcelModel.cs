@@ -59,5 +59,5 @@ internal record ZUSEExcelModel
     [ExcelColumnIndex(26)]
     public decimal Godzina23 { get; init; }
     [ExcelColumnIndex(27)]
-    public decimal Godzina24 { get; init; }
+    public decimal? Godzina24 { get; init; }
 }    

@@ -11,7 +11,7 @@ public static class XmlMapperExtensions
         Async = true,
         CloseOutput = true,
         Encoding = Encoding.UTF8,
-        Indent = true,
+        Indent = true
     };
 
     public static string ToXml<T>(this T obj)

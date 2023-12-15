@@ -30,6 +30,7 @@ public class ZUSEMapper : IXmlMapper
     {
         // there can be more than one xml from one excel file
         // file need to be grupped per 'DobaHandlowa' and 'KodJbZglaszanej'
+        var xml = MiniExcel.Query(fileInfo.XlsxPath, startCell: "A2").ToArray();
         var xmlSources = (await MiniExcel.QueryAsync<ZUSEExcelModel>(fileInfo.XlsxPath, startCell: StartCell).ConfigureAwait(false))
             .Where(x => !string.IsNullOrWhiteSpace(x.KodJbZglaszanej))
             .GroupBy(x => (x.KodJbZglaszanej, x.DobaHandlowa));
@@ -127,7 +128,7 @@ public class ZUSEMapper : IXmlMapper
             .Select((x, i) => new tDaneIlosciowe
             {
                 P = (i + 1).ToString(),
-                Q = x.value
+                Q = x.value.Value
             })
             .OrderBy(x => int.Parse(x.P));
     }
