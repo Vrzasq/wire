@@ -29,36 +29,31 @@ var naglowek = new Naglowek
     ref_id = Guid.NewGuid().ToString()
 };
 
-//var komunikat = new Komunikat
-//{
-//    Naglowek = naglowek,
-//    Tresc = new Tresc
-//    {
-//        MyProperty = new ZGWM
-//        {
-//            MessageDateTime = DateTime.UtcNow,
-//            MessageIdentification = "asdasdasd",
-//            MessageType = ("messageType", "codingStyle"),
-//            MessageVersion = 1,
-//            ReceiverIdentification = ("ReceiverIdentification", "codingStyle"),
-//            ProcessType = "processType",
-//            ReceiverRole = "ReceiverRole",
-//            ScheduleTimeInterval = (DateTime.UtcNow, DateTime.UtcNow),
-//            SenderIdentification = ("asdasd", "asdasd"),
-//            SenderRole = "senderRole",
-//        }
-//    }
-//};
+var komunikat = new Komunikat
+{
+    Naglowek = naglowek,
+    Tresc = new Tresc
+    {
+        FRP = new FRP
+        {
+            DT = (DateTime.UtcNow, DateTime.UtcNow),
+            KO = "sadasd",
+            mRID = Guid.NewGuid().ToString(),
+            W = 1,
+            IDOT = "87as98dsd"
+        }
+    }
+};
 
 //string xml = komunikat.ToXml();
 //Console.WriteLine(xml);
 
-//File.WriteAllText("zgwm.xml", xml);
+//File.WriteAllText("PKFRP.xml", xml);
 
-//using var file = new FileStream("zgwm.xml", FileMode.Open);
-//var testZGWM = serializer.Deserialize(file) as Komunikat;
+using var file = new FileStream("PKFRP.xml", FileMode.Open);
+var testZGWM = serializer.Deserialize(file) as Komunikat;
 
-//Console.WriteLine(testZGWM);
+Console.WriteLine(testZGWM);
 
 //var k = new[] { new KomunikatWeryfikacji { TK = "asdasda" } };
 

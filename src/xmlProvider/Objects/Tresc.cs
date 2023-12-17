@@ -7,37 +7,49 @@ public record Tresc
     /// <summary>
     /// Umowa sprzedaży energii dnia następnego
     /// </summary>
-    public ZUSE_ZUSEB? USE { get; init; }
+    public USE_USEB? USE { get; init; }
 
     /// <summary>
     /// Umowa sprzedaży energii dnia bierzącego
     /// </summary>
-    public ZUSE_ZUSEB? USEB { get; init; }
+    public USE_USEB? USEB { get; init; }
 
     /// <summary>
     /// Oferta portfolio na moce bilansujące
     /// </summary>
-    public ZOPMB? OPMB { get; init; }
+    public OPMB? OPMB { get; init; }
 
     /// <summary>
     /// Program pracy
     /// </summary>
-    public ZPP? PP { get; init; }
+    public PP? PP { get; init; }
 
     /// <summary>
     /// Oferty na energię bilansującą
     /// </summary>
-    public ZOEB? OEB { get; init; }
+    public OEB? OEB { get; init; }
 
     /// <summary>
     /// Oferty techniczne
     /// </summary>
-    public ZOT? OT { get; init; }
+    public OT? OT { get; init; }
 
     /// <summary>
     /// Oferty na moce bilansujace
     /// </summary>
-    public ZOMB? OMB { get; init; }
+    public OMB? OMB { get; init; }
+
+    public INMBP? INMBP { get; init; }
+
+    public INMBU? INMBU { get; init; }
+
+    public IAEBRR? IAEBRR { get; init; }
+
+    public FRP? FRP { get; init; }
+
+    public FRPO? FRPO { get; init; }
+
+    public FDMB? FDMB { get; init; }
 
     [XmlElement(Namespace = "schedule-xml.xsd")]
     public ZGWM? ScheduleMessage { get; init; }

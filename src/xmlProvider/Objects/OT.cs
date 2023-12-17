@@ -3,7 +3,7 @@ using xmlObjectProvider.Objects.Models;
 
 namespace xmlObjectProvider.Objects;
 
-public record ZOT : TrescBase
+public record OT : TrescBase
 {
     public required string KJG { get; init; }
 

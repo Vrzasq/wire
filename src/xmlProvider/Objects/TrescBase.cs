@@ -19,7 +19,7 @@ public abstract record TrescBase
 
     public string? VS { get; init; }
 
-    public required Okres DT { get; init; }
+    public required Okres? DT { get; init; }
 
     public Okres? VDT { get; init; }
 

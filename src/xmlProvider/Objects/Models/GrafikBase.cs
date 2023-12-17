@@ -6,7 +6,7 @@ namespace xmlObjectProvider.Objects.Models;
 [Serializable]
 public abstract record GrafikBase<TElement> where TElement : class
 {
-    public required string mRID { get; init; }
+    public required string? mRID { get; init; }
 
     public OkresZgloszenia<TElement>? TSP { get; init; }
 

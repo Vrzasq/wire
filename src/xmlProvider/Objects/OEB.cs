@@ -3,10 +3,12 @@ using xmlObjectProvider.Objects.Models;
 
 namespace xmlObjectProvider.Objects;
 
-public record ZOPMB : TrescBase
+public record OEB : TrescBase
 {
+    public required string KJG { get; init; }
+
     public required string KDUB { get; init; }
 
-    [XmlElement("BID")]
-    public required OfertaZOPMB[]? BID { get; init; }
+    [XmlElement("TS")]
+    public required GrafikZOEB[]? TS { get; init; }
 }
