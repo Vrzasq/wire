@@ -6,8 +6,8 @@ namespace xmlObjectProvider.Objects;
 
 [SuppressMessage("Style", "IDE1006:Naming Styles")]
 [DebuggerStepThrough]
-[XmlType(Namespace = "http://www.pse.pl/osp")]
 [Serializable]
+[XmlType(Namespace = "http://www.pse.pl/osp")]
 public record Naglowek
 {
     public string id { get; init; } = Guid.NewGuid().ToString();

@@ -14,98 +14,130 @@ var _settings = new XmlWriterSettings
     Indent = true,
 };
 
-using var file = new FileStream("test_zuse.xml", FileMode.Open);
+//using var file = new FileStream("test_zuse.xml", FileMode.Open);
 var serializer = new XmlSerializer(typeof(Komunikat));
-var obj = serializer.Deserialize(file) as Komunikat;
+//var obj = serializer.Deserialize(file) as Komunikat;
 
-Console.WriteLine(obj?.Tresc.USE?.mRID);
+
+//Console.WriteLine(obj?.Tresc.USE?.mRID);
 
 var naglowek = new Naglowek
 {
     data = DateTime.UtcNow,
-    kod_kom = "ZUSE",
+    kod_kom = "ZGWM",
     kod_obiektu = "8a7sd9asdakjshd",
     ref_id = Guid.NewGuid().ToString()
 };
 
-var k = new[] { new KomunikatWeryfikacji { TK = "asdasda" } };
+//var komunikat = new Komunikat
+//{
+//    Naglowek = naglowek,
+//    Tresc = new Tresc
+//    {
+//        MyProperty = new ZGWM
+//        {
+//            MessageDateTime = DateTime.UtcNow,
+//            MessageIdentification = "asdasdasd",
+//            MessageType = ("messageType", "codingStyle"),
+//            MessageVersion = 1,
+//            ReceiverIdentification = ("ReceiverIdentification", "codingStyle"),
+//            ProcessType = "processType",
+//            ReceiverRole = "ReceiverRole",
+//            ScheduleTimeInterval = (DateTime.UtcNow, DateTime.UtcNow),
+//            SenderIdentification = ("asdasd", "asdasd"),
+//            SenderRole = "senderRole",
+//        }
+//    }
+//};
 
-var tresc = new Tresc
-{
-    USEB = new ZUSE_ZUSEB
-    {
-        DT = new Okres { DTK = DateTime.UtcNow, DTS = DateTime.UtcNow.AddDays(1) },
-        IDOT = null,
-        IIW = "IIW",
-        KJB = "KJB",
-        KO = "KO",
-        KPOB = "KPOB",
-        mRID = Guid.NewGuid().ToString(),
-        rmRID = Guid.NewGuid().ToString(),
-        K = [new KomunikatWeryfikacji { TK = "asdasda" }],
-        VDT = new Okres { DTK = DateTime.UtcNow, DTS = DateTime.UtcNow.AddDays(1) },
-        VS = StatusWeryfikacji.D,
-        W = 1,
-        TS = null// [new GrafikZgloszenia
-        //{
-        //    K = [new KomunikatWeryfikacji { TK = "asdasda" }, new KomunikatWeryfikacji { TK = "asdasda222222" }],
-        //    KJB = "KJB",
-        //    KO = "KO",
-        //    mRID = Guid.NewGuid().ToString(),
-        //    TSP = new OkresZgloszenia
-        //    {
-        //        DT = new Okres { DTK = DateTime.UtcNow, DTS = DateTime.UtcNow.AddDays(1) },
-        //        R = "PT15M",
-        //        T = [
-        //            new DaneIlosciowe { P = 1, Q = .5m }
-        //        ]
-        //    }
-        //}]
-    },
-    USE = new ZUSE_ZUSEB
-    {
-        DT = new Okres { DTK = DateTime.UtcNow, DTS = DateTime.UtcNow.AddDays(1) },
-        IDOT = "IDOT",
-        IIW = "IIW",
-        KJB = "KJB",
-        KO = "KO",
-        KPOB = "KPOB",
-        mRID = Guid.NewGuid().ToString(),
-        rmRID = Guid.NewGuid().ToString(),
-        K = k,
-        VDT = new Okres { DTK = DateTime.UtcNow, DTS = DateTime.UtcNow.AddDays(1) },
-        VS = StatusWeryfikacji.D,
-        W = 1,
-        TS = new[] { new GrafikZUSE_ZUSEB
-        {
-            K = [new KomunikatWeryfikacji { TK = "asdasda" }, new KomunikatWeryfikacji { TK = "asdasda222222" }],
-            KJB = "KJB",
-            KO = "KO",
-            mRID = Guid.NewGuid().ToString(),
-            TSP = new OkresZgloszenia<DaneIloscioweZUSE_ZUSEB>
-            {
-                DT = new Okres { DTK = DateTime.UtcNow, DTS = DateTime.UtcNow.AddDays(1) },
-                R = "PT15M",
-                T = [
-                    new DaneIloscioweZUSE_ZUSEB { P = 1, Q = 1.5m },
+//string xml = komunikat.ToXml();
+//Console.WriteLine(xml);
 
-                    new DaneIloscioweZUSE_ZUSEB { P = 1, Q = .5m }
-                ]
-            },
-            VS = null
-        } }
-    }
-};
+//File.WriteAllText("zgwm.xml", xml);
+
+//using var file = new FileStream("zgwm.xml", FileMode.Open);
+//var testZGWM = serializer.Deserialize(file) as Komunikat;
+
+//Console.WriteLine(testZGWM);
+
+//var k = new[] { new KomunikatWeryfikacji { TK = "asdasda" } };
+
+//var tresc = new Tresc
+//{
+//    USEB = new ZUSE_ZUSEB
+//    {
+//        DT = new Okres { DTK = DateTime.UtcNow, DTS = DateTime.UtcNow.AddDays(1) },
+//        IDOT = null,
+//        IIW = "IIW",
+//        KJB = "KJB",
+//        KO = "KO",
+//        KPOB = "KPOB",
+//        mRID = Guid.NewGuid().ToString(),
+//        rmRID = Guid.NewGuid().ToString(),
+//        K = [new KomunikatWeryfikacji { TK = "asdasda" }],
+//        VDT = new Okres { DTK = DateTime.UtcNow, DTS = DateTime.UtcNow.AddDays(1) },
+//        VS = StatusWeryfikacji.D,
+//        W = 1,
+//        TS = [new GrafikZUSE_ZUSEB
+//        {
+//            K = [new KomunikatWeryfikacji { TK = "asdasda" }, new KomunikatWeryfikacji { TK = "asdasda222222" }],
+//            KJB = "KJB",
+//            KO = "KO",
+//            mRID = Guid.NewGuid().ToString(),
+//            TSP = new OkresZgloszenia<DaneIloscioweZUSE_ZUSEB>
+//            {
+//                DT = new Okres { DTK = DateTime.UtcNow, DTS = DateTime.UtcNow.AddDays(1) },
+//                R = "PT15M",
+//                T = [
+//                    new DaneIloscioweZUSE_ZUSEB { P = 1, Q = .5m }
+//                ]
+//            }
+//        }]
+//    },
+//    USE = new ZUSE_ZUSEB
+//    {
+//        DT = new Okres { DTK = DateTime.UtcNow, DTS = DateTime.UtcNow.AddDays(1) },
+//        IDOT = "IDOT",
+//        IIW = "IIW",
+//        KJB = "KJB",
+//        KO = "KO",
+//        KPOB = "KPOB",
+//        mRID = Guid.NewGuid().ToString(),
+//        rmRID = Guid.NewGuid().ToString(),
+//        K = k,
+//        VDT = new Okres { DTK = DateTime.UtcNow, DTS = DateTime.UtcNow.AddDays(1) },
+//        VS = StatusWeryfikacji.D,
+//        W = 1,
+//        TS = new[] { new GrafikZUSE_ZUSEB
+//        {
+//            K = [new KomunikatWeryfikacji { TK = "asdasda" }, new KomunikatWeryfikacji { TK = "asdasda222222" }],
+//            KJB = "KJB",
+//            KO = "KO",
+//            mRID = Guid.NewGuid().ToString(),
+//            TSP = new OkresZgloszenia<DaneIloscioweZUSE_ZUSEB>
+//            {
+//                DT = new Okres { DTK = DateTime.UtcNow, DTS = DateTime.UtcNow.AddDays(1) },
+//                R = "PT15M",
+//                T = [
+//                    new DaneIloscioweZUSE_ZUSEB { P = 1, Q = 1.5m },
+
+//                    new DaneIloscioweZUSE_ZUSEB { P = 1, Q = .5m }
+//                ]
+//            },
+//            VS = null
+//        } }
+//    }
+//};
 
 
-var komunikat = new Komunikat
-{
-    Naglowek = naglowek,
-    Tresc = tresc
-};
-string xml = komunikat.ToXml();
+//var komunikat = new Komunikat
+//{
+//    Naglowek = naglowek,
+//    Tresc = tresc
+//};
+//string xml = komunikat.ToXml();
 
-File.WriteAllText("wwww_testTest.xml", xml);
+//File.WriteAllText("wwww_testTest.xml", xml);
 
 
 //using var file = new FileStream("test_zuse.xml", new FileStreamOptions { Access = FileAccess.Read, Mode = FileMode.Open });

@@ -1,4 +1,6 @@
-﻿namespace xmlObjectProvider.Objects;
+﻿using System.Xml.Serialization;
+
+namespace xmlObjectProvider.Objects;
 
 public record Tresc
 {
@@ -36,4 +38,16 @@ public record Tresc
     /// Oferty na moce bilansujace
     /// </summary>
     public ZOMB? OMB { get; init; }
+
+    [XmlElement(Namespace = "schedule-xml.xsd")]
+    public ZGWM? ScheduleMessage { get; init; }
+
+    [XmlElement(Namespace = "acknowledgement-xml.xsd")]
+    public PGWM? AcknowledgementDocument { get; init; }
+
+    [XmlElement(Namespace = "anomaly-xml.xsd")]
+    public IGWM? AnomalyReport { get; init; }
+
+    [XmlElement(Namespace = "confirmation-xml.xsd")]
+    public UGWM? ConfirmationReport { get; init; }
 }
