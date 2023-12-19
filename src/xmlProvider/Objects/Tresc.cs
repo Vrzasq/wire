@@ -64,6 +64,10 @@ public record Tresc
 
     public RDEW? RDEW { get; init; }
 
+    public RHUS? RHUS { get; init; }
+
+    public RHUS? RHKUS { get; init; }
+
     [XmlElement(ElementName = "ScheduleMessage", Namespace = "schedule-xml.xsd")]
     public ZGWM? ScheduleMessage { get; init; }
 

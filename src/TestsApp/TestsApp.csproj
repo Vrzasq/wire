@@ -29,6 +29,9 @@
     <None Update="rh.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="RHUS.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="test.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

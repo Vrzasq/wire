@@ -13,12 +13,12 @@ var _settings = new XmlWriterSettings
     Indent = true,
 };
 
-using var file = new FileStream("RDEW.xml", FileMode.Open);
+using var file = new FileStream("RHUS.xml", FileMode.Open);
 var serializer = new XmlSerializer(typeof(Komunikat));
 var obj = serializer.Deserialize(file) as Komunikat;
 
 var testXml = obj.ToXml();
-File.WriteAllText("RDEW_test.xml", testXml);
+File.WriteAllText("RHUS_test.xml", testXml);
 
 
 //Console.WriteLine(obj?.Tresc.USE?.mRID);

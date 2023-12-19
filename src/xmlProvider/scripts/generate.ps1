@@ -13,7 +13,7 @@ function GenerateObject($objName, [string[]]$importFiles)
 #GenerateObject "PKOR" "xsd/DEF_GWM/GWM-schedule-xml.xsd xsd/DEF_GWM/GWM-etso-core-cmpts.xsd xsd/DEF_GWM/GWM-etso-code-lists.xsd xsd/DEF_GWM/GWM-etso-core-cmpts.xsd xsd/DEF_GWM/GWM-anomaly-xml.xsd xsd/DEF_GWM/GWM-confirmation-xml.xsd xsd/DEF_GWM/GWM-acknowledgement-xml.xsd"
 
 #GWM-anomaly-xml.xsd
-GenerateObject "RDEW"
+GenerateObject "RHKUS"
 #GenerateObject "ZUSEB"
 #GenerateObject "ZOPMB"
 #GenerateObject "ZOEB"

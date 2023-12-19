@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Komunikat xmlns="http://www.pse.pl/osp">
+    <Naglowek>
+        <kod_kom>RHUS</kod_kom>
+        <kod_obiektu>kod PB</kod_obiektu>
+        <data>2011-01-01</data>
+        <data_utworzenia>2011-01-01T10:00:00Z</data_utworzenia>
+        <wersja>WIRE 14.0</wersja>
+        <id>identyfikator dokumentu</id>
+    </Naglowek>
+    <Tresc>
+        <RHUS>
+            <mRID>identyfikator raportu</mRID>
+            <NRR>numer raportu rozliczeniowego - handlowego</NRR>
+            <KPB>kod PB</KPB>
+            <KUM>kod umowy</KUM>
+            <DT>
+                <DTS>2011-01-01T10:00:00Z</DTS>
+                <DTK>2011-01-01T10:00:00Z</DTK>
+            </DT>
+            <NR>numer rozliczenia</NR>
+            <STR>status rozliczenia</STR>
+            <NRDO>
+                <NRD>
+                    <NR>1</NR>
+                </NRD>
+            </NRDO>
+            <OBUS>
+                <KOB>kod obiektu</KOB>
+                <NOB>nazwa obiektu</NOB>
+                <TS>
+                    <mRID>identyfikator grafiku</mRID>
+                    <BT>typ usługi systemowej</BT>
+                    <JM>jednostka miary</JM>
+                    <TSP>
+                        <DT>
+                            <DTS>2011-01-01T10:00:00Z</DTS>
+                            <DTK>2011-01-01T10:00:00Z</DTK>
+                        </DT>
+                        <R>ziarno</R>
+                        <T>
+                            <Q>1</Q>
+                            <CUS>1</CUS>
+                            <NUS>1</NUS>
+                        </T>
+                    </TSP>
+                </TS>
+            </OBUS>
+            <PUS>
+                <KPB>kod PB</KPB>
+                <TS>
+                    <mRID>identyfikator grafiku</mRID>
+                    <BT>typ usługi systemowej</BT>
+                    <JM>jednostka miary</JM>
+                    <TSP>
+                        <DT>
+                            <DTS>2011-01-01T10:00:00Z</DTS>
+                            <DTK>2011-01-01T10:00:00Z</DTK>
+                        </DT>
+                        <R>ziarno</R>
+                        <T>
+                            <Q>1</Q>
+                            <CUS>1</CUS>
+                            <NUS>1</NUS>
+                        </T>
+                    </TSP>
+                </TS>
+            </PUS>
+        </RHUS>
+    </Tresc>
+</Komunikat>

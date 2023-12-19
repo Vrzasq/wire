@@ -12,7 +12,7 @@ public abstract record TrescBase
     [XmlIgnore]
     public bool WSpecified => W.HasValue;
 
-    public required string KO { get; init; }
+    public required string? KO { get; init; }
 
     public string? IDOT { get; init; }
 
