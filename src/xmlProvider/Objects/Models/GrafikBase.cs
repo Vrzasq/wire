@@ -4,7 +4,7 @@ namespace xmlObjectProvider.Objects.Models;
 
 [XmlType(Namespace = "http://www.pse.pl/osp")]
 [Serializable]
-public abstract record GrafikBase<TElement> where TElement : class
+public record GrafikBase<TElement> where TElement : class
 {
     public required string? mRID { get; init; }
 

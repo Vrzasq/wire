@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Xml;
 using System.Xml.Serialization;
+using static xmlObjectProvider.Objects.Models.DateTimeFormats;
 
 namespace xmlObjectProvider.Objects.Models;
 
@@ -56,7 +57,7 @@ public record XmlTimeIntervalField()
             if (!string.IsNullOrEmpty(_v))
                 return _v;
 
-            _v = $"{StartDate:yyyy-MM-ddTHH:mmZ}/{EndDate:yyyy-MM-ddTHH:mmZ}";
+            _v = $"{StartDate.ToString(XmlFormat)}/{EndDate.ToString(XmlFormat)}";
             return _v;
         }
 
@@ -64,7 +65,7 @@ public record XmlTimeIntervalField()
     }
 
     public override string ToString() =>
-        $"{StartDate:yyyy-MM-ddTHH:mmZ}/{EndDate:yyyy-MM-ddTHH:mmZ}";
+        $"{StartDate.ToString(XmlFormat)}/{EndDate.ToString(XmlFormat)}";
 
     public static implicit operator XmlTimeIntervalField((DateTime startDate, DateTime endDate) period) => new(period.startDate, period.endDate);
 }

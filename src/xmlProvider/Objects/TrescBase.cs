@@ -7,7 +7,10 @@ public abstract record TrescBase
 {
     public required string mRID { get; init; }
 
-    public required int W { get; init; }
+    public required int? W { get; init; }
+
+    [XmlIgnore]
+    public bool WSpecified => W.HasValue;
 
     public required string KO { get; init; }
 

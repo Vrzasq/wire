@@ -1,4 +1,5 @@
 ﻿using System.Xml.Serialization;
+using xmlObjectProvider.Objects.generated.RHER;
 
 namespace xmlObjectProvider.Objects;
 
@@ -51,15 +52,33 @@ public record Tresc
 
     public FDMB? FDMB { get; init; }
 
-    [XmlElement(Namespace = "schedule-xml.xsd")]
+    public PPE? PPE { get; init; }
+
+    public RHER? RHER { get; init; }
+
+    public RH? RH { get; init; }
+
+    public RHK? RHK { get; init; }
+
+    public RD? RD { get; init; }
+
+    [XmlElement(ElementName = "ScheduleMessage", Namespace = "schedule-xml.xsd")]
     public ZGWM? ScheduleMessage { get; init; }
 
-    [XmlElement(Namespace = "acknowledgement-xml.xsd")]
-    public PGWM? AcknowledgementDocument { get; init; }
+    [XmlElement(ElementName = "AcknowledgementDocument", Namespace = "acknowledgement-xml.xsd")]
+    public PGWM? PGWM { get; init; }
 
-    [XmlElement(Namespace = "anomaly-xml.xsd")]
-    public IGWM? AnomalyReport { get; init; }
+    [XmlElement(ElementName = "AcknowledgementDocument", Namespace = "acknowledgement.xsd")]
+    public PKOR? PKOR { get; init; }
 
-    [XmlElement(Namespace = "confirmation-xml.xsd")]
-    public UGWM? ConfirmationReport { get; init; }
+    [XmlElement(ElementName = "ProblemStatementDocument", Namespace = "epsd-xsd.xsd")]
+    public KOR? KOR { get; init; }
+
+    [XmlElement(ElementName = "AnomalyReport", Namespace = "anomaly-xml.xsd")]
+    public IGWM? IGWM { get; init; }
+
+    [XmlElement(ElementName = "ConfirmationReport", Namespace = "confirmation-xml.xsd")]
+    public UGWM? UGWM { get; init; }
+
+    public string? INFO { get; init; }
 }

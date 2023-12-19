@@ -3,7 +3,6 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 using xmlObjectProvider.Objects;
-using xmlObjectProvider.Objects.Models;
 using xmlObjectProvider.Services.XlsxMapperService;
 
 var _settings = new XmlWriterSettings
@@ -14,9 +13,9 @@ var _settings = new XmlWriterSettings
     Indent = true,
 };
 
-//using var file = new FileStream("test_zuse.xml", FileMode.Open);
+using var file = new FileStream("rd.xml", FileMode.Open);
 var serializer = new XmlSerializer(typeof(Komunikat));
-//var obj = serializer.Deserialize(file) as Komunikat;
+var obj = serializer.Deserialize(file) as Komunikat;
 
 
 //Console.WriteLine(obj?.Tresc.USE?.mRID);
@@ -34,26 +33,28 @@ var komunikat = new Komunikat
     Naglowek = naglowek,
     Tresc = new Tresc
     {
-        FRP = new FRP
+        PPE = new PPE
         {
-            DT = (DateTime.UtcNow, DateTime.UtcNow),
-            KO = "sadasd",
+            DT = null,
+            DTK = null,
+            DTS = null,
+            KO = "KO",
             mRID = Guid.NewGuid().ToString(),
-            W = 1,
-            IDOT = "87as98dsd"
+            KPPE = "KPPE",
+            W = 0
         }
     }
 };
 
-//string xml = komunikat.ToXml();
-//Console.WriteLine(xml);
+string xml = komunikat.ToXml();
+Console.WriteLine(xml);
 
-//File.WriteAllText("PKFRP.xml", xml);
+File.WriteAllText("PPE.xml", xml);
 
-using var file = new FileStream("PKFRP.xml", FileMode.Open);
-var testZGWM = serializer.Deserialize(file) as Komunikat;
+//using var file = new FileStream("PPE.xml", FileMode.Open);
+//var testZGWM = serializer.Deserialize(file) as Komunikat;
 
-Console.WriteLine(testZGWM);
+//Console.WriteLine(testZGWM);
 
 //var k = new[] { new KomunikatWeryfikacji { TK = "asdasda" } };
 

@@ -11,5 +11,5 @@ public record Komunikat
 {
     public required Naglowek Naglowek { get; init; }
 
-    public required Tresc Tresc { get; init; }
+    public required Tresc? Tresc { get; init; }
 }

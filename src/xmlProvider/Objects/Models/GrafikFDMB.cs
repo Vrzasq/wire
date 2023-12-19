@@ -1,6 +1,3 @@
 ﻿namespace xmlObjectProvider.Objects.Models;
 
-public record GrafikFDMB : GrafikBase<DaneIloscioweFDMB>
-{
-
-}
+public record GrafikFDMB : GrafikBase<DaneIloscioweFDMB> { }

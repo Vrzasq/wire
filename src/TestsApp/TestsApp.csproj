@@ -20,6 +20,12 @@
     <None Update="balance_units.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="rd.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="rh.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="test.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

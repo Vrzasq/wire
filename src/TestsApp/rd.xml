@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Komunikat xmlns="http://www.pse.pl/osp">
+    <Naglowek>
+        <kod_kom>RD</kod_kom>
+        <kod_obiektu>kod OR</kod_obiektu>
+        <data>2022-01-01</data>
+        <data_utworzenia>2022-01-01T10:00:00Z</data_utworzenia>
+        <wersja>WIRE 14.0</wersja>
+        <id>identyfikator dokumentu</id>
+    </Naglowek>
+    <Tresc>
+        <RD>
+            <mRID>identyfikator raportu</mRID>
+            <NRR>numer raportu dobowego</NRR>
+            <KO>kod OR</KO>
+            <NR>numer rozliczenia</NR>
+            <STR>status rozliczenia</STR>
+            <DT>
+                <DTS>2022-01-01T10:00:00Z</DTS>
+                <DTK>2022-01-01T10:00:00Z</DTK>
+            </DT>
+            <RDEB>
+                <!--powtarzane
+                dla kolejnych JG-->
+                <JG>
+                    <KDUB>kod DUB</KDUB>
+                    <KJG>kod JG</KJG>
+                    <EBJ>
+                        <EBD>1</EBD>
+                        <EBO>2</EBO>
+                        <CEBD>3</CEBD>
+                        <CEBO>3</CEBO>
+                        <NEBD>3</NEBD>
+                        <NEBO>3</NEBO>
+                    </EBJ>
+                </JG>
+                <TS>
+                    <TSP>
+                        <DT>
+                            <DTS>2022-01-01T10:00:00Z</DTS>
+                            <DTK>2022-01-01T10:00:00Z</DTK>
+                        </DT>
+                        <R>ziarno</R>
+                        <!--pozycja
+                        na każdy kwadrans w przedziale czasu-->
+                        <T>
+                            <P>1</P>
+                            <TEB>
+                                <CEB_PP>2</CEB_PP>
+                                <CEB_RR>2</CEB_RR>
+                                <CSDAC>2</CSDAC>
+                                <CKOEB>2</CKOEB>
+                                <CEO>2</CEO>
+                            </TEB>
+                        </T>
+                    </TSP>
+                </TS>
+            </RDEB>
+            <RDMB>
+                <!--powtarzane
+                dla kolejnych JG-->
+                <JG>
+                    <KDUB>kod DUB</KDUB>
+                    <KJG>kod JG</KJG>
+                    <!--powtarzane
+                    dla kolejnych typów mocy bilansujących-->
+                    <MBJ>
+                        <BT>typ mocy bilansującej</BT>
+                        <MBPUD>1</MBPUD>
+                        <CMBPUD>1</CMBPUD>
+                        <NMBPUD>1</NMBPUD>
+                    </MBJ>
+                </JG>
+                <TS>
+                    <TSP>
+                        <DT>
+                            <DTS>2022-01-01T10:00:00Z</DTS>
+                            <DTK>2022-01-01T10:00:00Z</DTK>
+                        </DT>
+                        <R>ziarno</R>
+                        <!--pozycja
+                        na każdy kwadrans w przedziale czasu-->
+                        <T>
+                            <P>1</P>
+                            <!--powtarzane
+                            dla kolejnych typów mocy bilansujących-->
+                            <TMB>
+                                <BT>typ mocy bilansującej</BT>
+                                <CMBP>1</CMBP>
+                                <CMBU>1</CMBU>
+                                <CMBNO>1</CMBNO>
+                                <CMBNN>1</CMBNN>
+                            </TMB>
+                        </T>
+                    </TSP>
+                </TS>
+            </RDMB>
+            <RDRO>
+                <!--powtarzane
+                dla kolejnych JG-->
+                <JG>
+                    <KDUB>kod DUB</KDUB>
+                    <KJG>kod JG</KJG>
+                    <ROJ>
+                        <RORD>1</RORD>
+                        <CORD>1</CORD>
+                        <NROD>1</NROD>
+                    </ROJ>
+                </JG>
+                <TS>
+                    <TSP>
+                        <DT>
+                            <DTS>2022-01-01T10:00:00Z</DTS>
+                            <DTK>2022-01-01T10:00:00Z</DTK>
+                        </DT>
+                        <R>ziarno</R>
+                        <!--pozycja
+                        na każdy kwadrans w przedziale czasu-->
+                        <T>
+                            <P>1</P>
+                            <TRO>
+                                <COR>1</COR>
+                                <COR_RR>1</COR_RR>
+                            </TRO>
+                        </T>
+                    </TSP>
+                </TS>
+            </RDRO>
+            <RDEN>
+                <!--powtarzane
+                dla kolejnych JB-->
+                <JB>
+                    <KPOB>kod POB</KPOB>
+                    <KJB>kod JB</KJB>
+                    <ENJ>
+                        <END>1</END>
+                        <ENO>1</ENO>
+                        <CEND>2</CEND>
+                        <CENO>5</CENO>
+                        <NEND>5</NEND>
+                        <NENO>5</NENO>
+                    </ENJ>
+                </JB>
+                <TS>
+                    <TSP>
+                        <DT>
+                            <DTS>2022-01-01T10:00:00Z</DTS>
+                            <DTK>2022-01-01T10:00:00Z</DTK>
+                        </DT>
+                        <R>PT15M</R>
+                        <!--pozycja
+                        na każdy kwadrans w przedziale czasu-->
+                        <T>
+                            <P>1</P>
+                            <TEN>
+                                <CEN>1</CEN>
+                                <CEB_SR>1</CEB_SR>
+                                <CSDAC>1</CSDAC>
+                                <SK>1</SK>
+                            </TEN>
+                        </T>
+                    </TSP>
+                </TS>
+            </RDEN>
+        </RD>
+    </Tresc>
+</Komunikat>

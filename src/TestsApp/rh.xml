@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Komunikat xmlns="http://www.pse.pl/osp">
+    <Naglowek>
+        <kod_kom>RH</kod_kom>
+        <kod_obiektu>kod OR</kod_obiektu>
+        <data>2022-11-11</data>
+        <data_utworzenia>2022-11-11T12:00:00Z</data_utworzenia>
+        <wersja>WIRE 14.0</wersja>
+        <id>identyfikator dokumentu</id>
+    </Naglowek>
+    <Tresc>
+        <RH>
+            <mRID>identyfikator raportu</mRID>
+            <NRR>numer raportu handlowego</NRR>
+            <KO>kod OR</KO>
+            <NR>numer rozliczenia</NR>
+            <STR>status rozliczenia</STR>
+            <DT>
+                <DTS>2022-11-11T12:00:00Z</DTS>
+                <DTK>2022-11-11T12:00:00Z</DTK>
+            </DT>
+            <NRDO>
+                <!--powtarzane
+                dla kolejnych rozliczeń dobowych-->
+                <NRD>
+                    <NR>numer rozliczenia dobowego</NR>
+                </NRD>
+            </NRDO>
+            <RHEB>
+                <!--powtarzane
+                dla kolejnych JG-->
+                <JG>
+                    <KDUB>kod DUB</KDUB>
+                    <KJG>kod JG</KJG>
+                    <EBJ>
+                        <RR>typ danych</RR>
+                        <EBDE>1</EBDE>
+                        <EBOE>2</EBOE>
+                        <CEBDE>1</CEBDE>
+                        <CEBOE>1</CEBOE>
+                        <NEBDE>1</NEBDE>
+                        <NEBOE>1</NEBOE>
+                    </EBJ>
+                </JG>
+            </RHEB>
+            <RHMB>
+                <!--powtarzane
+                dla kolejnych JG-->
+                <JG>
+                    <KDUB>kod DUB</KDUB>
+                    <KJG>kod JG</KJG>
+                    <!--powtarzane
+                    dla kolejnych typów mocy bilansujących-->
+                    <MBJ>
+                        <RR>typ danych</RR>
+                        <BT>typ mocy bilansującej</BT>
+                        <MBPUE>1</MBPUE>
+                        <CMBPUE>1</CMBPUE>
+                        <NMBPUE>1</NMBPUE>
+                    </MBJ>
+                </JG>
+            </RHMB>
+            <RHRO>
+                <!--powtarzane
+                dla kolejnych JG-->
+                <JG>
+                    <KDUB>kod DUB</KDUB>
+                    <KJG>kod JG</KJG>
+                    <ROJ>
+                        <RR>typ danych</RR>
+                        <RORE>1</RORE>
+                        <CORE>1</CORE>
+                        <NROE>1</NROE>
+                    </ROJ>
+                </JG>
+            </RHRO>
+            <RHEN>
+                <!--powtarzane
+                dla kolejnych JB-->
+                <JB>
+                    <KPOB>kod POB</KPOB>
+                    <KJB>kod JB</KJB>
+                    <ENJ>
+                        <RR>typ danych</RR>
+                        <ENDE>1</ENDE>
+                        <ENOE>1</ENOE>
+                        <CENDE>1</CENDE>
+                        <CENOE>1</CENOE>
+                        <NENDE>1</NENDE>
+                        <NENOE>1</NENOE>
+                    </ENJ>
+                </JB>
+            </RHEN>
+        </RH>
+    </Tresc>
+</Komunikat>

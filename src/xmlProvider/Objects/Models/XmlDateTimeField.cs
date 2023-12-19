@@ -1,4 +1,5 @@
 ﻿using System.Xml.Serialization;
+using static xmlObjectProvider.Objects.Models.DateTimeFormats;
 
 namespace xmlObjectProvider.Objects.Models;
 
@@ -33,7 +34,7 @@ public record class XmlDateTimeField
             if (!string.IsNullOrEmpty(_v))
                 return _v;
 
-            _v = DT.ToString("yyyy-MM-ddTHH:mmZ");
+            _v = DT.ToString(XmlFormat);
 
             return _v;
         }
