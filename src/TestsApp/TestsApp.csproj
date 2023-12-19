@@ -23,6 +23,9 @@
     <None Update="rd.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="RDEW.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="rh.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

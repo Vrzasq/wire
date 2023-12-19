@@ -13,9 +13,12 @@ var _settings = new XmlWriterSettings
     Indent = true,
 };
 
-using var file = new FileStream("rd.xml", FileMode.Open);
+using var file = new FileStream("RDEW.xml", FileMode.Open);
 var serializer = new XmlSerializer(typeof(Komunikat));
 var obj = serializer.Deserialize(file) as Komunikat;
+
+var testXml = obj.ToXml();
+File.WriteAllText("RDEW_test.xml", testXml);
 
 
 //Console.WriteLine(obj?.Tresc.USE?.mRID);
@@ -28,28 +31,28 @@ var naglowek = new Naglowek
     ref_id = Guid.NewGuid().ToString()
 };
 
-var komunikat = new Komunikat
-{
-    Naglowek = naglowek,
-    Tresc = new Tresc
-    {
-        PPE = new PPE
-        {
-            DT = null,
-            DTK = null,
-            DTS = null,
-            KO = "KO",
-            mRID = Guid.NewGuid().ToString(),
-            KPPE = "KPPE",
-            W = 0
-        }
-    }
-};
+//var komunikat = new Komunikat
+//{
+//    Naglowek = naglowek,
+//    Tresc = new Tresc
+//    {
+//        PPE = new PPE
+//        {
+//            DT = null,
+//            DTK = null,
+//            DTS = null,
+//            KO = "KO",
+//            mRID = Guid.NewGuid().ToString(),
+//            KPPE = "KPPE",
+//            W = 0
+//        }
+//    }
+//};
 
-string xml = komunikat.ToXml();
-Console.WriteLine(xml);
+//string xml = komunikat.ToXml();
+//Console.WriteLine(xml);
 
-File.WriteAllText("PPE.xml", xml);
+//File.WriteAllText("PPE.xml", xml);
 
 //using var file = new FileStream("PPE.xml", FileMode.Open);
 //var testZGWM = serializer.Deserialize(file) as Komunikat;

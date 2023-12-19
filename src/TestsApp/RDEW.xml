@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Komunikat xmlns="http://www.pse.pl/osp">
+    <Naglowek>
+        <kod_kom>RDEW</kod_kom>
+        <kod_obiektu>kod JG</kod_obiektu>
+        <data>2011-01-01</data>
+        <data_utworzenia>2011-01-01T10:00:00Z</data_utworzenia>
+        <wersja>WIRE 14.0</wersja>
+        <id>identyfikator dokumentu</id>
+    </Naglowek>
+    <Tresc>
+        <RDEW>
+            <mRID>identyfikator raportu</mRID>
+            <NRR>numer raportu dobowego</NRR>
+            <KO>kod OR</KO>
+            <NR>numer rozliczenia</NR>
+            <STR>status rozliczenia</STR>
+            <DT>
+                <DTS>2011-01-01T10:00:00Z</DTS>
+                <DTK>2011-01-01T10:00:00Z</DTK>
+            </DT>
+            <JG>
+                <KDUB>kod DUB</KDUB>
+                <KJG>kod JG</KJG>
+                <EWEB>
+                    <TS>
+                        <PT>typ serii danych rozliczeniowych</PT>
+                        <TSP>
+                            <DT>
+                                <DTS>2011-01-01T10:00:00Z</DTS>
+                                <DTK>2011-01-01T10:00:00Z</DTK>
+                            </DT>
+                            <R>ziarno</R>
+                            <!--pozycja
+                            na każdy kwadrans w przedziale czasu-->
+                            <T>
+                                <P>1</P>
+                                <EZ>1</EZ>
+                                <ES>1</ES>
+                                <ER>1</ER>
+                                <E_BPP>1</E_BPP>
+                                <EB_FCR>1</EB_FCR>
+                                <EB_aFRR>1</EB_aFRR>
+                                <EB_mFRRd>1</EB_mFRRd>
+                                <dCEB>1</dCEB>
+                                <dKU>1</dKU>
+                                <EO>1</EO>
+                                <KEO>1</KEO>
+                                <NEB>1</NEB>
+                                <!--powtarzane
+                                dla kolejnych pasm cen wymuszonych-->
+                                <CW>
+                                    <NPM>1</NPM>
+                                    <CWD>1</CWD>
+                                    <CWO>1</CWO>
+                                </CW>
+                                <!--powtarzane
+                                dla kolejnych pasm ofertowych-->
+                                <DPO>
+                                    <NP>1</NP>
+                                    <ZP>1</ZP>
+                                    <D>1</D>
+                                    <OFCG>1</OFCG>
+                                    <OFCD>1</OFCD>
+                                    <CDO>1</CDO>
+                                    <OFP>1</OFP>
+                                    <KEB>1</KEB>
+                                    <!--powtarzane
+                                    dla kolejnych rynków albo platform-->
+                                    <EBPM>
+                                        <MT>1</MT>
+                                        <OREB>1</OREB>
+                                        <EB>1</EB>
+                                        <CWK>1</CWK>
+                                        <CRK>1</CRK>
+                                    </EBPM>
+                                </DPO>
+                            </T>
+                        </TSP>
+                    </TS>
+                </EWEB>
+                <EWMB>
+                    <TS>
+                        <PT>1</PT>
+                        <BT>1</BT>
+                        <TSP>
+                            <DT>
+                                <DTS>2011-01-01T10:00:00Z</DTS>
+                                <DTK>2011-01-01T10:00:00Z</DTK>
+                            </DT>
+                            <R>ziarno</R>
+                            <!--pozycja
+                            na każdy kwadrans w przedziale czasu-->
+                            <T>
+                                <P>1</P>
+                                <MBP>1</MBP>
+                                <MBPZ>1</MBPZ>
+                                <MBU>1</MBU>
+                                <MBUZ>1</MBUZ>
+                                <MBD>1</MBD>
+                                <MBNO>1</MBNO>
+                                <MBNN>1</MBNN>
+                                <MBNNO>1</MBNNO>
+                                <CMBZ>1</CMBZ>
+                                <NMBPU>1</NMBPU>
+                            </T>
+                        </TSP>
+                    </TS>
+                </EWMB>
+                <EWRO>
+                    <TS>
+                        <PT>1</PT>
+                        <TSP>
+                            <DT>
+                                <DTS>2011-01-01T10:00:00Z</DTS>
+                                <DTK>2011-01-01T10:00:00Z</DTK>
+                            </DT>
+                            <R>ziarno</R>
+                            <T>
+                                <P>1</P>
+                                <RO>1</RO>
+                                <!--powtarzane
+                                dla kolejnych rynków albo platform-->
+                                <ROM>
+                                    <MT>1</MT>
+                                    <OREB>1</OREB>
+                                    <ROR>1</ROR>
+                                    <NRO>1</NRO>
+                                </ROM>
+                            </T>
+                        </TSP>
+                    </TS>
+                </EWRO>
+                <PM>
+                    <TS>
+                        <PT>1</PT>
+                        <TSP>
+                            <DT>
+                                <DTS>2011-01-01T10:00:00Z</DTS>
+                                <DTK>2011-01-01T10:00:00Z</DTK>
+                            </DT>
+                            <R>ziarno</R>
+                            <T>
+                                <P>1</P>
+                                <!--powtarzane
+                                dla kolejnych pasm mocy-->
+                                <PPM>
+                                    <NPM>1</NPM>
+                                    <PMIN>1</PMIN>
+                                    <PMAX>1</PMAX>
+                                </PPM>
+                            </T>
+                        </TSP>
+                    </TS>
+                </PM>
+            </JG>
+        </RDEW>
+    </Tresc>
+</Komunikat>

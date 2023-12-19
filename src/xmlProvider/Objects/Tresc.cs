@@ -62,6 +62,8 @@ public record Tresc
 
     public RD? RD { get; init; }
 
+    public RDEW? RDEW { get; init; }
+
     [XmlElement(ElementName = "ScheduleMessage", Namespace = "schedule-xml.xsd")]
     public ZGWM? ScheduleMessage { get; init; }
 
