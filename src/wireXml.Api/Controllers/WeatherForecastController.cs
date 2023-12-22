@@ -1,7 +1,9 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace wireXml.Api.Controllers
 {
+    //[Authorize]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -25,9 +27,16 @@ namespace wireXml.Api.Controllers
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
                 TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)],
+                WhetherType = (WhetherType)Random.Shared.Next(0, 3)
             })
             .ToArray();
+        }
+
+        [HttpPost]
+        public int Post(WhetherType whetherType)
+        {
+            return (int)whetherType;
         }
     }
 }
