@@ -49,7 +49,6 @@
             _gridBalanceUnits.ReadOnly = true;
             _gridBalanceUnits.RowHeadersWidth = 30;
             _gridBalanceUnits.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            _gridBalanceUnits.RowTemplate.Height = 29;
             _gridBalanceUnits.ScrollBars = ScrollBars.Vertical;
             _gridBalanceUnits.Size = new Size(496, 251);
             _gridBalanceUnits.TabIndex = 0;
@@ -76,7 +75,7 @@
             // 
             // _btnDelete
             // 
-            _btnDelete.Location = new Point(536, 55);
+            _btnDelete.Location = new Point(208, 276);
             _btnDelete.Name = "_btnDelete";
             _btnDelete.Size = new Size(88, 29);
             _btnDelete.TabIndex = 1;
