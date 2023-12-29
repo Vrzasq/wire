@@ -2,8 +2,18 @@
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
+using TestsApp;
 using xmlObjectProvider.Objects;
 using xmlObjectProvider.Services.XlsxMapperService;
+
+
+
+
+var foo = new Foo("jjjj", 11);
+Bar bar = new(foo, "dadada");
+
+Console.WriteLine(foo);
+Console.WriteLine(bar);
 
 var _settings = new XmlWriterSettings
 {

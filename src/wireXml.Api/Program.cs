@@ -3,6 +3,8 @@ using Serilog.Events;
 using Serilog;
 using System.Text.Json.Serialization;
 using wireXml.Api.Middleware.ApiKey;
+using Mediator;
+using wireXml.Api.Behaviors;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
@@ -20,10 +22,11 @@ builder.Host.UseSerilog((context, services, configuration) => configuration
     .WriteTo.Console()
     .WriteTo.File(
         path: "logs/wire.api-.log",
-        outputTemplate: "{Timestamp:HH:mm:ss.ff zzzz} [{Level:u3}] [{RequestId}] {Message:lj}{NewLine}{Exception}",
+        outputTemplate: "{Timestamp:HH:mm:ss.fff zzzz} [{Level:u3}] [{RequestId}] {Message:lj}{NewLine}{Exception}",
         rollingInterval: RollingInterval.Day)
     );
 
+builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 builder.Services.AddControllers()
     .AddXmlSerializerFormatters()
     .AddJsonOptions(options =>
@@ -60,7 +63,11 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 builder.Services.AddHealthChecks();
-builder.Services.AddMediator();
+builder.Services.AddMediator(options =>
+{
+    options.ServiceLifetime = ServiceLifetime.Scoped;
+});
+
 builder.Services.Configure<ApiKeyConfig>(builder.Configuration.GetRequiredSection(ApiKeyConfig.SectionName));
 builder.Services.AddSingleton<IApiKeyValidator, ApiKeyValidator>();
 
