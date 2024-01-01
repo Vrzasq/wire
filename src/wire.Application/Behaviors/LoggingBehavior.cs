@@ -1,8 +1,10 @@
 ﻿using Mediator;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace wireXml.Api.Behaviors;
+namespace wire.Application.Behaviors;
 
 public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : notnull, IMessage
@@ -34,4 +36,10 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
 
         return response;
     }
+}
+
+internal static class ServiceCollectionExtensions
+{
+    public static void AddLoggingBehavior(this IServiceCollection services) =>
+        services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 }

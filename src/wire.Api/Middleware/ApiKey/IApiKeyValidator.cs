@@ -1,4 +1,4 @@
-﻿namespace wireXml.Api.Middleware.ApiKey;
+﻿namespace wire.Api.Middleware.ApiKey;
 
 public interface IApiKeyValidator
 {

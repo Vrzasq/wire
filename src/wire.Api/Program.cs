@@ -1,10 +1,9 @@
 using Microsoft.OpenApi.Models;
-using Serilog.Events;
 using Serilog;
+using Serilog.Events;
 using System.Text.Json.Serialization;
-using wireXml.Api.Middleware.ApiKey;
-using Mediator;
-using wireXml.Api.Behaviors;
+using wire.Api.Middleware.ApiKey;
+using wire.Application;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
@@ -13,7 +12,6 @@ Log.Logger = new LoggerConfiguration()
     .CreateBootstrapLogger();
 
 var builder = WebApplication.CreateBuilder(args);
-
 builder.Host.UseSerilog((context, services, configuration) => configuration
     .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
     .ReadFrom.Configuration(context.Configuration)
@@ -26,7 +24,6 @@ builder.Host.UseSerilog((context, services, configuration) => configuration
         rollingInterval: RollingInterval.Day)
     );
 
-builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 builder.Services.AddControllers()
     .AddXmlSerializerFormatters()
     .AddJsonOptions(options =>
@@ -63,13 +60,9 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 builder.Services.AddHealthChecks();
-builder.Services.AddMediator(options =>
-{
-    options.ServiceLifetime = ServiceLifetime.Scoped;
-});
 
-builder.Services.Configure<ApiKeyConfig>(builder.Configuration.GetRequiredSection(ApiKeyConfig.SectionName));
-builder.Services.AddSingleton<IApiKeyValidator, ApiKeyValidator>();
+builder.Services.AddApiKeyValidation(builder.Configuration);
+builder.Services.AddApplication(builder.Configuration);
 
 var app = builder.Build();
 app.UseSerilogRequestLogging();
@@ -88,7 +81,7 @@ app.UseSwagger();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-app.UseMiddleware<ApiKeyAuthorization>();
+app.UseApiKeyValidation();
 app.MapControllers();
 app.UseHealthChecks("/hc");
 app.Run();

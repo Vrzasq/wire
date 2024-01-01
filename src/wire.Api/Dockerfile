@@ -8,17 +8,17 @@ EXPOSE 8080
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["src/wireXml.Api/wireXml.Api.csproj", "src/wireXml.Api/"]
-RUN dotnet restore "./src/wireXml.Api/./wireXml.Api.csproj"
+COPY ["src/wire.Api/wire.Api.csproj", "src/wire.Api/"]
+RUN dotnet restore "./src/wire.Api/./wire.Api.csproj"
 COPY . .
-WORKDIR "/src/src/wireXml.Api"
-RUN dotnet build "./wireXml.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/src/wire.Api"
+RUN dotnet build "./wire.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./wireXml.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./wire.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "wireXml.Api.dll"]
+ENTRYPOINT ["dotnet", "wire.Api.dll"]

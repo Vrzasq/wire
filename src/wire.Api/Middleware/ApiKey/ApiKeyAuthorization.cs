@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Primitives;
 
-namespace wireXml.Api.Middleware.ApiKey;
+namespace wire.Api.Middleware.ApiKey;
 
 public class ApiKeyAuthorization(
     RequestDelegate next,

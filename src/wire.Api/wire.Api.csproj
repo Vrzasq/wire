@@ -1,14 +1,14 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <InvariantGlobalization>true</InvariantGlobalization>
-    <UserSecretsId>5bdba2d1-c2aa-40b9-a45b-efb1247e0ec5</UserSecretsId>
+    <UserSecretsId>e1be9921-bb23-4339-8604-271b37c6674e</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
-	  <ContainerRepository>vrzasq/wire</ContainerRepository>
+	<ContainerRepository>vrzasq/wire</ContainerRepository>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,18 +19,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Mediator.Abstractions" Version="2.1.7" />
-    <PackageReference Include="Mediator.SourceGenerator" Version="2.1.7">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\xmlProvider\xmlObjectProvider.csproj" />
+    <ProjectReference Include="..\wire.Application\wire.Application.csproj" />
   </ItemGroup>
 
 </Project>

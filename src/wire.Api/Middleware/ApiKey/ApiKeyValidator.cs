@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 
-namespace wireXml.Api.Middleware.ApiKey;
+namespace wire.Api.Middleware.ApiKey;
 
 public class ApiKeyValidator(
     IOptions<ApiKeyConfig> config) : IApiKeyValidator
